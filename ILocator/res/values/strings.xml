@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">iLocator</string>
+    <string name="launchilocator">Launch ILocator!</string>
+    <string name="welcome">Welcome to iLocator!</string>
+    <string name="back">Back</string>
+    <string name="quit">Quit</string>
+    <string name="username">Username:</string>
+    <string name="password">Password:</string>
+    <string name="passwordagain">Password(again)</string>
+    <string name="passwordsequal">Passwords match.</string>
+    <string name="passwordsnotequal">Passwords do not match.</string>
+    <string name="login">Log In</string>
+    <string name="signup">Sign Up</string>
+    <string name="signupforilocator">Sign Up for iLocator!</string>
+    <string name="email"> E-mail</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="maps">Maps</string>
+    <string name="gpsview">GPS View</string>
+    <string name="arview">AR View</string>
+    <string name="heatmapview">Heat Map View</string>
+    <string name="objects">Objects</string>
+    <string name="addnewobject">Add new object</string>
+    <string name="addobject">Add Object</string>
+    <string name="name">Name</string>
+    <string name="addphoto">Add Photo</string>
+    <string name="category">Category</string>
+    <string name="category1">Wells</string>
+    <string name="category2">Hydrants</string>
+    <string name="category3">Parks</string>
+    <string name="objecttype1">Type1</string>
+    <string name="objecttype2">Type2</string>
+    <string name="eventstatus1">OK</string>
+    <string name="eventstatus2">Needs Attention</string>
+    <string name="eventstatus3">Broken Down</string>
+    <string name="objecttype">Object type</string>
+    <string name="eventstatus">Event status</string>
+    <string name="location">Location</string>
+    <string name="create">Create</string>
+    <string name="management">Management</string>
+    <string name="categories">Categories</string>
+    <string name="tasks">Tasks</string>
+    <string name="users">Users</string>
+</resources>
