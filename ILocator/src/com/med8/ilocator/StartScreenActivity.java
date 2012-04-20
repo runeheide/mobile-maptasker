@@ -39,7 +39,7 @@ public class StartScreenActivity extends Activity {
 		//			});
 		//		}		
 		Button loginButton = (Button)findViewById(R.id.loginButton);
-
+// EMIL ER EN G¯GLER
 		loginButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View view) {
