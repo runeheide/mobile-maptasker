@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bckgrnd"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+   <Button
+        android:id="@+id/addObjectButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/addnewobject" />  
+          
+   <TextView
+       	android:id="@+id/Object1_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"      
+        android:textSize="18dp" />
+   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp" />
+   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"   
+        android:textSize="18dp" /> 
+   <Button 
+        android:id="@+id/backButton"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_horizontal"
+    	android:text="@string/back" />
+
+</LinearLayout>
