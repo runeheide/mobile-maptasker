@@ -1,3 +1,0 @@
-Objekt1:Category:ObjectType:Latitude:Longitude;
-Objekt2:Konsdele:Penis:string:string;
-Objekt3:Konsdele:Punani:string:string;
