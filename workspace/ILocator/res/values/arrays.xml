@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="categories">
+        <item>@string/category1</item>
+        <item>@string/category2</item>
+        <item>@string/category3</item>
+    </string-array>
+    <string-array
+        name="objecttypes">
+        <item>@string/objecttype1</item>
+        <item>@string/objecttype2</item>
+    </string-array>
+    <string-array
+        name="eventstatus">
+        <item>@string/eventstatus1</item>
+        <item>@string/eventstatus2</item>
+        <item>@string/eventstatus3</item>
+    </string-array>
+</resources>

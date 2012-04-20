@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.med8.ilocator"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="10" />
+    //Allows for file-writing acces
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    //Allows for internet access
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    //Allows for ? location stuff
+    
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    //Allows for fine location sensors (GPS)
+    
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <application       
+        android:icon="@drawable/ilocator"
+        android:label="@string/app_name" >
+        <uses-library android:name="com.google.android.maps" />
+        <activity
+            android:name=".LaunchActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".StartScreenActivity"
+            android:label="@string/app_name">
+            </activity>
+        <activity
+            android:name=".SignupActivity"
+            android:label="@string/signup">
+            </activity>
+        <activity 
+            android:name=".LoginActivity"
+            android:label="@string/app_name" >
+            </activity>
+        <activity 
+            android:name=".DashboardActivity"
+            android:label="@string/dashboard" >
+            </activity>
+        <activity 
+            android:name=".ObjectsActivity"
+            android:label="@string/objects" >
+            </activity>
+        <activity 
+            android:name=".MapsActivity"
+            android:label="@string/maps" >
+            </activity>
+        <activity 
+            android:name=".ManagementActivity"
+            android:label="@string/management" >
+            </activity>
+       	<activity 
+            android:name=".GPSViewActivity"
+            android:label="@string/gpsview" >
+            </activity>
+        <activity
+            android:name=".ARViewActivity"
+            android:label="@string/arview" >
+            </activity>
+        <activity 
+            android:name=".HeatmapViewActivity"
+            android:label="@string/heatmapview" >
+            </activity>
+    	<activity 
+            android:name=".AddObjectActivity"
+            android:label="@string/addobject" >
+            </activity>
+        <activity 
+            android:name=".AddPhotoActivity"
+            android:label="@string/addphoto" >
+            </activity>   
+        <activity 
+            android:name=".LocationActivity"
+            android:label="@string/location" >
+            </activity>
+        <activity 
+            android:name=".CategoriesActivity"
+            android:label="@string/categories" >
+            </activity>          
+        <activity 
+            android:name=".TasksActivity"
+            android:label="@string/tasks" >
+            </activity> 
+        <activity 
+            android:name=".UsersActivity"
+            android:label="@string/users" >
+            </activity>              
+    </application>
+
+</manifest>
