@@ -18,19 +18,12 @@ public class TxtReader {
 	 *reqContent is Content that will be returned and can be "Name", "Category", "ObjectType", "Latitude" or "Longitude"
 	 * @return 
 	 */
-
-//	public boolean compareStrings(String input)
-//	{
-//		if 
-//		return true;
-//	}
 	
-	public Boolean getContent2(Context inContext, String inString, String reqContent, String inputPassword)
+	public Boolean checkUser(Context inContext, String inString, String reqContent, String inputPassword)
 	{
 		String outString = "outstring pee";
 		String returnString = "Function Fail";
-		
-		//int resId = R.raw.my;
+
 		int contentId = -1;
 
 		if (reqContent.equals("Name"))
@@ -58,13 +51,7 @@ public class TxtReader {
 				String [] separatedSplitInfo;
 				separatedSplitInfo = stringToSplit.split(":");
 
-				//System.out.println(separatedSplitInfo);
-
-				//System.out.println(separatedSplitInfo[0]);
-
 				String hallo = separatedSplitInfo[0];
-
-				//System.out.println(separatedSplitInfo[0]);
 				System.out.println(hallo.compareTo(inString));
 
 				//If the two strings are similar the result is "0" 
@@ -74,8 +61,6 @@ public class TxtReader {
 					returnString = outString;
 					System.out.println("hallo");
 				}
-
-				//returnString = outString;
 			}	
 		}
 
@@ -87,12 +72,11 @@ public class TxtReader {
 			return false;
 	}
 	
-	public String getContent(Context inContext, String inString, String reqContent)
+	public String getObject(Context inContext, String inString, String reqContent)
 	{
 		String outString = "outstring pee";
 		String returnString = "Function Fail";
-		
-		//int resId = R.raw.my;
+
 		int contentId = -1;
 
 		if (reqContent.equals("Name"))
@@ -101,10 +85,8 @@ public class TxtReader {
 			contentId = 1;
 		else if (reqContent.equals("ObjectType"))
 			contentId = 2;
-		else if (reqContent.equals("Latitude"))
+		else if (reqContent.equals("EventStatus"))
 			contentId = 3;
-		else if (reqContent.equals("Longitude"))
-			contentId = 4;
 		else
 			contentId = -1;
 
@@ -123,14 +105,7 @@ public class TxtReader {
 				String [] separatedSplitInfo;
 				separatedSplitInfo = stringToSplit.split(":");
 
-				//System.out.println(separatedSplitInfo);
-
-				//System.out.println(separatedSplitInfo[0]);
-
 				String hallo = separatedSplitInfo[0];
-
-				//System.out.println(separatedSplitInfo[0]);
-				//System.out.println(hallo.compareTo(inString));
 
 				//If the two strings are similar the result is "0" 
 				//(otherwise negative number) and the if-sentence will run
@@ -139,8 +114,6 @@ public class TxtReader {
 					returnString = outString;
 					System.out.println("hallo");
 				}
-
-				//returnString = outString;
 			}	
 		}
 
