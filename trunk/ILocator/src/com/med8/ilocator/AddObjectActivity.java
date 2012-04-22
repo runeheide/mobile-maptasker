@@ -1,6 +1,7 @@
 package com.med8.ilocator;
 
 import com.med8.ilocator.R;
+import com.med8.support.TxtWriter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -56,6 +57,9 @@ public class AddObjectActivity extends ILocatorActivity {
 				String category = _category.toString();
 				String objectType = _objectType.toString();
 				String eventStatus = _eventStatus.toString();
+				
+				TxtWriter txtWriter = new TxtWriter();
+    			txtWriter.writeFileAddObject(objName, category, objectType, eventStatus);
 				
 				Editor editor = objectSettings.edit();
 				editor.putString(OBJECT_1_NAME, objName);

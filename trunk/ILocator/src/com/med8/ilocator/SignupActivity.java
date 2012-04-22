@@ -44,7 +44,7 @@ public class SignupActivity extends ILocatorActivity {
         			signupButton.setOnClickListener(new View.OnClickListener() {
     		        	public void onClick(View view) {
     		        			TxtWriter txtWriter = new TxtWriter();
-    		        			txtWriter.writeFile2(username.getText().toString(), email.getText().toString(), pass1.getText().toString());
+    		        			txtWriter.writeFileSignUp(username.getText().toString(), email.getText().toString(), pass1.getText().toString());
     		        			Intent dashboardIntent = new Intent(view.getContext(), DashboardActivity.class);
     		        			startActivityForResult(dashboardIntent,0);
     		        	}
