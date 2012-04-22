@@ -15,14 +15,11 @@ import android.widget.Spinner;
 
 public class AddObjectActivity extends ILocatorActivity {
 	
-	SharedPreferences objectSettings;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.addobject);
-		
-		objectSettings = getSharedPreferences(OBJECT_1, Context.MODE_PRIVATE);
 		
 		final EditText _objectName = (EditText)findViewById(R.id.EditText_Name);
 		final Spinner _category = (Spinner)findViewById(R.id.Spinner_Category);
@@ -60,14 +57,7 @@ public class AddObjectActivity extends ILocatorActivity {
 				
 				TxtWriter txtWriter = new TxtWriter();
     			txtWriter.writeFileAddObject(objName, category, objectType, eventStatus);
-				
-				Editor editor = objectSettings.edit();
-				editor.putString(OBJECT_1_NAME, objName);
-				editor.putString(OBJECT_1_CATEGORY, category);
-				editor.putString(OBJECT_1_OBJECTTYPE, objectType);
-				editor.putString(OBJECT_1_EVENTSTATUS, eventStatus);
-				editor.commit();
-				
+				    			
 				Intent dashboardIntent = new Intent(view.getContext(), DashboardActivity.class);
 				startActivityForResult(dashboardIntent,0);
 			}
