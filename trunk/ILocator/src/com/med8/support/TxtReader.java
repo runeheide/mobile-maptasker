@@ -13,7 +13,7 @@ public class TxtReader {
 
 
 	/**The function is called by: "getContentAt(Context, String, String)"
-	 *Context can be replaced by "this" to input the class wherefrom the function is called
+	 *Context can be replaced by "this" to input the class from where the function is called
 	 *String is the name of the object you would like to locate in the file
 	 *reqContent is Content that will be returned and can be "Name", "Category", "ObjectType", "Latitude" or "Longitude"
 	 * @return 
