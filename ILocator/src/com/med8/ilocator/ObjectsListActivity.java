@@ -1,6 +1,7 @@
 package com.med8.ilocator;
 
 import com.med8.ilocator.R;
+import com.med8.support.TxtReader;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,17 +13,21 @@ import android.widget.TextView;
 
 public class ObjectsListActivity extends ILocatorActivity {
 	
-	SharedPreferences objectSettings;
-	
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.objects);
-	
-		objectSettings = getSharedPreferences(OBJECT_1, Context.MODE_PRIVATE);
 		
 		TextView object1 = (TextView)findViewById(R.id.Object1_TextView);		
-		object1.setText(objectSettings.getString(OBJECT_1_NAME, ""));
+		
+		TxtReader txtReader = new TxtReader();
+		String obj1 = txtReader.getObject(this, "Name");
+		
+		object1.setText(obj1);	
+		
+		//To do: - Get text from txtreader (test monday!) 
+		//		 - Enable adjustments of category, types, event status, location (new class with txtreader-data as param.?)	
+		//		 - Add more objects.
 		
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button addObjectButton = (Button)findViewById(R.id.addObjectButton);
