@@ -14,15 +14,15 @@ public class DashboardActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
         
-        Button addObjectButton = (Button)findViewById(R.id.addObjectButton);
+        Button objectsButton = (Button)findViewById(R.id.addObjectButton);
         Button mapsButton = (Button)findViewById(R.id.mapsButton);
         Button managementButton = (Button)findViewById(R.id.managementButton);
         Button quitButton = (Button)findViewById(R.id.quitButton);
         
-       addObjectButton.setOnClickListener(new View.OnClickListener() {
+       objectsButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View view) {
-				Intent addObjectIntent = new Intent(view.getContext(), ObjectsActivity.class);
+				Intent addObjectIntent = new Intent(view.getContext(), ObjectsListActivity.class);
 				startActivityForResult(addObjectIntent,0);
 			}
 		});

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class ObjectsActivity extends ILocatorActivity {
+public class ObjectsListActivity extends ILocatorActivity {
 	
 	SharedPreferences objectSettings;
 	
