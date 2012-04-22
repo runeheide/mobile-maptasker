@@ -4,9 +4,8 @@ import java.io.FileWriter;
 
 public class TxtWriter{
 	
-	//TO DO: Add latitude + longitude
     public void writeFileAddObject(String Name, String Category, String ObjectType, String EventStatus){
- 
+    	//TO DO: Add latitude + longitude information
         FileWriter fWriter;
         try{
              fWriter = new FileWriter("/sdcard/data/filename.txt");

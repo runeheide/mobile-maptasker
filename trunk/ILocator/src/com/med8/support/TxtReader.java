@@ -72,7 +72,7 @@ public class TxtReader {
 			return false;
 	}
 	
-	public String getObject(Context inContext, String inString, String reqContent)
+	public String getObject(Context inContext, String reqContent)
 	{
 		String outString = "outstring pee";
 		String returnString = "Function Fail";
@@ -80,7 +80,9 @@ public class TxtReader {
 		int contentId = -1;
 
 		if (reqContent.equals("Name"))
+		{
 			contentId = 0;
+		}
 		else if (reqContent.equals("Category"))
 			contentId = 1;
 		else if (reqContent.equals("ObjectType"))
@@ -91,7 +93,7 @@ public class TxtReader {
 			contentId = -1;
 
 		String myString = new String();
-		myString = readRawTextFile(inContext);
+		myString = readRawObjectsTextFile(inContext);
 
 		String[] separated = myString.split(";");
 
@@ -109,11 +111,12 @@ public class TxtReader {
 
 				//If the two strings are similar the result is "0" 
 				//(otherwise negative number) and the if-sentence will run
-				if (hallo.equals(inString)) {
+//				if (hallo.equals(inString)) {
 					outString = separatedSplitInfo[contentId];
+//					System.out.println("outString: " + outString);
 					returnString = outString;
-					System.out.println("hallo");
-				}
+//					System.out.println("hallo");
+//				}
 			}	
 		}
 
@@ -248,6 +251,42 @@ public class TxtReader {
 				return null;
 			}
 			output = text.toString();
+
+		}
+		catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return output;
+	}
+	
+	private static String readRawObjectsTextFile(Context ctx)
+	{
+		//System.out.println("readRawTextFile2");
+		//inputStream = ctx.getResources().openRawResource(resId);
+
+		String output = "";
+		
+		FileReader fileReader;
+		try {
+			fileReader = new FileReader("/sdcard/data/filename.txt");
+			//InputStreamReader inputreader = new InputStreamReader(inputStream);
+			BufferedReader buffreader = new BufferedReader(fileReader);
+			//BufferedReader buffreader = new BufferedReader(inputreader);
+			String line;
+			StringBuilder text = new StringBuilder();
+
+			try {
+				while (( line = buffreader.readLine()) != null) {
+					text.append(line);
+					// text.append('\n');
+				}
+			} 
+			catch (IOException e) {
+				return null;
+			}
+			output = text.toString();
+			System.out.println("output: " + output);
 
 		}
 		catch (FileNotFoundException e1) {
