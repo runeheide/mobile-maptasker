@@ -3,7 +3,8 @@ package com.med8.support;
 import java.io.FileWriter;
 
 public class TxtWriter{
-	    
+	
+	//TO DO: Add latitude + longitude
     public void writeFileAddObject(String Name, String Category, String ObjectType, String EventStatus){
  
         FileWriter fWriter;

@@ -47,7 +47,7 @@
             android:label="@string/dashboard" >
             </activity>
         <activity 
-            android:name=".ObjectsActivity"
+            android:name=".ObjectsListActivity"
             android:label="@string/objects" >
             </activity>
         <activity 
