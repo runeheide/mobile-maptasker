@@ -1,5 +1,7 @@
 package com.med8.ilocator;
 
+import com.med8.ilocator.R;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,7 +22,7 @@ public class LaunchActivity extends ILocatorActivity {
     	launchIcon.startAnimation(fadeIn);
     
     	Handler x = new Handler();
-    	x.postDelayed(new LaunchHandler(), 8500);
+    	x.postDelayed(new LaunchHandler(), 4000);
     	
     	
     }
