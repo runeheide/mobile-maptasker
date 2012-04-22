@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.med8.ilocator.R;
 import com.med8.support.*;
 
 public class SignupActivity extends ILocatorActivity {

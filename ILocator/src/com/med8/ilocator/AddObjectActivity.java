@@ -1,5 +1,7 @@
 package com.med8.ilocator;
 
+import com.med8.ilocator.R;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +17,7 @@ public class AddObjectActivity extends ILocatorActivity {
 	SharedPreferences objectSettings;
 	
 	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.addobject);
 		

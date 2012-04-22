@@ -1,5 +1,7 @@
 package com.med8.ilocator;
 
+import com.med8.ilocator.R;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +15,7 @@ public class ObjectsActivity extends ILocatorActivity {
 	SharedPreferences objectSettings;
 	
 	public void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.objects);
 	
@@ -24,8 +27,7 @@ public class ObjectsActivity extends ILocatorActivity {
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button addObjectButton = (Button)findViewById(R.id.addObjectButton);
 		
-		backButton.setOnClickListener(new View.OnClickListener() {
-			
+		backButton.setOnClickListener(new View.OnClickListener() {			
 			public void onClick(View view) {
 				Intent intent = new Intent();
 				setResult(RESULT_OK, intent);
@@ -33,8 +35,7 @@ public class ObjectsActivity extends ILocatorActivity {
 			}
 		});
 		
-		addObjectButton.setOnClickListener(new View.OnClickListener() {
-			
+		addObjectButton.setOnClickListener(new View.OnClickListener() {			
 			public void onClick(View view) {
 				Intent addObjectIntent = new Intent(view.getContext(), AddObjectActivity.class);
 				startActivityForResult(addObjectIntent,0);
