@@ -4,12 +4,12 @@ import java.io.FileWriter;
 
 public class TxtWriter{
 	    
-    public void writeFile(String Name, String Category, String ObjectType, String Latitude, String Longitude){
+    public void writeFileAddObject(String Name, String Category, String ObjectType, String EventStatus){
  
         FileWriter fWriter;
         try{
              fWriter = new FileWriter("/sdcard/data/filename.txt");
-             fWriter.write(Name + ":" + Category + ":" + ObjectType + ":" + Latitude + ":" + Longitude + ";");
+             fWriter.write(Name + ":" + Category + ":" + ObjectType + ":" + EventStatus + ";");
              fWriter.flush();
              fWriter.close();
          }
@@ -18,7 +18,7 @@ public class TxtWriter{
          }
     
     }
-    public void writeFile2(String UserName, String Email, String Password){
+    public void writeFileSignUp(String UserName, String Email, String Password){
     	 
         FileWriter fWriter;
         try{
@@ -29,8 +29,6 @@ public class TxtWriter{
          }
         	catch(Exception e){
                   e.printStackTrace();
-         }
-    
-    }
-    
+         }  
+    }    
 }
