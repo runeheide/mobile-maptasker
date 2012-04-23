@@ -1,6 +1,8 @@
 package com.med8.ilocator;
 
 import com.med8.ilocator.R;
+import com.med8.ilocator.R.id;
+import com.med8.ilocator.R.layout;
 
 import android.app.Activity;
 import android.content.Intent;
