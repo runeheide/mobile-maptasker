@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class ObjectsListActivity extends ILocatorActivity {
@@ -16,19 +18,16 @@ public class ObjectsListActivity extends ILocatorActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.objects);
+		setContentView(R.layout.objectslist);
 		
-		TextView object1 = (TextView)findViewById(R.id.Object1_TextView);		
+		ListView objectsList = (ListView)findViewById(R.id.listViewObjects);
 		
 		TxtReader txtReader = new TxtReader();
-		String obj1 = txtReader.getObject(this, "Name");
+		String[] items = { txtReader.getObject(this, "Name"), "test"};
 		
-		object1.setText(obj1);	
-		
-		//To do: - Get text from txtreader (test monday!) 
-		//		 - Enable adjustments of category, types, event status, location (new class with txtreader-data as param.?)	
-		//		 - Add more objects.
-		
+		ArrayAdapter<String> adapt = new ArrayAdapter<String>(this, R.layout.objectslist_item, items);
+		objectsList.setAdapter(adapt);
+			
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button addObjectButton = (Button)findViewById(R.id.addObjectButton);
 		

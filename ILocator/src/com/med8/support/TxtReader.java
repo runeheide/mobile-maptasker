@@ -107,8 +107,6 @@ public class TxtReader {
 				String [] separatedSplitInfo;
 				separatedSplitInfo = stringToSplit.split(":");
 
-				String hallo = separatedSplitInfo[0];
-
 				//If the two strings are similar the result is "0" 
 				//(otherwise negative number) and the if-sentence will run
 //				if (hallo.equals(inString)) {
