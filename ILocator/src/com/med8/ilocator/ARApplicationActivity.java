@@ -35,8 +35,8 @@ import com.med8.ilocator.augmentedreality.ui.Marker;
  * 
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
-public class Demo extends AugmentedReality {
-    private static final String TAG = "Demo";
+public class ARApplicationActivity extends AugmentedReality {
+    private static final String TAG = "ARApplication";
     private static final String locale = Locale.getDefault().getLanguage();
     private static final BlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(1);
     private static final ThreadPoolExecutor exeService = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, queue);
