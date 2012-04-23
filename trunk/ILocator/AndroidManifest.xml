@@ -65,7 +65,7 @@
             android:label="@string/arview" >
             </activity>
         <activity
-            android:name=".DemoActivity"
+            android:name=".ARApplicationActivity"
             android:label="@string/arview" >
             </activity>
         <activity 
