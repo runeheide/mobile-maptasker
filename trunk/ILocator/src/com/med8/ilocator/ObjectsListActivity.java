@@ -28,6 +28,8 @@ public class ObjectsListActivity extends ILocatorActivity {
 		ArrayAdapter<String> adapt = new ArrayAdapter<String>(this, R.layout.objectslist_item, items);
 		objectsList.setAdapter(adapt);
 			
+		// Martin To do: insert code from book p. 152-153..
+		
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button addObjectButton = (Button)findViewById(R.id.addObjectButton);
 		

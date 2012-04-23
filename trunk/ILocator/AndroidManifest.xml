@@ -75,6 +75,10 @@
             android:label="@string/addobject" >
             </activity>
         <activity 
+            android:name=".EditObjectActivity"
+            android:label="@string/editobject" >
+            </activity>
+        <activity 
             android:name=".AddPhotoActivity"
             android:label="@string/addphoto" >
             </activity>   
