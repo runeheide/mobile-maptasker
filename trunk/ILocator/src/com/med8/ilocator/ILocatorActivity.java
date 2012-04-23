@@ -1,5 +1,4 @@
 package com.med8.ilocator;
-import com.google.android.maps.GeoPoint;
 
 import android.app.Activity;
 
