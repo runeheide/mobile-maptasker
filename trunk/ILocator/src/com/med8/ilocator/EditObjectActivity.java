@@ -31,7 +31,9 @@ public class EditObjectActivity extends ILocatorActivity {
 		String _category = txtReader.getObject(this, "Category");
 		String _objectType = txtReader.getObject(this, "ObjectType");
 		String _eventStatus = txtReader.getObject(this, "EventStatus");
-	
+		
+		
+		
 		if (_category == "Wells")
 		{
 			category.setSelection(0);
@@ -44,6 +46,16 @@ public class EditObjectActivity extends ILocatorActivity {
 		{
 			category.setSelection(2);
 		}
+		
+		if (_objectType == "Type 1")
+		{
+			objectType.setSelection(0);
+		}
+		else if (_objectType == "Type 2")
+		{
+			objectType.setSelection(1);
+		}
+		
 		
 		backButton.setOnClickListener(new View.OnClickListener() {
 			
