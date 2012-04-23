@@ -10,25 +10,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/addnewobject" />  
+        android:text="@string/addnewobject" />
+
+   <ListView
+       android:id="@+id/listViewObjects"
+       android:layout_width="match_parent"
+       android:layout_height="357dp" >
+   </ListView>
           
    <TextView
        	android:id="@+id/Object1_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"      
         android:textSize="18dp" />
-   <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18dp" />
-   <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"   
-        android:textSize="18dp" /> 
+
    <Button 
         android:id="@+id/backButton"
     	android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
+    	android:layout_height="match_parent"
     	android:layout_gravity="center_horizontal"
     	android:text="@string/back" />
 
