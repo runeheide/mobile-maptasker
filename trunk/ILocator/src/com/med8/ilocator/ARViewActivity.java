@@ -15,7 +15,7 @@ public class ARViewActivity extends ILocatorActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.arview);		
-		
+	
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button addObjectButton = (Button)findViewById(R.id.addObjectButton);
 		

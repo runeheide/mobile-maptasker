@@ -5,19 +5,14 @@
     android:versionName="1.0" >
 
     <uses-sdk android:minSdkVersion="10" />
-    //Allows for file-writing acces
-	
+    
 	<uses-permission android:name="android.permission.CAMERA"/>
 	<uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    //Allows for internet access
-
-    <uses-permission android:name="android.permission.INTERNET" />
+   	<uses-permission android:name="android.permission.INTERNET" />
     //Allows for ? location stuff
-    
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    //Allows for fine location sensors (GPS)
-    
+    //Allows for fine location sensors (GPS)    
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application       
         android:icon="@drawable/ilocator"
