@@ -6,7 +6,9 @@
 
     <uses-sdk android:minSdkVersion="10" />
     //Allows for file-writing acces
-
+	
+	<uses-permission android:name="android.permission.CAMERA"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     //Allows for internet access
 
@@ -21,14 +23,15 @@
         android:icon="@drawable/ilocator"
         android:label="@string/app_name" >
         <uses-library android:name="com.google.android.maps" />
-        <activity
-            android:name=".LaunchActivity"
-            android:label="@string/app_name" >
+        <activity android:name=".LaunchActivity"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            
         </activity>
         <activity
             android:name=".StartScreenActivity"
@@ -64,6 +67,10 @@
             </activity>
         <activity
             android:name=".ARViewActivity"
+            android:label="@string/arview" >
+            </activity>
+        <activity
+            android:name=".DemoActivity"
             android:label="@string/arview" >
             </activity>
         <activity 

@@ -1,5 +1,6 @@
 package com.med8.ilocator;
 
+import com.med8.augmentedreality.activity.Demo;
 import com.med8.ilocator.R;
 
 import android.app.Activity;

@@ -28,37 +28,40 @@ public final class R {
         public static final int signupbutton=0x7f020006;
     }
     public static final class id {
-        public static final int EditText_Email=0x7f070019;
-        public static final int EditText_Name=0x7f070000;
-        public static final int EditText_Password=0x7f07001a;
-        public static final int EditText_Password2=0x7f07001b;
-        public static final int EditText_Username=0x7f070018;
-        public static final int NameTextView=0x7f07000c;
-        public static final int Object1_TextView=0x7f070017;
-        public static final int Spinner_Category=0x7f070002;
-        public static final int Spinner_EventStatus=0x7f070004;
-        public static final int Spinner_ObjectType=0x7f070003;
-        public static final int addObjectButton=0x7f070008;
-        public static final int addPhotoButton=0x7f070001;
-        public static final int arButton=0x7f070014;
-        public static final int backButton=0x7f070007;
-        public static final int categoriesButton=0x7f070010;
-        public static final int createButton=0x7f070006;
-        public static final int error=0x7f07001c;
-        public static final int gpsButton=0x7f070013;
-        public static final int heatmapButton=0x7f070015;
-        public static final int ilocator_launch=0x7f07000f;
-        public static final int listViewObjects=0x7f070016;
-        public static final int locationButton=0x7f070005;
-        public static final int loginButton=0x7f07001e;
-        public static final int managementButton=0x7f07000a;
-        public static final int mapsButton=0x7f070009;
-        public static final int quitButton=0x7f07000b;
-        public static final int saveButton=0x7f07000d;
-        public static final int signUpButton=0x7f07001d;
-        public static final int tasksButton=0x7f070011;
-        public static final int textview=0x7f07000e;
-        public static final int usersButton=0x7f070012;
+        public static final int EditText_Email=0x7f080019;
+        public static final int EditText_Name=0x7f080000;
+        public static final int EditText_Password=0x7f08001a;
+        public static final int EditText_Password2=0x7f08001b;
+        public static final int EditText_Username=0x7f080018;
+        public static final int NameTextView=0x7f08000c;
+        public static final int Object1_TextView=0x7f080017;
+        public static final int Spinner_Category=0x7f080002;
+        public static final int Spinner_EventStatus=0x7f080004;
+        public static final int Spinner_ObjectType=0x7f080003;
+        public static final int addObjectButton=0x7f080008;
+        public static final int addPhotoButton=0x7f080001;
+        public static final int arButton=0x7f080014;
+        public static final int backButton=0x7f080007;
+        public static final int categoriesButton=0x7f080010;
+        public static final int createButton=0x7f080006;
+        public static final int error=0x7f08001c;
+        public static final int exit=0x7f080021;
+        public static final int gpsButton=0x7f080013;
+        public static final int heatmapButton=0x7f080015;
+        public static final int ilocator_launch=0x7f08000f;
+        public static final int listViewObjects=0x7f080016;
+        public static final int locationButton=0x7f080005;
+        public static final int loginButton=0x7f08001e;
+        public static final int managementButton=0x7f08000a;
+        public static final int mapsButton=0x7f080009;
+        public static final int quitButton=0x7f08000b;
+        public static final int saveButton=0x7f08000d;
+        public static final int showRadar=0x7f08001f;
+        public static final int showZoomBar=0x7f080020;
+        public static final int signUpButton=0x7f08001d;
+        public static final int tasksButton=0x7f080011;
+        public static final int textview=0x7f08000e;
+        public static final int usersButton=0x7f080012;
     }
     public static final class layout {
         public static final int addobject=0x7f030000;
@@ -79,6 +82,9 @@ public final class R {
         public static final int start=0x7f03000f;
         public static final int tasks=0x7f030010;
         public static final int users=0x7f030011;
+    }
+    public static final class menu {
+        public static final int menu=0x7f070000;
     }
     public static final class string {
         public static final int addnewobject=0x7f060014;
