@@ -114,12 +114,12 @@ public class TxtReader {
 //					System.out.println("outString: " + outString);
 					returnString = outString;
 //					System.out.println("hallo");
-//				}
-			}	
-		}
 
+				}	
+			}
 		return returnString;	
-	}
+		}
+	
 
 	/**Extended getContent() function is called by: "getContentAt(Context, String, String, String)"
 	 *Context can be replaced by "this" to input the class wherefrom the function is called

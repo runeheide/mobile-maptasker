@@ -22,6 +22,7 @@
     <string name="objects">Objects</string>
     <string name="addnewobject">Add new object</string>
     <string name="addobject">Add Object</string>
+    <string name="editobject">Edit Object</string>
     <string name="name">Name</string>
     <string name="addphoto">Add Photo</string>
     <string name="category">Category</string>
@@ -37,6 +38,7 @@
     <string name="eventstatus">Event status</string>
     <string name="location">Location</string>
     <string name="create">Create</string>
+    <string name="save">Save</string>
     <string name="management">Management</string>
     <string name="categories">Categories</string>
     <string name="tasks">Tasks</string>

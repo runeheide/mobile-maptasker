@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bckgrnd"
+    android:paddingTop="40dp"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/NameTextView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/category"
+        android:textSize="18dp" />
+
+    <Spinner
+        android:id="@+id/Spinner_Category"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/categories" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/objecttype"
+        android:textSize="18dp" />
+
+    <Spinner
+        android:id="@+id/Spinner_ObjectType"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+		android:entries="@array/objecttypes" />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/eventstatus"
+        android:textSize="18dp" />
+
+    <Spinner
+        android:id="@+id/Spinner_EventStatus"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:entries="@array/eventstatus"/>
+    
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:background="@drawable/bckgrnd"
+    	android:paddingTop="40dp"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:orientation="horizontal" >
+        
+        <Button
+        android:id="@+id/backButton"
+        android:layout_width="158dp"
+        android:layout_height="wrap_content"
+        android:text="@string/back" />
+        
+        <Button
+        android:id="@+id/saveButton"
+        android:layout_width="158dp"
+        android:layout_height="wrap_content"
+        android:text="@string/save" />
+        
+        ></LinearLayout>
+
+    
+  
+</LinearLayout>
