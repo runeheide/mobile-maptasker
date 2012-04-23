@@ -29,7 +29,7 @@ public class MapsActivity extends Activity {
 		
 		arButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-				Intent arIntent = new Intent(view.getContext(), ARViewActivity.class);
+				Intent arIntent = new Intent(view.getContext(), ARApplicationActivity.class);
 				startActivityForResult(arIntent,0);
 			}
 		});

@@ -2,12 +2,13 @@ package com.med8.ilocator;
 
 import com.med8.ilocator.R;
 import com.med8.support.TxtReader;
-
+import com.med8.ilocator.EditObjectActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -23,12 +24,25 @@ public class ObjectsListActivity extends ILocatorActivity {
 		ListView objectsList = (ListView)findViewById(R.id.listViewObjects);
 		
 		TxtReader txtReader = new TxtReader();
-		String[] items = { txtReader.getObject(this, "Name"), "test"};
+		String item1 = txtReader.getObject(this, "Name");
+		final String item2 = "test";
+		String[] items = { item1, item2};
 		
 		ArrayAdapter<String> adapt = new ArrayAdapter<String>(this, R.layout.objectslist_item, items);
 		objectsList.setAdapter(adapt);
-			
-		// Martin To do: insert code from book p. 152-153..
+		
+		objectsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View itemClicked,
+					int position, long id) {
+				TextView textView = (TextView) itemClicked;
+				String strText = textView.getText().toString();
+				if (strText.equalsIgnoreCase(
+						item2)) {
+					Intent editObjectIntent = new Intent(itemClicked.getContext(), EditObjectActivity.class);
+					startActivityForResult(editObjectIntent, 0);
+				}
+			}
+		});
 		
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button addObjectButton = (Button)findViewById(R.id.addObjectButton);

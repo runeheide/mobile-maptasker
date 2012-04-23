@@ -31,8 +31,8 @@ public class ARViewActivity extends ILocatorActivity {
 		addObjectButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View view) {
-				Intent arIntent = new Intent(view.getContext(), ARApplicationActivity.class);
-				startActivityForResult(arIntent,0);
+				Intent addObjectIntent = new Intent(view.getContext(), AddObjectActivity.class);
+				startActivityForResult(addObjectIntent,0);
 			}
 		});
 	}	
