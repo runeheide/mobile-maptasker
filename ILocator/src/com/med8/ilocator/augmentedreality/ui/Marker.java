@@ -95,6 +95,8 @@ public class Marker implements Comparable<Marker> {
 	 * @param altitude Altitude of the Marker in meters (>0 is above sea level). 
 	 * @param color Color of the Marker.
 	 */
+
+	
 	public synchronized void set(String name, double latitude, double longitude, double altitude, int color) {
 		if (name==null) throw new NullPointerException();
 

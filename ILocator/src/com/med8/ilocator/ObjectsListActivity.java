@@ -24,7 +24,7 @@ public class ObjectsListActivity extends ILocatorActivity {
 		ListView objectsList = (ListView)findViewById(R.id.listViewObjects);
 		
 		TxtReader txtReader = new TxtReader();
-		String item1 = txtReader.getObject(this, "Name");
+		final String item1 = txtReader.getObject(this, "Name");
 		final String item2 = "test";
 		String[] items = { item1, item2};
 		
@@ -36,8 +36,8 @@ public class ObjectsListActivity extends ILocatorActivity {
 					int position, long id) {
 				TextView textView = (TextView) itemClicked;
 				String strText = textView.getText().toString();
-				if (strText.equalsIgnoreCase(
-						item2)) {
+				if (strText.equals(
+						item1)) {
 					Intent editObjectIntent = new Intent(itemClicked.getContext(), EditObjectActivity.class);
 					startActivityForResult(editObjectIntent, 0);
 				}

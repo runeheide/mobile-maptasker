@@ -24,6 +24,7 @@ public class IconMarker extends Marker {
 	 * {@inheritDoc}
 	 */
     @Override
+    
     public void drawIcon(Canvas canvas) {
     	if (canvas==null || bitmap==null) throw new NullPointerException();
 
