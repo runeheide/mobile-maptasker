@@ -5,6 +5,15 @@
     <item android:id="@+id/showZoomBar" 
           android:title="Hide Zoom Bar">
     </item>
+    
+    <Button
+            android:id="@+id/addPhotoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/EditText_Name"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/addphoto" />
     <item android:id="@+id/exit" 
           android:title="Exit">
     </item>

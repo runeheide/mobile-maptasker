@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 public class EditObjectActivity extends ILocatorActivity {
@@ -22,7 +23,6 @@ public class EditObjectActivity extends ILocatorActivity {
 		Spinner category = (Spinner)findViewById(R.id.Spinner_Category);
 		Spinner objectType = (Spinner)findViewById(R.id.Spinner_ObjectType);
 		Spinner eventStatus = (Spinner)findViewById(R.id.Spinner_EventStatus);
-		
 		TxtReader txtReader = new TxtReader();
 		name.setText(txtReader.getObject(this, "Name"));
 		
@@ -31,18 +31,18 @@ public class EditObjectActivity extends ILocatorActivity {
 		String _category = txtReader.getObject(this, "Category");
 		String _objectType = txtReader.getObject(this, "ObjectType");
 		String _eventStatus = txtReader.getObject(this, "EventStatus");
-/*						
-		if (_category == "Wells")
+		
+		if (_category.equals("Wells"))
 		{
-			category.setSelection(0);
+			category.setSelection(0, true);
 		}
-		else if (_category == "Hydrants")
+		else if (_category.equals("Hydrants"))
 		{
-			category.setSelection(1);
+			category.setSelection(1, true);
 		}
-		else if (_category == "Parks")
+		else if (_category.equals("Parks"))
 		{
-			category.setSelection(2);
+			category.setSelection(2, true);
 		}
 		
 		if (_objectType == "Type 1")
@@ -67,7 +67,7 @@ public class EditObjectActivity extends ILocatorActivity {
 			eventStatus.setSelection(2);
 		}
 		
-*/		
+		
 		backButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View view) {

@@ -10,6 +10,7 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -26,6 +28,8 @@ import com.med8.ilocator.augmentedreality.data.ARData;
 import com.med8.ilocator.augmentedreality.data.BuzzDataSource;
 import com.med8.ilocator.augmentedreality.data.LocalDataSource;
 import com.med8.ilocator.augmentedreality.data.NetworkDataSource;
+import com.med8.ilocator.augmentedreality.data.TwitterDataSource;
+import com.med8.ilocator.augmentedreality.data.WikipediaDataSource;
 import com.med8.ilocator.augmentedreality.ui.Marker;
 
 
@@ -50,21 +54,17 @@ public class ARApplicationActivity extends AugmentedReality {
     public void onCreate(Bundle savedInstanceState) {
         
 		super.onCreate(savedInstanceState);
-		//
-		super.onCreate(savedInstanceState);
-
-        //Local
+		      
         LocalDataSource localData = new LocalDataSource(this.getResources());
         ARData.addMarkers(localData.getMarkers());
 
-
-        //Network
- //       NetworkDataSource twitter = new TwitterDataSource(this.getResources());
- //       sources.put("twitter",twitter);
- //	      NetworkDataSource wikipedia = new WikipediaDataSource(this.getResources());
- //	      sources.put("wiki",wikipedia);
- 	      NetworkDataSource buzz = new BuzzDataSource(this.getResources());
- 	      sources.put("buzz",buzz);
+ //		  Network
+//        NetworkDataSource twitter = new TwitterDataSource(this.getResources());
+//        sources.put("twitter",twitter);
+ 	      NetworkDataSource wikipedia = new WikipediaDataSource(this.getResources());
+ 	      sources.put("wiki",wikipedia);
+ //	      NetworkDataSource buzz = new BuzzDataSource(this.getResources());
+ //	      sources.put("buzz",buzz);
     }
 
 	/**
@@ -75,6 +75,7 @@ public class ARApplicationActivity extends AugmentedReality {
         super.onStart();
         
         Location last = ARData.getCurrentLocation();
+        System.out.println("LOCATION " + last);
         updateData(last.getLatitude(),last.getLongitude(),last.getAltitude());
     }
 	
@@ -118,7 +119,7 @@ public class ARApplicationActivity extends AugmentedReality {
     public void onLocationChanged(Location location) {
         super.onLocationChanged(location);
         
-//        updateData(location.getLatitude(),location.getLongitude(),location.getAltitude());
+       updateData(location.getLatitude(),location.getLongitude(),location.getAltitude());
     }
 
 	/**
@@ -126,6 +127,7 @@ public class ARApplicationActivity extends AugmentedReality {
 	 */
 	@Override
 	protected void markerTouched(Marker marker) {
+		
         Toast t = Toast.makeText(getApplicationContext(), marker.getName(), Toast.LENGTH_SHORT);
         t.setGravity(Gravity.CENTER, 0, 0);
         t.show();

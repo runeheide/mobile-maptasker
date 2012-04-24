@@ -80,9 +80,7 @@ public class TxtReader {
 		int contentId = -1;
 
 		if (reqContent.equals("Name"))
-		{
 			contentId = 0;
-		}
 		else if (reqContent.equals("Category"))
 			contentId = 1;
 		else if (reqContent.equals("ObjectType"))
