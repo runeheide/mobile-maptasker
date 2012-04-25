@@ -87,6 +87,12 @@ public class TxtReader {
 			contentId = 2;
 		else if (reqContent.equals("EventStatus"))
 			contentId = 3;
+		else if (reqContent.equals("Latitude"))
+			contentId = 4;
+		else if (reqContent.equals("Longitude"))
+			contentId = 5;
+		else if (reqContent.equals("Altitude"))
+			contentId = 6;
 		else
 			contentId = -1;
 
@@ -230,7 +236,7 @@ public class TxtReader {
 		
 		FileReader fileReader;
 		try {
-			fileReader = new FileReader("/sdcard/data/user.txt");
+			fileReader = new FileReader("/sdcard/iLocator/user.txt");
 			//InputStreamReader inputreader = new InputStreamReader(inputStream);
 			BufferedReader buffreader = new BufferedReader(fileReader);
 			//BufferedReader buffreader = new BufferedReader(inputreader);
@@ -265,7 +271,7 @@ public class TxtReader {
 		
 		FileReader fileReader;
 		try {
-			fileReader = new FileReader("/sdcard/data/filename.txt");
+			fileReader = new FileReader("/sdcard/iLocator/filename.txt");
 			//InputStreamReader inputreader = new InputStreamReader(inputStream);
 			BufferedReader buffreader = new BufferedReader(fileReader);
 			//BufferedReader buffreader = new BufferedReader(inputreader);

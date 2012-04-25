@@ -21,11 +21,13 @@ public final class R {
     public static final class drawable {
         public static final int bckgrnd=0x7f020000;
         public static final int custom_button=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int ilocator=0x7f020003;
-        public static final int ilocatorlaunch=0x7f020004;
-        public static final int loginbutton=0x7f020005;
-        public static final int signupbutton=0x7f020006;
+        public static final int firehydrantgreen=0x7f020002;
+        public static final int firehydrantred=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int ilocator=0x7f020005;
+        public static final int ilocatorlaunch=0x7f020006;
+        public static final int loginbutton=0x7f020007;
+        public static final int signupbutton=0x7f020008;
     }
     public static final class id {
         public static final int EditText_Email=0x7f080019;

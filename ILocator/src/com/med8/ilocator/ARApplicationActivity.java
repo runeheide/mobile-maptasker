@@ -58,13 +58,13 @@ public class ARApplicationActivity extends AugmentedReality {
         LocalDataSource localData = new LocalDataSource(this.getResources());
         ARData.addMarkers(localData.getMarkers());
 
- //		  Network
+//		  Network
 //        NetworkDataSource twitter = new TwitterDataSource(this.getResources());
 //        sources.put("twitter",twitter);
- 	      NetworkDataSource wikipedia = new WikipediaDataSource(this.getResources());
- 	      sources.put("wiki",wikipedia);
- //	      NetworkDataSource buzz = new BuzzDataSource(this.getResources());
- //	      sources.put("buzz",buzz);
+// 	      NetworkDataSource wikipedia = new WikipediaDataSource(this.getResources());
+// 	      sources.put("wiki",wikipedia);
+//	      NetworkDataSource buzz = new BuzzDataSource(this.getResources());
+//	      sources.put("buzz",buzz);
     }
 
 	/**
@@ -75,7 +75,6 @@ public class ARApplicationActivity extends AugmentedReality {
         super.onStart();
         
         Location last = ARData.getCurrentLocation();
-        System.out.println("LOCATION " + last);
         updateData(last.getLatitude(),last.getLongitude(),last.getAltitude());
     }
 	
