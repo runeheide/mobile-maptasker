@@ -2,6 +2,7 @@ package com.med8.ilocator;
 
 import com.med8.ilocator.R;
 import com.med8.support.TxtReader;
+import com.med8.support.TxtWriter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -24,9 +25,11 @@ public class EditObjectActivity extends ILocatorActivity {
 		Spinner objectType = (Spinner)findViewById(R.id.Spinner_ObjectType);
 		Spinner eventStatus = (Spinner)findViewById(R.id.Spinner_EventStatus);
 		TxtReader txtReader = new TxtReader();
+		TxtWriter txtWriter = new TxtWriter();
 		name.setText(txtReader.getObject(this, "Name"));
 		
 		Button backButton = (Button)findViewById(R.id.backButton);
+		Button saveButton = (Button)findViewById(R.id.saveButton);
 			
 		String _category = txtReader.getObject(this, "Category");
 		String _objectType = txtReader.getObject(this, "ObjectType");
