@@ -31,9 +31,9 @@ public class EditObjectActivity extends ILocatorActivity {
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button saveButton = (Button)findViewById(R.id.saveButton);
 			
-		String _category = txtReader.getObject(this, "Category");
-		String _objectType = txtReader.getObject(this, "ObjectType");
-		String _eventStatus = txtReader.getObject(this, "EventStatus");
+		String _category = txtReader.getObject(this, "Category");			// NB: THIS DOES NOT WORK!
+		String _objectType = txtReader.getObject(this, "ObjectType");		// - FIND CORRECT WAY TO
+		String _eventStatus = txtReader.getObject(this, "EventStatus");		// ACCESS SPINNER TEXT.
 		
 		if (_category.equals("Wells"))
 		{
@@ -74,6 +74,16 @@ public class EditObjectActivity extends ILocatorActivity {
 		backButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View view) {
+				Intent intent = new Intent();
+				setResult(RESULT_OK, intent);
+				finish();
+			}
+		});
+		
+		saveButton.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View view) {
+				//To do: Save new information about object / item
 				Intent intent = new Intent();
 				setResult(RESULT_OK, intent);
 				finish();

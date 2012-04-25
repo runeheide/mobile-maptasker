@@ -52,25 +52,24 @@ public class AddObjectActivity extends ILocatorActivity {
 		createButton.setOnClickListener(new View.OnClickListener() {
 						
 			public void onClick(View view) {
-				String objName = _objectName.getText().toString();
-				String category = _category.toString();
-				String objectType = _objectType.toString();
-				String eventStatus = _eventStatus.toString();
+				String objName = _objectName.getText().toString();  
+				String category = _category.toString();				// NB! DOES NOT WORK 
+				String objectType = _objectType.toString();			// - FIND RIGHT WAY TO
+				String eventStatus = _eventStatus.toString();		// ACCESS SPINNER DATA
 				
 				Location current = ARData.getCurrentLocation();
 		        double _latitude = current.getLatitude();
 		        double _longitude = current.getLongitude();
-		 
-				
-//		        String latitude = Double.toString(_latitude);				
-//				String longitude = Double.toString(_longitude);
+		 				
+		        String latitude = Double.toString(_latitude);				
+				String longitude = Double.toString(_longitude);
 				
 //				System.out.println("Lat: " + latitude + ", Long: " + longitude);
 				
-		        
+/*		        
 				String latitude = "57.0124965";
 				String longitude = "9.9892818";
-				String altitude = "0.0";
+*/				String altitude = "0.0";
 				
 				TxtWriter txtWriter = new TxtWriter();
     			txtWriter.writeFileAddObject(objName, category, objectType, eventStatus, latitude, longitude, altitude);
