@@ -10,6 +10,8 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.med8.ilocator.R;
@@ -45,7 +48,7 @@ public class ARApplicationActivity extends AugmentedReality {
     private static final BlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(1);
     private static final ThreadPoolExecutor exeService = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, queue);
 	private static final Map<String,NetworkDataSource> sources = new ConcurrentHashMap<String,NetworkDataSource>();    
-
+	//private AlertDialog.Builder builder;
 	
 	/**
 	 * {@inheritDoc}
@@ -59,17 +62,14 @@ public class ARApplicationActivity extends AugmentedReality {
         ARData.addMarkers(localData.getMarkers());
 
 //		  Network
-//        NetworkDataSource twitter = new TwitterDataSource(this.getResources());
-//        sources.put("twitter",twitter);
-// 	      NetworkDataSource wikipedia = new WikipediaDataSource(this.getResources());
-// 	      sources.put("wiki",wikipedia);
-//	      NetworkDataSource buzz = new BuzzDataSource(this.getResources());
-//	      sources.put("buzz",buzz);
+        NetworkDataSource twitter = new TwitterDataSource(this.getResources());
+        sources.put("twitter",twitter);
+ 	      NetworkDataSource wikipedia = new WikipediaDataSource(this.getResources());
+ 	      sources.put("wiki",wikipedia);
+	      NetworkDataSource buzz = new BuzzDataSource(this.getResources());
+	      sources.put("buzz",buzz);
     }
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
     public void onStart() {
         super.onStart();
@@ -77,20 +77,7 @@ public class ARApplicationActivity extends AugmentedReality {
         Location last = ARData.getCurrentLocation();
         updateData(last.getLatitude(),last.getLongitude(),last.getAltitude());
     }
-	
-    /**
-     * {@inheritDoc}
-     */
- //   @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
-    }
 
-    /**
-     * {@inheritDoc}
-     */
  //   @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.v(TAG, "onOptionsItemSelected() item="+item);
@@ -126,7 +113,45 @@ public class ARApplicationActivity extends AugmentedReality {
 	 */
 	@Override
 	protected void markerTouched(Marker marker) {
-		
+		final AlertDialog builder = new AlertDialog.Builder(this).create();
+		builder.setTitle(marker.getName());
+		builder.setMessage("Hydrant of type 1");
+		builder.setIcon(android.R.drawable.ic_dialog_alert);
+		builder.setButton("Done", new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialog, int which) {
+				//...
+			}
+		});
+		builder.setButton("OK", new DialogInterface.OnClickListener() {
+			
+			public void onClick(DialogInterface dialog, int which) {
+				//...
+			}
+		});
+		builder.setButton2("Broken down", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				//...
+			}
+		});
+		builder.setButton3("Needs attention", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				//...
+				//AlertDialog ad=builder.create();
+				//ad.cancel();
+			}
+		});
+/*		
+		builder.setOnCancelListener(new OnCancelListener() {
+
+			   public void onCancel(DialogInterface dialog) {
+			    // TODO Auto-generated method stub
+			    TextView txt=(TextView)findViewById(R.id.txt);
+			    txt.setText(txt.getText()+" the cancel listner invoked");
+			   }
+			  });
+*/
+			  builder.show();
         Toast t = Toast.makeText(getApplicationContext(), marker.getName(), Toast.LENGTH_SHORT);
         t.setGravity(Gravity.CENTER, 0, 0);
         t.show();
