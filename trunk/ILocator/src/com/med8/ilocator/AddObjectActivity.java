@@ -52,14 +52,12 @@ public class AddObjectActivity extends ILocatorActivity {
 		createButton.setOnClickListener(new View.OnClickListener() {
 						
 			public void onClick(View view) {
-				String objName = _objectName.getText().toString();  
 				
+				String objName = _objectName.getText().toString();  				
 				int selectedCategory = _category.getSelectedItemPosition();
 				String category = _category.getItemAtPosition(selectedCategory).toString();
-				
 				int selectedObjectType = _objectType.getSelectedItemPosition();
 				String objectType = _objectType.getItemAtPosition(selectedObjectType).toString();
-				
 				int selectedEventStatus = _eventStatus.getSelectedItemPosition();
 				String eventStatus = _eventStatus.getItemAtPosition(selectedEventStatus).toString();
 				

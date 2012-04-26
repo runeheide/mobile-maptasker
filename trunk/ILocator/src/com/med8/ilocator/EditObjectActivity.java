@@ -83,6 +83,7 @@ public class EditObjectActivity extends ILocatorActivity {
 		saveButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View view) {
+				
 				//To do: Save new information about object / item
 				Intent intent = new Intent();
 				setResult(RESULT_OK, intent);

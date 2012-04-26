@@ -11,6 +11,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
@@ -34,6 +35,8 @@ import com.med8.ilocator.augmentedreality.data.NetworkDataSource;
 import com.med8.ilocator.augmentedreality.data.TwitterDataSource;
 import com.med8.ilocator.augmentedreality.data.WikipediaDataSource;
 import com.med8.ilocator.augmentedreality.ui.Marker;
+import com.med8.support.TxtReader;
+import com.med8.support.TxtWriter;
 
 
 /**
@@ -43,106 +46,124 @@ import com.med8.ilocator.augmentedreality.ui.Marker;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public class ARApplicationActivity extends AugmentedReality {
-    private static final String TAG = "ARApplication";
-    private static final String locale = Locale.getDefault().getLanguage();
-    private static final BlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(1);
-    private static final ThreadPoolExecutor exeService = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, queue);
+	Context thisContext;
+	private static final String TAG = "ARApplication";
+	private static final String locale = Locale.getDefault().getLanguage();
+	private static final BlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(1);
+	private static final ThreadPoolExecutor exeService = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, queue);
 	private static final Map<String,NetworkDataSource> sources = new ConcurrentHashMap<String,NetworkDataSource>();    
 	//private AlertDialog.Builder builder;
-	
+
+	private LocalDataSource localData;
+
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-    public void onCreate(Bundle savedInstanceState) {
-        
+	public void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
-		      
-        LocalDataSource localData = new LocalDataSource(this.getResources());
-        ARData.addMarkers(localData.getMarkers());
+		//setContentView(R.layout.)
 
-//		  Network
-/*        NetworkDataSource twitter = new TwitterDataSource(this.getResources());
-        sources.put("twitter",twitter);
- 	      NetworkDataSource wikipedia = new WikipediaDataSource(this.getResources());
- 	      sources.put("wiki",wikipedia);
-	      NetworkDataSource buzz = new BuzzDataSource(this.getResources());
-	      sources.put("buzz",buzz);
-*/    }
+		localData = new LocalDataSource(this.getResources());
+//		ARData.addMarkers(localData.getMarkers());
+
+    }
 
 	@Override
-    public void onStart() {
-        super.onStart();
-        
-        Location last = ARData.getCurrentLocation();
-        updateData(last.getLatitude(),last.getLongitude(),last.getAltitude());
-    }
+	public void onStart() {
+		super.onStart();
+		//ARData.removeMarkers();
+		ARData.addMarkers(localData.getMarkers());
+		//       LocalDataSource localData = new LocalDataSource(this.getResources());
+	
 
- //   @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Log.v(TAG, "onOptionsItemSelected() item="+item);
-        switch (item.getItemId()) {
-            case R.id.showRadar:
-                showRadar = !showRadar;
-                item.setTitle(((showRadar)? "Hide" : "Show")+" Radar");
-                break;
-            case R.id.showZoomBar:
-                showZoomBar = !showZoomBar;
-                item.setTitle(((showZoomBar)? "Hide" : "Show")+" Zoom Bar");
-                zoomLayout.setVisibility((showZoomBar)?LinearLayout.VISIBLE:LinearLayout.GONE);
-                break;
-            case R.id.exit:
-                finish();
-                break;
-        }
-        return true;
-    }
+		Location last = ARData.getCurrentLocation();
+		updateData(last.getLatitude(),last.getLongitude(),last.getAltitude());
+	}
+
+	//   @Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Log.v(TAG, "onOptionsItemSelected() item="+item);
+		switch (item.getItemId()) {
+		case R.id.showRadar:
+			showRadar = !showRadar;
+			item.setTitle(((showRadar)? "Hide" : "Show")+" Radar");
+			break;
+		case R.id.showZoomBar:
+			showZoomBar = !showZoomBar;
+			item.setTitle(((showZoomBar)? "Hide" : "Show")+" Zoom Bar");
+			zoomLayout.setVisibility((showZoomBar)?LinearLayout.VISIBLE:LinearLayout.GONE);
+			break;
+		case R.id.exit:
+			finish();
+			break;
+		}
+		return true;
+	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-    public void onLocationChanged(Location location) {
-        super.onLocationChanged(location);
-        
-       updateData(location.getLatitude(),location.getLongitude(),location.getAltitude());
-    }
+	public void onLocationChanged(Location location) {
+		super.onLocationChanged(location);
+
+		updateData(location.getLatitude(),location.getLongitude(),location.getAltitude());
+	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void markerTouched(Marker marker) {
+	protected void markerTouched(final Marker marker) {
 		final AlertDialog builder = new AlertDialog.Builder(this).create();
 		builder.setTitle(marker.getName());
-		
+
 		builder.setMessage("Hydrant: type 1");
 		builder.setIcon(android.R.drawable.ic_dialog_alert);
 		builder.setButton("Done", new DialogInterface.OnClickListener() {
-			
+
 			public void onClick(DialogInterface dialog, int which) {
 				//...
 			}
 		});
 		builder.setButton("OK", new DialogInterface.OnClickListener() {
-			
+
 			public void onClick(DialogInterface dialog, int which) {
-				//...
+				TxtWriter txtWriter = new TxtWriter();
+				TxtReader txtReader = new TxtReader();
+				txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject(thisContext, "Category"), txtReader.getObject(thisContext, "ObjectType"), 
+						"OK", txtReader.getObject(thisContext, "Latitude"), txtReader.getObject(thisContext, "Longitude"), txtReader.getObject(thisContext, "Altitude"));
+				//ARData.removeMarkers();
+				updateDataOnClick();
 			}
 		});
 		builder.setButton2("Broken down", new DialogInterface.OnClickListener() {
+
 			public void onClick(DialogInterface dialog, int which) {
-				//...
+				TxtWriter txtWriter = new TxtWriter();
+				TxtReader txtReader = new TxtReader();
+				txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject(thisContext, "Category"), txtReader.getObject(thisContext, "ObjectType"), 
+						"Broken Down", txtReader.getObject(thisContext, "Latitude"), txtReader.getObject(thisContext, "Longitude"), txtReader.getObject(thisContext, "Altitude"));
+				//ARData.removeMarkers();
+				updateDataOnClick();
+
 			}
 		});
 		builder.setButton3("Needs attention", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-				//...
-				//AlertDialog ad=builder.create();
-				//ad.cancel();
+				TxtWriter txtWriter = new TxtWriter();
+				TxtReader txtReader = new TxtReader();
+				txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject(thisContext, "Category"), txtReader.getObject(thisContext, "ObjectType"), 
+						"Needs Attention", txtReader.getObject(thisContext, "Latitude"), txtReader.getObject(thisContext, "Longitude"), txtReader.getObject(thisContext, "Altitude"));
+				//ARData.removeMarkers();
+				updateDataOnClick();
 			}
+
 		});
-/*		
+		
+		/*		
 		builder.setOnCancelListener(new OnCancelListener() {
 
 			   public void onCancel(DialogInterface dialog) {
@@ -151,50 +172,60 @@ public class ARApplicationActivity extends AugmentedReality {
 			    txt.setText(txt.getText()+" the cancel listner invoked");
 			   }
 			  });
-*/
-			  builder.show();
-  //      Toast t = Toast.makeText(getApplicationContext(), marker.getName(), Toast.LENGTH_SHORT);
-  //      t.setGravity(Gravity.CENTER, 0, 0);
-  //      t.show();
+		 */
+		builder.show();
+		//      Toast t = Toast.makeText(getApplicationContext(), marker.getName(), Toast.LENGTH_SHORT);
+		//      t.setGravity(Gravity.CENTER, 0, 0);
+		//      t.show();
 	}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-	protected void updateDataOnZoom() {
-	    super.updateDataOnZoom();
-        Location last = ARData.getCurrentLocation();
-        updateData(last.getLatitude(),last.getLongitude(),last.getAltitude());
+	/**
+	 * {@inheritDoc}
+	 */
+	private void updateDataOnClick()
+	{
+		ARData.removeMarkers();
+		ARData.addMarkers(localData.getMarkers());
+		this.onCreate(null);
+//		Intent newARIntent = new Intent(this, ARApplicationActivity.class);
+//		startActivity(newARIntent);
 	}
-    
-    private void updateData(final double lat, final double lon, final double alt) {
-        try {
-            exeService.execute(
-                new Runnable() {
-                    public void run() {
-                        for (NetworkDataSource source : sources.values())
-                            download(source, lat, lon, alt);
-                    }
-                }
-            );
-        } catch (RejectedExecutionException rej) {
-            Log.w(TAG, "Not running new download Runnable, queue is full.");
-        } catch (Exception e) {
-            Log.e(TAG, "Exception running download Runnable.",e);
-        }
-    }
-    
-    private static boolean download(NetworkDataSource source, double lat, double lon, double alt) {
+	
+	protected void updateDataOnZoom() {
+		super.updateDataOnZoom();
+		Location last = ARData.getCurrentLocation();
+		updateData(last.getLatitude(),last.getLongitude(),last.getAltitude());
+	}
+
+	private void updateData(final double lat, final double lon, final double alt) {
+		try {
+			ARData.removeMarkers();
+			ARData.addMarkers(localData.getMarkers());
+			exeService.execute(
+					new Runnable() {
+						public void run() {
+							for (NetworkDataSource source : sources.values())
+								download(source, lat, lon, alt);
+						}
+					}
+					);
+		} catch (RejectedExecutionException rej) {
+			Log.w(TAG, "Not running new download Runnable, queue is full.");
+		} catch (Exception e) {
+			Log.e(TAG, "Exception running download Runnable.",e);
+		}
+	}
+
+	private static boolean download(NetworkDataSource source, double lat, double lon, double alt) {
 		if (source==null) return false;
-		
+
 		String url = null;
 		try {
 			url = source.createRequestURL(lat, lon, alt, ARData.getRadius(), locale);    	
 		} catch (NullPointerException e) {
 			return false;
 		}
-    	
+
 		List<Marker> markers = null;
 		try {
 			markers = source.parse(url);
@@ -202,8 +233,8 @@ public class ARApplicationActivity extends AugmentedReality {
 			return false;
 		}
 
-    	ARData.addMarkers(markers);
-    	return true;
-    }
+		ARData.addMarkers(markers);
+		return true;
+	}
 
 }
