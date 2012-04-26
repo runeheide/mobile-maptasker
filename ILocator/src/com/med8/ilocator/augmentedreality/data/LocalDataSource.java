@@ -27,6 +27,7 @@ public class LocalDataSource extends DataSource{
     private List<Marker> cachedMarkers = new ArrayList<Marker>();
     private static Bitmap icon1 = null;
     private static Bitmap icon2 = null;
+    private static Bitmap icon3 = null;
     public Context thisContext;
     
     public LocalDataSource(Resources res) {
@@ -40,43 +41,37 @@ public class LocalDataSource extends DataSource{
         
         icon1=BitmapFactory.decodeResource(res, R.drawable.firehydrantred);
         icon2=BitmapFactory.decodeResource(res, R.drawable.firehydrantgreen);
+        icon3=BitmapFactory.decodeResource(res,  R.drawable.firehydrantyellow);
     }
     
     public List<Marker> getMarkers() {
+    	
     	TxtReader txtReader = new TxtReader();
     	double latitude = Double.parseDouble(txtReader.getObject(thisContext, "Latitude"));
     	double longitude = Double.parseDouble(txtReader.getObject(thisContext, "Longitude"));
     	double altitude = Double.parseDouble(txtReader.getObject(thisContext, "Altitude"));
     	
-    	Marker object1 = new IconMarker(txtReader.getObject(thisContext, "Name"), latitude, longitude, altitude, Color.DKGRAY, icon1);
-    	cachedMarkers.add(object1);
+//    	String eventStatus = txtReader.getObject(thisContext, "EventStatus");
+    	
+//    	if (eventStatus.equalsIgnoreCase("Broken Down"))
+//    	{
+    		Marker object1 = new IconMarker(txtReader.getObject(thisContext, "Name"), latitude, longitude, altitude, Color.DKGRAY, icon1);
+    		cachedMarkers.add(object1);
+//   	}
+//    	else
+//    	{
+//    		Marker object1 = new IconMarker(txtReader.getObject(thisContext, "Name"), latitude, longitude, altitude, Color.DKGRAY, icon2);
+//    		cachedMarkers.add(object1);	
+//    	}
     	
     	Marker object2 = new IconMarker("Martin", latitude, longitude*1.0001, altitude, Color.DKGRAY, icon2);
     	cachedMarkers.add(object2);
+    	
+    	Marker object3 = new IconMarker("Rune", latitude, longitude*1.0002, altitude, Color.DKGRAY, icon3);
+    	cachedMarkers.add(object3);
  
     	//To do: Load array of objects from text-file - dynamically create new markers...
-    	
-    	
-    	
-/*    	Marker home = new Marker("Mt Laurel", 39.95, -74.9, 0, Color.YELLOW);
-        cachedMarkers.add(home);
-*/
-        
-/*        Marker lon = new IconMarker("I am a really really long string which should wrap a number of times on the screen.", 
-                                 39.95335, -74.9223445, 
-                                 0, 
-                                 Color.MAGENTA,
-                                 icon);
-        cachedMarkers.add(lon);
-        Marker lon2 = new IconMarker("2: I am a really really long string which should wrap a number of times on the screen.", 
-                39.95334, -74.9223446, 
-                0, 
-                Color.MAGENTA,
-                icon);
-        cachedMarkers.add(lon2);
-        
-*/
-        
+    	        
         float max = 10;
         for (float i=0; i<max; i++) {
             Marker marker = null;
@@ -86,8 +81,7 @@ public class LocalDataSource extends DataSource{
             cachedMarkers.add(marker);
     
         }
-       
-
+     
         return cachedMarkers;
     }
 }
