@@ -21,7 +21,7 @@
         <activity android:name=".LaunchActivity"
                   android:label="@string/app_name"
                   android:screenOrientation="portrait">
-
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -53,12 +53,12 @@
             android:label="@string/maps" >
             </activity>
         <activity 
-            android:name=".ManagementActivity"
-            android:label="@string/management" >
-            </activity>
-       	<activity 
             android:name=".GPSViewActivity"
             android:label="@string/gpsview" >
+            </activity>
+        <activity 
+            android:name=".ManagementActivity"
+            android:label="@string/management" >
             </activity>
         <activity
             android:name=".ARViewActivity"

@@ -43,4 +43,5 @@
     <string name="categories">Categories</string>
     <string name="tasks">Tasks</string>
     <string name="users">Users</string>
+    <string name="mapviewshifter">"Shift Maps</string>
 </resources>
