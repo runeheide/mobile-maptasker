@@ -65,13 +65,13 @@ public class AddObjectActivity extends ILocatorActivity {
 		        double _latitude = current.getLatitude();
 		        double _longitude = current.getLongitude();
 		 				
-//		        String latitude = Double.toString(_latitude);				
-//				String longitude = Double.toString(_longitude);
+		        String latitude = Double.toString(_latitude);				
+				String longitude = Double.toString(_longitude);
 				
-//				System.out.println("Lat: " + latitude + ", Long: " + longitude);
+				System.out.println("Lat: " + latitude + ", Long: " + longitude);
 						        
-				String latitude = "57.0124965";
-				String longitude = "9.9892818";
+//				String latitude = "57.0124965";
+//				String longitude = "9.9892818";
 				String altitude = "0.0";
 				
 				TxtWriter txtWriter = new TxtWriter();
