@@ -62,13 +62,13 @@ public class ARApplicationActivity extends AugmentedReality {
         ARData.addMarkers(localData.getMarkers());
 
 //		  Network
-        NetworkDataSource twitter = new TwitterDataSource(this.getResources());
+/*        NetworkDataSource twitter = new TwitterDataSource(this.getResources());
         sources.put("twitter",twitter);
  	      NetworkDataSource wikipedia = new WikipediaDataSource(this.getResources());
  	      sources.put("wiki",wikipedia);
 	      NetworkDataSource buzz = new BuzzDataSource(this.getResources());
 	      sources.put("buzz",buzz);
-    }
+*/    }
 
 	@Override
     public void onStart() {
@@ -115,7 +115,8 @@ public class ARApplicationActivity extends AugmentedReality {
 	protected void markerTouched(Marker marker) {
 		final AlertDialog builder = new AlertDialog.Builder(this).create();
 		builder.setTitle(marker.getName());
-		builder.setMessage("Hydrant of type 1");
+		
+		builder.setMessage("Hydrant: type 1");
 		builder.setIcon(android.R.drawable.ic_dialog_alert);
 		builder.setButton("Done", new DialogInterface.OnClickListener() {
 			
@@ -152,9 +153,9 @@ public class ARApplicationActivity extends AugmentedReality {
 			  });
 */
 			  builder.show();
-        Toast t = Toast.makeText(getApplicationContext(), marker.getName(), Toast.LENGTH_SHORT);
-        t.setGravity(Gravity.CENTER, 0, 0);
-        t.show();
+  //      Toast t = Toast.makeText(getApplicationContext(), marker.getName(), Toast.LENGTH_SHORT);
+  //      t.setGravity(Gravity.CENTER, 0, 0);
+  //      t.show();
 	}
 
     /**

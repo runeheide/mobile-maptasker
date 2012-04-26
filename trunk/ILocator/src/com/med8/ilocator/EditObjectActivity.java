@@ -31,9 +31,9 @@ public class EditObjectActivity extends ILocatorActivity {
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button saveButton = (Button)findViewById(R.id.saveButton);
 			
-		String _category = txtReader.getObject(this, "Category");			// NB: THIS DOES NOT WORK!
-		String _objectType = txtReader.getObject(this, "ObjectType");		// - FIND CORRECT WAY TO
-		String _eventStatus = txtReader.getObject(this, "EventStatus");		// ACCESS SPINNER TEXT.
+		String _category = txtReader.getObject(this, "Category");			
+		String _objectType = txtReader.getObject(this, "ObjectType");		
+		String _eventStatus = txtReader.getObject(this, "EventStatus");		
 		
 		if (_category.equals("Wells"))
 		{
@@ -48,24 +48,24 @@ public class EditObjectActivity extends ILocatorActivity {
 			category.setSelection(2, true);
 		}
 		
-		if (_objectType == "Type 1")
+		if (_objectType.equals("Type 1"))
 		{
 			objectType.setSelection(0);
 		}
-		else if (_objectType == "Type 2")
+		else if (_objectType.equals("Type 2"))
 		{
 			objectType.setSelection(1);
 		}
 		
-		if (_eventStatus == "OK")
+		if (_eventStatus.equals("OK"))
 		{
 			eventStatus.setSelection(0);
 		}
-		else if (_eventStatus == "Needs Attention")
+		else if (_eventStatus.equals("Needs Attention"))
 		{
 			eventStatus.setSelection(1);
 		}
-		else if (_eventStatus == "Broken Down")
+		else if (_eventStatus.equals("Broken Down"))
 		{
 			eventStatus.setSelection(2);
 		}

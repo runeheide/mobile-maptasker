@@ -4,7 +4,9 @@ import java.io.FileWriter;
 
 public class TxtWriter{
 	
-    public void writeFileAddObject(String Name, String Category, String ObjectType, String EventStatus, String latitude, String longitude, String altitude){
+
+	
+	public void writeFileAddObject(String Name, String Category, String ObjectType, String EventStatus, String latitude, String longitude, String altitude){
     	//TO DO: Add latitude + longitude information
         FileWriter fWriter;
         try{

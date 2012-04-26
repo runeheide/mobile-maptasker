@@ -53,23 +53,28 @@ public class AddObjectActivity extends ILocatorActivity {
 						
 			public void onClick(View view) {
 				String objName = _objectName.getText().toString();  
-				String category = _category.toString();				// NB! DOES NOT WORK 
-				String objectType = _objectType.toString();			// - FIND RIGHT WAY TO
-				String eventStatus = _eventStatus.toString();		// ACCESS SPINNER DATA
+				
+				int selectedCategory = _category.getSelectedItemPosition();
+				String category = _category.getItemAtPosition(selectedCategory).toString();
+				
+				int selectedObjectType = _objectType.getSelectedItemPosition();
+				String objectType = _objectType.getItemAtPosition(selectedObjectType).toString();
+				
+				int selectedEventStatus = _eventStatus.getSelectedItemPosition();
+				String eventStatus = _eventStatus.getItemAtPosition(selectedEventStatus).toString();
 				
 				Location current = ARData.getCurrentLocation();
 		        double _latitude = current.getLatitude();
 		        double _longitude = current.getLongitude();
 		 				
-		        String latitude = Double.toString(_latitude);				
-				String longitude = Double.toString(_longitude);
+//		        String latitude = Double.toString(_latitude);				
+//				String longitude = Double.toString(_longitude);
 				
 //				System.out.println("Lat: " + latitude + ", Long: " + longitude);
-				
-/*		        
+						        
 				String latitude = "57.0124965";
 				String longitude = "9.9892818";
-*/				String altitude = "0.0";
+				String altitude = "0.0";
 				
 				TxtWriter txtWriter = new TxtWriter();
     			txtWriter.writeFileAddObject(objName, category, objectType, eventStatus, latitude, longitude, altitude);
