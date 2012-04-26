@@ -1,4 +1,4 @@
-package com.med8.ilocator;
+package com.med8.ilocator.maps;
 
 import java.util.List;
 
@@ -21,12 +21,10 @@ import com.med8.ilocator.R;
 import com.med8.ilocator.R.drawable;
 import com.med8.ilocator.R.id;
 import com.med8.ilocator.R.layout;
-import com.med8.ilocator.maps.AlternativeMyLocationOverlay;
-import com.med8.ilocator.maps.ItemOverlay;
 import com.med8.support.TxtReader;
 import com.med8.support.TxtWriter;
 
-public class GPSViewActivity extends MapActivity
+public class Maps2Activity extends MapActivity
 {    
 	MapController mapController;
 	AlternativeMyLocationOverlay mylocation;
@@ -65,7 +63,7 @@ public class GPSViewActivity extends MapActivity
 		});
 
 		// Acquire a reference to the system Location Manager
-/*		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		
 		// Define a listener that responds to location updates
 		LocationListener locationListener = new LocationListener() {
@@ -124,7 +122,7 @@ public class GPSViewActivity extends MapActivity
 		int longitue = (int) (location.getLongitude()*1000000);
 		int latitute = (int) (location.getLatitude()*1000000); 
 
-		GPSViewActivity.userlocation = new GeoPoint(latitute, longitue);
+		Maps2Activity.userlocation = new GeoPoint(latitute, longitue);
 		
 		//implement some "if-button-is-pressed" function to navigate to user location
 		//mapController.animateTo(userlocation);
