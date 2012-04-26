@@ -198,6 +198,10 @@ public abstract class ARData {
     	    cache.clear();
     	}
     }
+    public static void removeMarkers(){
+    	markerList.clear();
+    	
+    }
 
     /**
      * Get the Markers collection.
