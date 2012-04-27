@@ -69,12 +69,12 @@ public class LocalDataSource extends DataSource{
     		cachedMarkers.add(object1);	
     	}
     	
-    	Marker object2 = new IconMarker("Martin", latitude, longitude*1.0001, altitude, Color.DKGRAY, icon2);
+ /*   	Marker object2 = new IconMarker("Martin", latitude, longitude*1.0001, altitude, Color.DKGRAY, icon2);
     	cachedMarkers.add(object2);
     	
     	Marker object3 = new IconMarker("Rune", latitude, longitude*1.0002, altitude, Color.DKGRAY, icon3);
     	cachedMarkers.add(object3);
- 
+*/ 
     	//To do: Load array of objects from text-file - dynamically create new markers...
    /* 	        
         float max = 10;
