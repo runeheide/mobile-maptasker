@@ -65,7 +65,7 @@ public class GPSViewActivity extends MapActivity
 		});
 
 		// Acquire a reference to the system Location Manager
-/*		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		
 		// Define a listener that responds to location updates
 		LocationListener locationListener = new LocationListener() {
@@ -85,9 +85,9 @@ public class GPSViewActivity extends MapActivity
 
 		// Register the listener with the Location Manager to receive location updates
 		
-		//locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
 
-/*		GeoPoint point = new GeoPoint(19240000,-99120000);
+		GeoPoint point = new GeoPoint(19240000,-99120000);
 		OverlayItem overlayitem = new OverlayItem(point, "Hola, Mundo!", "I'm in Mexico City!");
 
 		GeoPoint point2 = new GeoPoint(35410000, 139460000);
@@ -96,27 +96,16 @@ public class GPSViewActivity extends MapActivity
 
 		GeoPoint point3 = new GeoPoint(57029262, 9979329);
 		OverlayItem overlayitem3 = new OverlayItem(point3, "1", "2");
-*/
+/*
 		
 		
-		
-//		itemizedoverlay.addOverlay(overlayitem);
-//		itemizedoverlay.addOverlay(overlayitem2);
+		itemizedoverlay.addOverlay(overlayitem);
+		itemizedoverlay.addOverlay(overlayitem2);
 
 		
-//		itemizedoverlay.addOverlay(overlayitem3);
-		
-//		itemizedoverlay.addOverlay(overlayuserposition);
-//		mapOverlays.add(itemizedoverlay);		
-		
-/*		TxtWriter textWriter = new TxtWriter();
-		textWriter.writeFile(this,"Name","Category","ObjectType","Latitude","Longitude");
-		
-		textWriter.writeFile(this,"Name2","Category2","ObjectType2","Latitude2","Longitude2");
-		
-		TxtReader textReader = new TxtReader();
-		System.out.println(textReader.getContent(this, "Name2", "Category"));	
-*/	
+		itemizedoverlay.addOverlay(overlayitem3);
+		mapOverlays.add(itemizedoverlay);		
+*/		
 	}
 		
 	protected void makeUseOfNewLocation(Location location) {
