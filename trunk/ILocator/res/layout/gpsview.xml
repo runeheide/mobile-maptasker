@@ -13,11 +13,6 @@
     android:clickable="true"
     android:apiKey="0aFOkZHqNeYAeIm-cFF0kCOft0Qd9FOYDHn8uoQ"/>
 
-<android.view.SurfaceView android:id="@+id/preview"
-                              android:layout_width="fill_parent"
-                              android:layout_height="fill_parent"
-                              android:layout_alignParentTop="true" />
-
     <Button
         android:id="@+id/mapShiftButton"
         android:layout_width="wrap_content"

@@ -186,6 +186,10 @@ public class ARApplicationActivity extends AugmentedReality {
 	{
 		ARData.removeMarkers();
 		ARData.addMarkers(localData.getMarkers());
+//		Intent intent = new android.content.Intent();
+//        intent.setClass(this, this.getClass());  
+//        this.startActivity(intent);
+       	
 		this.onCreate(null);
 //		Intent newARIntent = new Intent(this, ARApplicationActivity.class);
 //		startActivity(newARIntent);
