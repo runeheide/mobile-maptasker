@@ -75,7 +75,8 @@
             </activity>
     	<activity 
             android:name=".AddObjectActivity"
-            android:label="@string/addobject" >
+            android:label="@string/addobject" 
+            android:screenOrientation="portrait">
             </activity>
         <activity 
             android:name=".EditObjectActivity"

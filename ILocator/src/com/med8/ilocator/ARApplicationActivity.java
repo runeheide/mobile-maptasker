@@ -63,7 +63,7 @@ public class ARApplicationActivity extends AugmentedReality {
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.)
+//		setContentView(R.layout.arview);
 
 		localData = new LocalDataSource(this.getResources());
 //		ARData.addMarkers(localData.getMarkers());

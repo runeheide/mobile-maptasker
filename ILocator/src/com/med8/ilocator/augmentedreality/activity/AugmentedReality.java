@@ -3,6 +3,7 @@ package com.med8.ilocator.augmentedreality.activity;
 import java.text.DecimalFormat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -15,12 +16,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
+import com.med8.ilocator.AddObjectActivity;
 import com.med8.ilocator.augmentedreality.camera.CameraSurface;
 import com.med8.ilocator.augmentedreality.data.ARData;
 import com.med8.ilocator.augmentedreality.ui.Marker;
@@ -45,6 +48,8 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
     protected static TextView endLabel = null;
     protected static LinearLayout zoomLayout = null;
     protected static AugmentedView augmentedView = null;
+    protected static LinearLayout buttonLayout = null;
+    protected static Button addObjectButton = null;
 
     public static final float MAX_ZOOM = 100; //in KM
     public static final float ONE_PERCENT = MAX_ZOOM/100f;
@@ -55,6 +60,7 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
     public static boolean useCollisionDetection = true;
     public static boolean showRadar = true;
     public static boolean showZoomBar = true;
+    public static boolean showButton = true;
     
 	/**
 	 * {@inheritDoc}
@@ -71,10 +77,21 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
         LayoutParams augLayout = new LayoutParams(  LayoutParams.WRAP_CONTENT, 
                                                     LayoutParams.WRAP_CONTENT);
         addContentView(augmentedView,augLayout);
+               
+        buttonLayout = new LinearLayout(this);
+        buttonLayout.setVisibility((showButton)?LinearLayout.VISIBLE:LinearLayout.GONE);
+        buttonLayout.setOrientation(LinearLayout.VERTICAL);
+        buttonLayout.setGravity(Gravity.BOTTOM);
+        buttonLayout.setPadding(5, 5, 5, 5);
+        
+        addObjectButton = new Button(this);
+        addObjectButton.setText("ADD OBJECT");
+        buttonLayout.addView(addObjectButton);
+        
         
         zoomLayout = new LinearLayout(this);
         zoomLayout.setVisibility((showZoomBar)?LinearLayout.VISIBLE:LinearLayout.GONE);
-        zoomLayout.setOrientation(LinearLayout.VERTICAL);
+        zoomLayout.setOrientation(LinearLayout.HORIZONTAL);
         zoomLayout.setPadding(5, 5, 5, 5);
         zoomLayout.setBackgroundColor(ZOOMBAR_BACKGROUND_COLOR);
 
@@ -84,6 +101,7 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
         LinearLayout.LayoutParams zoomTextParams =  new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
         zoomLayout.addView(endLabel, zoomTextParams);
 
+        
         myZoomBar = new VerticalSeekBar(this);
         myZoomBar.setMax(100);
         myZoomBar.setProgress(50);
@@ -91,16 +109,31 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
         LinearLayout.LayoutParams zoomBarParams =  new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.FILL_PARENT);
         zoomBarParams.gravity = Gravity.CENTER_HORIZONTAL;
         zoomLayout.addView(myZoomBar, zoomBarParams);
-
+             
         FrameLayout.LayoutParams frameLayoutParams = new FrameLayout.LayoutParams(  LayoutParams.WRAP_CONTENT, 
                                                                                     LayoutParams.FILL_PARENT, 
                                                                                     Gravity.RIGHT);
+        
+        FrameLayout.LayoutParams frame2LayoutParams = new FrameLayout.LayoutParams( LayoutParams.WRAP_CONTENT,
+        																			LayoutParams.FILL_PARENT,
+        																			Gravity.LEFT);
+        																			
+        
         addContentView(zoomLayout,frameLayoutParams);
+        addContentView(buttonLayout, frame2LayoutParams);
         
         updateDataOnZoom();
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
+        
+        addObjectButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Intent addObjectIntent = new Intent(v.getContext(), AddObjectActivity.class);
+				startActivityForResult(addObjectIntent, 0);
+			}
+		});
+        
     }
 
 	/**
