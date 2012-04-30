@@ -11,52 +11,17 @@ import com.maps.R;
 
 public class TxtReader {
 
-	//static InputStream inputStream;
-
-	public String[] getAllLines(Context inContext)
-	{
-		String returnString[] = null;
-
-		String myString = new String();
-		myString = readRawTextFile(inContext);
-
-		String[] separated = myString.split(";");
-
-		returnString = separated;
-//		
-//		for (int i = 0; i < separated.length; i++)
-//		{
-//			String stringToSplit = "";
-//			stringToSplit = stringToSplit + separated[i].toString();
-//
-//			String [] separatedSplitInfo;
-//			separatedSplitInfo = stringToSplit.split(":");
-//			
-//			returnString[i] = separatedSplitInfo[i];
-//			System.out.println("hallo");
-//		}	
-
-//		try {
-//			inputStream.close();
-//		} catch (IOException e1) {
-//			e1.printStackTrace();
-//		}
-
-		return returnString;	
-	}
-
 	/**The function is called by: "getContentAt(Context, String, String)"
 	 *Context can be replaced by "this" to input the class wherefrom the function is called
 	 *String is the name of the object you would like to locate in the file
 	 *reqContent is Content that will be returned and can be "Name", "Category", "ObjectType", "Latitude" or "Longitude"
 	 * @return 
 	 */
-	public String getContent(Context inContext, String inString, String reqContent)
+	public String getContent(String inString, String reqContent)
 	{
 		String outString = "outstring pee";
 		String returnString = "Function Fail";
 
-		int resId = R.raw.my;
 		int contentId = -1;
 
 		if (reqContent.equals("Name"))
@@ -73,7 +38,7 @@ public class TxtReader {
 			contentId = -1;
 
 		String myString = new String();
-		myString = readRawTextFile(inContext);
+		myString = readRawTextFile();
 
 		String[] separated = myString.split(";");
 
@@ -214,7 +179,7 @@ public class TxtReader {
 	//		return outString;
 	//	}
 
-	private static String readRawTextFile(Context ctx)
+	private static String readRawTextFile()
 	{
 		String output = "";
 
@@ -230,7 +195,7 @@ public class TxtReader {
 			try {
 				while (( line = buffreader.readLine()) != null) {
 					text.append(line);
-					// text.append('\n');
+					//text.append('\n');
 				}
 			} 
 			catch (IOException e) {
