@@ -263,7 +263,7 @@ public class TxtReader {
 		FileReader fileReader;
 
 		try {
-			fileReader = new FileReader("/sdcard/iLocator/user.txt");
+			fileReader = new FileReader("/sdcard/iLocator/users.txt");
 			//InputStreamReader inputreader = new InputStreamReader(inputStream);
 			BufferedReader buffreader = new BufferedReader(fileReader);
 			//BufferedReader buffreader = new BufferedReader(inputreader);
