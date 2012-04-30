@@ -26,7 +26,11 @@ public class EditObjectActivity extends ILocatorActivity {
 		Spinner eventStatus = (Spinner)findViewById(R.id.Spinner_EventStatus);
 		TxtReader txtReader = new TxtReader();
 		TxtWriter txtWriter = new TxtWriter();
-		name.setText(txtReader.getObject(this, "Name"));
+		
+		TxtReader txtReader2 = new TxtReader();
+		String pressedObjectName = txtReader2.getSimpleName();
+		
+		name.setText(txtReader.getObject(pressedObjectName, "Name"));
 		
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button saveButton = (Button)findViewById(R.id.saveButton);
