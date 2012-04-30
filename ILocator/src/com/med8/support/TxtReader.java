@@ -46,7 +46,7 @@ public class TxtReader {
 	 * @return 
 	 */
 
-	public Boolean checkUser(Context inContext, String inString, String reqContent, String inputPassword)
+	public Boolean checkUser(String inString, String reqContent, String inputPassword)
 	{
 		String outString = "outstring pee";
 		String returnString = "Function Fail";
@@ -63,7 +63,7 @@ public class TxtReader {
 			contentId = -1;
 
 		String myString = new String();
-		myString = readRawTextFile(inContext);
+		myString = readRawTextFile();
 
 		String[] separated = myString.split(";");
 
@@ -253,7 +253,7 @@ public class TxtReader {
 	 *fileName is the name (without extension) on the .txt file in the project that you would like to read from (only .txt is validated!)
 	 */ 
 
-	private static String readRawTextFile(Context ctx)
+	private static String readRawTextFile()
 	{
 		//inputStream = ctx.getResources().openRawResource(resId);
 
