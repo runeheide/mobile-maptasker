@@ -24,20 +24,20 @@ public class TxtReader {
 		try {
 			fstream = new FileInputStream("/sdcard/iLocator/justpressed.txt");
 
-		// Get the object of DataInputStream
-		DataInputStream in = new DataInputStream(fstream);
-		BufferedReader br = new BufferedReader(new InputStreamReader(in));
-		
-		strLine = br.readLine();
-		br.close();
-		
+			// Get the object of DataInputStream
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
+			strLine = br.readLine();
+			br.close();
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return strLine;
 	}
-	
+
 
 	/**The function is called by: "getContentAt(Context, String, String)"
 	 *Context can be replaced by "this" to input the class from where the function is called
@@ -99,7 +99,7 @@ public class TxtReader {
 			return false;
 	}
 
-	
+
 	public String getObject(String objectName, String reqContent){
 
 		String returnString = "Failed to locate object";
@@ -112,10 +112,14 @@ public class TxtReader {
 			contentId = 1;
 		else if (reqContent.equals("ObjectType"))
 			contentId = 2;
-		else if (reqContent.equals("Latitude"))
+		else if (reqContent.equals("EventStatus"))
 			contentId = 3;
-		else if (reqContent.equals("Longitude"))
+		else if (reqContent.equals("Latitude"))
 			contentId = 4;
+		else if (reqContent.equals("Longitude"))
+			contentId = 5;
+		else if (reqContent.equals("Altitude"))
+			contentId = 6;
 		else
 			contentId = -1;
 
@@ -155,8 +159,8 @@ public class TxtReader {
 		}
 		return returnString;
 	}
-	
-	
+
+
 	//Denne funktion skal fjernes 
 	public String getObject(String reqContent)
 	{
@@ -257,7 +261,7 @@ public class TxtReader {
 	{
 		String output = "";
 		FileReader fileReader;
-		
+
 		try {
 			fileReader = new FileReader("/sdcard/iLocator/user.txt");
 			//InputStreamReader inputreader = new InputStreamReader(inputStream);
@@ -288,7 +292,7 @@ public class TxtReader {
 	{
 		String output = "";
 		FileReader fileReader;
-		
+
 		try {
 			fileReader = new FileReader("/sdcard/iLocator/filename.txt");
 			//InputStreamReader inputreader = new InputStreamReader(inputStream);
