@@ -17,7 +17,7 @@ public class TxtReader {
 
 	//static InputStream inputStream;
 
-	public String getSimpleName()
+	public String getNameOfPressedButton()
 	{
 		String strLine = "getSimpleName failed miserably :(";
 		FileInputStream fstream;
