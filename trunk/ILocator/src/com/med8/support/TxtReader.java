@@ -67,6 +67,8 @@ public class TxtReader {
 
 		String[] separated = myString.split(";");
 
+		System.out.println(contentId);
+
 		if (contentId != -1){
 			System.out.println("if1");
 
@@ -79,26 +81,20 @@ public class TxtReader {
 				separatedSplitInfo = stringToSplit.split(":");
 
 				String hallo = separatedSplitInfo[0];
-				System.out.println(hallo.compareTo(inString));
 
 				//If the two strings are similar the result is "0" 
 				//(otherwise negative number) and the if-sentence will run
 				if (hallo.equals(inString)) {
 					outString = separatedSplitInfo[contentId];
 					returnString = outString;
-					System.out.println("hallo");
 				}
 			}	
 		}
-
-		System.out.println(returnString + inputPassword);
-
 		if (returnString.equals(inputPassword))
 			return true;	
 		else
 			return false;
 	}
-
 
 	public String getObject(String objectName, String reqContent){
 
