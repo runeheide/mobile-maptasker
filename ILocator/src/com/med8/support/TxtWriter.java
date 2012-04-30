@@ -10,6 +10,16 @@ import java.io.InputStreamReader;
 
 public class TxtWriter{
 
+	public void deleteFile(String fileName){
+		try{
+			File file = new File("/sdcard/iLocator/"+fileName+".txt");
+			file.delete();
+		}
+		catch (Exception e){
+			System.err.println("Error in deleteFile: " + e.getMessage());
+		}
+	}
+
 	public void writeButtonPressed(String Name){
 
 		try{
@@ -92,16 +102,16 @@ public class TxtWriter{
 					bufferedWriter.write(strLine);
 					bufferedWriter.newLine();
 				}
-				bufferedWriter.write(UserName + ":" + Email + ":" + Password);
+				bufferedWriter.write(UserName + ":" + Email + ":" + Password + ";");
 				bufferedWriter.flush();
 				bufferedWriter.close();
 			}
 			catch (Exception e){
 				System.err.println("Missing File: " + e.getMessage());
 				// Create buffered writer which writes file on flush()
-				BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("sdcard/iLocator/filename.txt"));
+				BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("sdcard/iLocator/users.txt"));
 
-				bufferedWriter.write(UserName + ":" + Email + ":" + Password);
+				bufferedWriter.write(UserName + ":" + Email + ":" + Password + ";");
 				bufferedWriter.flush();
 				bufferedWriter.close();
 			}
