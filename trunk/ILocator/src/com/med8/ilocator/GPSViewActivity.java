@@ -31,7 +31,7 @@ public class GPSViewActivity extends MapActivity
 	MapController mapController;
 	AlternativeMyLocationOverlay mylocation;
 	MapView mapview; 
-	
+
 	public static GeoPoint userlocation = new GeoPoint(0,0);
 
 	//GeoPoint usergeopoint2;
@@ -47,32 +47,55 @@ public class GPSViewActivity extends MapActivity
 		mapview.setBuiltInZoomControls(true);
 		mapController = mapview.getController();
 		mapController.setZoom(16);
-		
+
 		mapview.setBuiltInZoomControls(true);
-		
+
 		mylocation = new AlternativeMyLocationOverlay(this, mapview);
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
-		
+
 		final Button button = (Button) findViewById(R.id.mapShiftButton);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// Perform action on click
 				// Rune: Call new class instead of new view
-    			//mapController.animateTo(usergeopoint);
-    			mapview.setSatellite(!mapview.isSatellite());
+				//mapController.animateTo(usergeopoint);
+				mapview.setSatellite(!mapview.isSatellite());
 			}
 		});
 
+		final Button myLocation = (Button) findViewById(R.id.MyLocation);
+		myLocation.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				// Perform action on click
+				// Rune: Call new class instead of new view
+				mapController.animateTo(mylocation.getMyLocation());
+				System.out.println(mylocation.getMyLocation());
+			}
+		});
+
+		final Button createNewObject = (Button) findViewById(R.id.NewObject);
+		createNewObject.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				// Perform action on click
+				// Rune: Call new class instead of new view
+				//mapController.animateTo(usergeopoint);
+
+				System.out.println(mapview.getMapCenter());
+			}
+		});
+
+
+
 		// Acquire a reference to the system Location Manager
 		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-		
+
 		// Define a listener that responds to location updates
 		LocationListener locationListener = new LocationListener() {
-						
+
 			public void onLocationChanged(Location location) {
 				// Called when a new location is found by the network location provider.
-				
+
 				makeUseOfNewLocation(location);
 			}
 
@@ -84,7 +107,7 @@ public class GPSViewActivity extends MapActivity
 		};
 
 		// Register the listener with the Location Manager to receive location updates
-		
+
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
 
 		GeoPoint point = new GeoPoint(19240000,-99120000);
@@ -96,42 +119,42 @@ public class GPSViewActivity extends MapActivity
 
 		GeoPoint point3 = new GeoPoint(57029262, 9979329);
 		OverlayItem overlayitem3 = new OverlayItem(point3, "1", "2");
-/*
-		
-		
+		/*
+
+
 		itemizedoverlay.addOverlay(overlayitem);
 		itemizedoverlay.addOverlay(overlayitem2);
 
-		
+
 		itemizedoverlay.addOverlay(overlayitem3);
 		mapOverlays.add(itemizedoverlay);		
-*/		
+		 */		
 	}
-		
+
 	protected void makeUseOfNewLocation(Location location) {
-		
+
 		int longitue = (int) (location.getLongitude()*1000000);
 		int latitute = (int) (location.getLatitude()*1000000); 
 
 		GPSViewActivity.userlocation = new GeoPoint(latitute, longitue);
-		
+
 		//implement some "if-button-is-pressed" function to navigate to user location
 		//mapController.animateTo(userlocation);
-		
+
 		//Set the zoom level of the map to level 3
 		mapController.setZoom(18);
 		//Remove when the "button-pressed" function above is implemented
 		//Navigate the map view to a specific location (the user's)
 		mapController.animateTo(userlocation);
-		
+
 		OverlayItem overlayuserposition = new OverlayItem(userlocation, "You are here","l");
-		
+
 		Drawable drawable = this.getResources().getDrawable(R.drawable.androidmarker);
-		
-		
+
+
 		ItemOverlay itemizedoverlay = new ItemOverlay(drawable, this);
 		itemizedoverlay.addOverlay(overlayuserposition);
-		
+
 		List<Overlay> mapOverlays = mapview.getOverlays();
 		mapOverlays.add(itemizedoverlay);
 	}
@@ -141,13 +164,13 @@ public class GPSViewActivity extends MapActivity
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 	@Override
 	protected void onResume() {
 		mylocation.enableMyLocation();
 		super.onResume();
 	}
-	
+
 	@Override
 	protected void onPause() {
 		mylocation.disableMyLocation();
