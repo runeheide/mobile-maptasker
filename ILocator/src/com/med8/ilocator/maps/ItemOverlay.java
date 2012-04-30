@@ -3,11 +3,15 @@ package com.med8.ilocator.maps;
 import java.util.ArrayList;
 
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 
 import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.OverlayItem;
+import com.med8.support.TxtReader;
+import com.med8.support.TxtWriter;
 
 public class ItemOverlay extends ItemizedOverlay {
 
@@ -36,11 +40,70 @@ public class ItemOverlay extends ItemizedOverlay {
 
 	@Override
 	protected boolean onTap(int index) {
-	  OverlayItem item = mOverlays.get(index);
-	  AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
-	  dialog.setTitle(item.getTitle());
-	  dialog.setMessage(item.getSnippet());
-	  dialog.show();
+		
+	  final OverlayItem item = mOverlays.get(index);
+	  final AlertDialog builder = new AlertDialog.Builder(mContext).create();
+	  builder.setTitle(item.getTitle());
+
+		builder.setMessage("Hydrant: type 1");
+		builder.setIcon(android.R.drawable.ic_dialog_alert);
+		builder.setButton("Done", new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				//...
+			}
+		});
+		builder.setButton("OK", new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				TxtWriter txtWriter = new TxtWriter();
+				TxtReader txtReader = new TxtReader();
+				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject(mContext, "Category"), txtReader.getObject(mContext, "ObjectType"), 
+						"OK", txtReader.getObject(mContext, "Latitude"), txtReader.getObject(mContext, "Longitude"), txtReader.getObject(mContext, "Altitude"));
+				//ARData.removeMarkers();
+				//updateDataOnClick();
+			}
+		});
+		builder.setButton2("Broken down", new DialogInterface.OnClickListener() {
+
+			public void onClick(DialogInterface dialog, int which) {
+				TxtWriter txtWriter = new TxtWriter();
+				TxtReader txtReader = new TxtReader();
+				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject(mContext, "Category"), txtReader.getObject(mContext, "ObjectType"), 
+						"Broken Down", txtReader.getObject(mContext, "Latitude"), txtReader.getObject(mContext, "Longitude"), txtReader.getObject(mContext, "Altitude"));
+				//ARData.removeMarkers();
+				//updateDataOnClick();
+
+			}
+		});
+		builder.setButton3("Needs attention", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				TxtWriter txtWriter = new TxtWriter();
+				TxtReader txtReader = new TxtReader();
+				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject(mContext, "Category"), txtReader.getObject(mContext, "ObjectType"), 
+						"Needs Attention", txtReader.getObject(mContext, "Latitude"), txtReader.getObject(mContext, "Longitude"), txtReader.getObject(mContext, "Altitude"));
+				//ARData.removeMarkers();
+				//updateDataOnClick();
+			}
+
+		});
+		
+		/*		
+		builder.setOnCancelListener(new OnCancelListener() {
+
+			   public void onCancel(DialogInterface dialog) {
+			    // TODO Auto-generated method stub
+			    TextView txt=(TextView)findViewById(R.id.txt);
+			    txt.setText(txt.getText()+" the cancel listner invoked");
+			   }
+			  });
+		 */
+		builder.show();
+	  
+//	  AlertDialog.Builder dialog = new AlertDialog.Builder(mContext);
+//	  dialog.setTitle(item.getTitle());
+//	  dialog.setMessage(item.getSnippet());
+//	  dialog.show();
 	  return true;
 	}
 	

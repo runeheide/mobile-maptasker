@@ -53,7 +53,12 @@ public class GPSViewActivity extends MapActivity
 		mylocation = new AlternativeMyLocationOverlay(this, mapview);
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
-
+//		mylocation.onTap(userlocation, mapview);
+		
+		Drawable marker = getResources().getDrawable(R.drawable.androidmarker);
+		ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+		mapview.getOverlays().add(itemizedOverlay);
+		
 		final Button button = (Button) findViewById(R.id.mapShiftButton);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -87,28 +92,7 @@ public class GPSViewActivity extends MapActivity
 
 
 
-		// Acquire a reference to the system Location Manager
-		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
-		// Define a listener that responds to location updates
-		LocationListener locationListener = new LocationListener() {
-
-			public void onLocationChanged(Location location) {
-				// Called when a new location is found by the network location provider.
-
-				makeUseOfNewLocation(location);
-			}
-
-			public void onStatusChanged(String provider, int status, Bundle extras) {}
-
-			public void onProviderEnabled(String provider) {}
-
-			public void onProviderDisabled(String provider) {}
-		};
-
-		// Register the listener with the Location Manager to receive location updates
-
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
 
 		GeoPoint point = new GeoPoint(19240000,-99120000);
 		OverlayItem overlayitem = new OverlayItem(point, "Hola, Mundo!", "I'm in Mexico City!");
@@ -119,16 +103,14 @@ public class GPSViewActivity extends MapActivity
 
 		GeoPoint point3 = new GeoPoint(57029262, 9979329);
 		OverlayItem overlayitem3 = new OverlayItem(point3, "1", "2");
-		/*
+		
 
 
-		itemizedoverlay.addOverlay(overlayitem);
-		itemizedoverlay.addOverlay(overlayitem2);
+		itemizedOverlay.addOverlay(overlayitem);
+		itemizedOverlay.addOverlay(overlayitem2);
 
 
-		itemizedoverlay.addOverlay(overlayitem3);
-		mapOverlays.add(itemizedoverlay);		
-		 */		
+		itemizedOverlay.addOverlay(overlayitem3);		
 	}
 
 	protected void makeUseOfNewLocation(Location location) {
