@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">iLocator</string>
+
+    <string name="app_name">iLocator</string>
     <string name="launchilocator">Launch ILocator!</string>
     <string name="welcome">Welcome to iLocator!</string>
     <string name="back">Back</string>
@@ -44,4 +45,7 @@
     <string name="tasks">Tasks</string>
     <string name="users">Users</string>
     <string name="mapviewshifter">"Shift Maps</string>
+    <string name="myLocation">My Location</string>
+    <string name="newObject">New Object</string>
+
 </resources>
