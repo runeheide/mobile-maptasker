@@ -158,7 +158,7 @@ public class TxtReader {
 	
 	
 	//Denne funktion skal fjernes 
-	public String getObject(Context inContext, String reqContent)
+	public String getObject(String reqContent)
 	{
 		String outString = "outstring pee";
 		String returnString = "Function Fail";
@@ -183,7 +183,7 @@ public class TxtReader {
 			contentId = -1;
 
 		String myString = new String();
-		myString = readRawObjectsTextFile(inContext);
+		myString = readRawObjectsTextFile();
 
 		String[] separated = myString.split(";");
 
@@ -255,11 +255,9 @@ public class TxtReader {
 
 	private static String readRawTextFile()
 	{
-		//inputStream = ctx.getResources().openRawResource(resId);
-
 		String output = "";
-
 		FileReader fileReader;
+		
 		try {
 			fileReader = new FileReader("/sdcard/iLocator/user.txt");
 			//InputStreamReader inputreader = new InputStreamReader(inputStream);
@@ -278,7 +276,6 @@ public class TxtReader {
 				return null;
 			}
 			output = text.toString();
-
 		}
 		catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
@@ -287,14 +284,11 @@ public class TxtReader {
 		return output;
 	}
 
-	private static String readRawObjectsTextFile(Context ctx)
+	private static String readRawObjectsTextFile()
 	{
-		//System.out.println("readRawTextFile2");
-		//inputStream = ctx.getResources().openRawResource(resId);
-
 		String output = "";
-
 		FileReader fileReader;
+		
 		try {
 			fileReader = new FileReader("/sdcard/iLocator/filename.txt");
 			//InputStreamReader inputreader = new InputStreamReader(inputStream);
@@ -313,8 +307,6 @@ public class TxtReader {
 				return null;
 			}
 			output = text.toString();
-			System.out.println("output: " + output);
-
 		}
 		catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
@@ -322,5 +314,4 @@ public class TxtReader {
 		}
 		return output;
 	}
-
 }
