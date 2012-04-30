@@ -28,16 +28,16 @@ public class EditObjectActivity extends ILocatorActivity {
 		TxtWriter txtWriter = new TxtWriter();
 		
 		TxtReader txtReader2 = new TxtReader();
-		String pressedObjectName = txtReader2.getSimpleName();
+		String pressedObjectName = txtReader2.getNameOfPressedButton();
 		
 		name.setText(txtReader.getObject(pressedObjectName, "Name"));
 		
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button saveButton = (Button)findViewById(R.id.saveButton);
 			
-		String _category = txtReader.getObject(this, "Category");			
-		String _objectType = txtReader.getObject(this, "ObjectType");		
-		String _eventStatus = txtReader.getObject(this, "EventStatus");		
+		String _category = txtReader.getObject("Category");			
+		String _objectType = txtReader.getObject("ObjectType");		
+		String _eventStatus = txtReader.getObject("EventStatus");		
 		
 		if (_category.equals("Wells"))
 		{
