@@ -4,6 +4,9 @@
     <string name="hello">Hello World, Maps2Activity!</string>
     <string name="app_name">Maps2</string>
     <string name="MapViewShifter">Change View</string>
+    <string name="MyLocation">My Location</string>
+    <string name="NewObject">New Object</string>
+    <string name="Done">DONE!</string>
     <string name="coordinate1">entotre</string>
 
 </resources>

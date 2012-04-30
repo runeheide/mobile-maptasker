@@ -15,10 +15,11 @@ public class TxtWriter{
 
 	public void writeFile(Context inContext, String Name, String Category, String ObjectType, String Latitude, String Longitude){
 
-		String[] line = textReader.getAllLines(inContext);
+//		String line = textReader.getAllLines();
 
 		FileWriter fWriter;
 
+		
 		
 		try{
 			fWriter = new FileWriter("/sdcard/data/filename.txt");
@@ -34,7 +35,7 @@ public class TxtWriter{
 			String strLine;
 			
 			//Read File Line By Line
-			while ((strLine = br.readLine()) = = null)   {
+			while ((strLine = br.readLine()) == null)   {
 				// Print the content on the console
 				System.out.println (strLine);
 				fWriter.write("penis" + newLine);

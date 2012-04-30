@@ -10,13 +10,30 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:clickable="true"
-        android:apiKey="0aFOkZHqNeYCAWUM5T9Ovep8HPtVRUrtFdwN7Tw"
+        android:apiKey="0aFOkZHqNeYAeIm-cFF0kCOft0Qd9FOYDHn8uoQ"
     />
         <Button
-        android:id="@+id/login"
+        android:id="@+id/ChangeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginLeft="10dip"
         android:text="@string/MapViewShifter"/>
+        
+        <Button
+        android:id="@+id/MyLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dip"
+        android:text="@string/MyLocation"/>
+        
+        <Button
+        android:id="@+id/NewObject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dip"
+        android:text="@string/NewObject"/>   
+        
 </RelativeLayout>

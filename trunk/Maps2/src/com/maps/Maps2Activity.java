@@ -1,5 +1,6 @@
 package com.maps;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -18,7 +19,9 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 import com.support.TxtReader;
+import com.support.TxtReader2;
 import com.support.TxtWriter;
+import com.support.TxtWriter2;
 
 public class Maps2Activity extends MapActivity
 {    
@@ -42,13 +45,13 @@ public class Maps2Activity extends MapActivity
 		mapController = mapview.getController();
 		mapController.setZoom(16);
 		
-		mapview.setBuiltInZoomControls(true);
-		
 		mylocation = new AlternativeMyLocationOverlay(this, mapview);
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
 		
-		final Button button = (Button) findViewById(R.id.login);
+		android.os.SystemClock.sleep(1000);
+		
+		final Button button = (Button) findViewById(R.id.ChangeView);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// Perform action on click
@@ -57,7 +60,42 @@ public class Maps2Activity extends MapActivity
     			mapview.setSatellite(!mapview.isSatellite());
 			}
 		});
-
+		/*
+		System.out.println(mylocation.getMyLocation());
+		if(mylocation.runOnFirstFix(null)){
+			mapController.animateTo(mylocation.getMyLocation());	
+		}*/
+		
+		
+		
+// TILFØJ DETTE NYE STYKKE TIL iLOCATOR PROJEKTET
+// Husk main.xml og string.xml
+		
+		final Button myLocation = (Button) findViewById(R.id.MyLocation);
+		myLocation.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				// Perform action on click
+				// Rune: Call new class instead of new view
+    			mapController.animateTo(mylocation.getMyLocation());
+    			System.out.println(mylocation.getMyLocation());
+			}
+		});
+		
+		final Button createNewObject = (Button) findViewById(R.id.NewObject);
+		createNewObject.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				// Perform action on click
+				// Rune: Call new class instead of new view
+    			//mapController.animateTo(usergeopoint);
+    			
+				System.out.println(mapview.getMapCenter());
+			}
+		});
+		
+//HER SLUTTER DET STYKKE DER SKAL MED I iLOCATOR PROJEKTET
+		
+		
+		
 		// Acquire a reference to the system Location Manager
 		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		
@@ -103,14 +141,34 @@ public class Maps2Activity extends MapActivity
 //		itemizedoverlay.addOverlay(overlayuserposition);
 //		mapOverlays.add(itemizedoverlay);		
 		
+		/*
 		TxtWriter textWriter = new TxtWriter();
 		textWriter.writeFile(this,"Name","Category","ObjectType","Latitude","Longitude");
 		
 		textWriter.writeFile(this,"Name2","Category2","ObjectType2","Latitude2","Longitude2");
+		*/
 		
-		TxtReader textReader = new TxtReader();
-		System.out.println(textReader.getContent(this, "Name2", "Category"));	
+		//TxtReader2 textReader = new TxtReader2();
+		//System.out.println(textReader.returnAll());
 	
+		//System.out.println(mylocation.getMyLocation());
+		
+		System.out.println("pee1");
+		
+    	TxtReader2 txtReader2 = new TxtReader2();
+    	System.out.println(txtReader2.returnObjects());
+    	List<String> arrayList = txtReader2.returnObjects();
+    	
+    	
+    	int i = 0;
+    	
+    	System.out.println("pee");
+    	
+    	while (i<arrayList.size())
+    	{	
+    		System.out.println(arrayList.get(i));
+    		i++;
+    	}
 	}
 		
 	protected void makeUseOfNewLocation(Location location) {

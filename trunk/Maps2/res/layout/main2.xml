@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainlayout"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-  
-  
-  <TextView android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:text="Waiting for location..."
-    android:id="@+id/lblLocationInfo"/>
-  <!-- <1> -->
-  
-  
-      
-  <com.google.android.maps.MapView
-      xmlns:android="http://schemas.android.com/apk/res/android"
-      android:id="@+id/mapview"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:clickable="true"
-      android:apiKey="0aFOkZHqNeYCAWUM5T9Ovep8HPtVRUrtFdwN7Tw"/>
-  <!-- <2> -->
-    
-</LinearLayout>
+    android:layout_height="fill_parent" >
+
+    <com.google.android.maps.MapView
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clickable="true"
+        android:apiKey="0aFOkZHqNeYAeIm-cFF0kCOft0Qd9FOYDHn8uoQ"
+    />
+        <Button
+        android:id="@+id/ChangeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dip"
+        android:text="@string/MapViewShifter"/>
+        
+        <Button
+        android:id="@+id/MyLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dip"
+        android:text="@string/MyLocation"/>
+        
+        <Button
+        android:id="@+id/Done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dip"
+        android:text="@string/Done"/>   
+        
+</RelativeLayout>
