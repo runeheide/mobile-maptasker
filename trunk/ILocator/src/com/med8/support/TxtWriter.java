@@ -16,10 +16,10 @@ public class TxtWriter{
 			// Delete file to make room for the new file (Not the most optimal method)
 			File file = new File("/sdcard/iLocator/justpressed.txt");
 			file.delete();
-			
+
 			// Create buffered writer which writes file on flush()
 			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("sdcard/iLocator/justpressed.txt"));
-			
+
 			bufferedWriter.write(Name);
 			bufferedWriter.flush();
 			bufferedWriter.close();
@@ -29,7 +29,7 @@ public class TxtWriter{
 			System.err.println("Error: " + e.getMessage());
 		}
 	}
-	
+
 	public void writeFileAddObject(String Name, String Category, String ObjectType, String EventStatus, String latitude, String longitude, String altitude){
 
 		try{
@@ -70,18 +70,45 @@ public class TxtWriter{
 			System.err.println("Error: " + e.getMessage());
 		}
 	}
-	
-    public void writeFileSignUp(String UserName, String Email, String Password){
-    	 
-        FileWriter fWriter;
-        try{
-             fWriter = new FileWriter("/sdcard/iLocator/user.txt");
-             fWriter.write(UserName + ":" + Email + ":" + Password + ";");
-             fWriter.flush();
-             fWriter.close();
-         }
-        	catch(Exception e){
-                  e.printStackTrace();
-         }  
-    }    
+
+	public void writeFileSignUp(String UserName, String Email, String Password){
+
+		try{
+			try{
+				// Open the file that is the first command line parameter
+				FileInputStream fstream = new FileInputStream("/sdcard/iLocator/users.txt");
+				// Get the object of DataInputStream
+				DataInputStream in = new DataInputStream(fstream);
+				BufferedReader br = new BufferedReader(new InputStreamReader(in));
+				String strLine;
+
+				// Delete file to make room for the new file (Not the most optimal method)
+				File file = new File("/sdcard/iLocator/users.txt");
+				file.delete();
+				// Create buffered writer which writes file on flush()
+				BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("sdcard/iLocator/users.txt"));
+
+				while ((strLine = br.readLine()) != null)   {
+					bufferedWriter.write(strLine);
+					bufferedWriter.newLine();
+				}
+				bufferedWriter.write(UserName + ":" + Email + ":" + Password);
+				bufferedWriter.flush();
+				bufferedWriter.close();
+			}
+			catch (Exception e){
+				System.err.println("Missing File: " + e.getMessage());
+				// Create buffered writer which writes file on flush()
+				BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("sdcard/iLocator/filename.txt"));
+
+				bufferedWriter.write(UserName + ":" + Email + ":" + Password);
+				bufferedWriter.flush();
+				bufferedWriter.close();
+			}
+		}
+		//Catch exception if any
+		catch (Exception e){
+			System.err.println("Error: " + e.getMessage());
+		}
+	}   	 
 }
