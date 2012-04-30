@@ -66,7 +66,7 @@ public class ARApplicationActivity extends AugmentedReality {
 //		setContentView(R.layout.arview);
 
 		localData = new LocalDataSource(this.getResources());
-//		ARData.addMarkers(localData.getMarkers());
+		ARData.addMarkers(localData.getMarkers());
 
     }
 
@@ -186,14 +186,20 @@ public class ARApplicationActivity extends AugmentedReality {
 	{
 		ARData.removeMarkers();
 		ARData.addMarkers(localData.getMarkers());
-		Intent intent = new android.content.Intent();
-		intent.setClass(this, this.getClass());  
-		this.startActivity(intent);
 
-       	
-//		this.onCreate(null);
-//		Intent newARIntent = new Intent(this, ARApplicationActivity.class);
-//		startActivity(newARIntent);
+		//this.onCreate(null);
+		
+//		Intent intent = new Intent();
+//		setResult(RESULT_OK, intent);
+//		finish();
+		
+	//	Intent intent = new android.content.Intent();
+	//	intent.setClass(this, this.getClass());  
+	
+		Intent intent = this.getIntent();
+		this.startActivity(intent);
+		this.finish();
+ 
 	}
 	
 	protected void updateDataOnZoom() {

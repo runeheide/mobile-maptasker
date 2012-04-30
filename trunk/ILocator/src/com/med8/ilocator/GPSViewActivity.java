@@ -92,7 +92,7 @@ public class GPSViewActivity extends MapActivity
 
 
 
-
+		//While-loop ?
 
 		GeoPoint point = new GeoPoint(19240000,-99120000);
 		OverlayItem overlayitem = new OverlayItem(point, "Hola, Mundo!", "I'm in Mexico City!");
@@ -104,8 +104,6 @@ public class GPSViewActivity extends MapActivity
 		GeoPoint point3 = new GeoPoint(57029262, 9979329);
 		OverlayItem overlayitem3 = new OverlayItem(point3, "1", "2");
 		
-
-
 		itemizedOverlay.addOverlay(overlayitem);
 		itemizedOverlay.addOverlay(overlayitem2);
 

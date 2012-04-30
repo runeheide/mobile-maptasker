@@ -160,7 +160,9 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
 	 * {@inheritDoc}
 	 */
 	@Override
-    public void onSensorChanged(SensorEvent evt) {
+    
+	
+	public void onSensorChanged(SensorEvent evt) {
         super.onSensorChanged(evt);
 
         if (    evt.sensor.getType() == Sensor.TYPE_ACCELEROMETER || 
