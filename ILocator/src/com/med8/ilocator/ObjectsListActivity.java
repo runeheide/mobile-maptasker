@@ -1,8 +1,12 @@
 package com.med8.ilocator;
 
+import java.util.List;
+
 import com.med8.ilocator.R;
 import com.med8.support.TxtReader;
+import com.med8.support.TxtWriter;
 import com.med8.ilocator.EditObjectActivity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,24 +27,32 @@ public class ObjectsListActivity extends ILocatorActivity {
 		
 		ListView objectsList = (ListView)findViewById(R.id.listViewObjects);
 		
-		TxtReader txtReader = new TxtReader();
-		final String item1 = txtReader.getObject(this, "Name");
-		final String item2 = "test";
-		String[] items = { item1, item2};
+    	TxtReader txtReader = new TxtReader();
+    	System.out.println(txtReader.returnObjects());
+    	List<String> arrayList = txtReader.returnObjects();
+    	
+    	int i = 0;
+    	
+    	System.out.println("pee");
+    	
+    	while (i<arrayList.size())
+    	{	
+    		System.out.println(arrayList.get(i));
+    		i++;
+    	}
 		
-		ArrayAdapter<String> adapt = new ArrayAdapter<String>(this, R.layout.objectslist_item, items);
+		final ArrayAdapter<String> adapt = new ArrayAdapter<String>(this, R.layout.objectslist_item, arrayList);
 		objectsList.setAdapter(adapt);
 		
 		objectsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View itemClicked,
 					int position, long id) {
-				TextView textView = (TextView) itemClicked;
-				String strText = textView.getText().toString();
-				if (strText.equals(
-						item1)) {
+
+					TxtWriter txtWriter = new TxtWriter();
+					txtWriter.writeButtonPressed(adapt.getItem(position));
+									
 					Intent editObjectIntent = new Intent(itemClicked.getContext(), EditObjectActivity.class);
 					startActivityForResult(editObjectIntent, 0);
-				}
 			}
 		});
 		
