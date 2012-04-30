@@ -47,25 +47,25 @@ public class LocalDataSource extends DataSource{
     public List<Marker> getMarkers() {
     	
     	TxtReader txtReader = new TxtReader();
-    	double latitude = Double.parseDouble(txtReader.getObject(thisContext, "Latitude"));
-    	double longitude = Double.parseDouble(txtReader.getObject(thisContext, "Longitude"));
-    	double altitude = Double.parseDouble(txtReader.getObject(thisContext, "Altitude"));
+    	double latitude = Double.parseDouble(txtReader.getObject("Latitude"));
+    	double longitude = Double.parseDouble(txtReader.getObject("Longitude"));
+    	double altitude = Double.parseDouble(txtReader.getObject("Altitude"));
     	
-    	String eventStatus = txtReader.getObject(thisContext, "EventStatus");
+    	String eventStatus = txtReader.getObject("EventStatus");
     	
     	if (eventStatus.equalsIgnoreCase("Broken Down"))
     	{
-    		Marker object1 = new IconMarker(txtReader.getObject(thisContext, "Name"), latitude, longitude, altitude, Color.DKGRAY, icon1);
+    		Marker object1 = new IconMarker(txtReader.getObject("Name"), latitude, longitude, altitude, Color.DKGRAY, icon1);
     		cachedMarkers.add(object1);
     	}
     	else if (eventStatus.equalsIgnoreCase("Needs Attention"))
     	{
-    		Marker object1 = new IconMarker(txtReader.getObject(thisContext, "Name"), latitude, longitude, altitude, Color.DKGRAY, icon3);
+    		Marker object1 = new IconMarker(txtReader.getObject("Name"), latitude, longitude, altitude, Color.DKGRAY, icon3);
     		cachedMarkers.add(object1);	
     	}
     	else
     	{
-    		Marker object1 = new IconMarker(txtReader.getObject(thisContext, "Name"), latitude, longitude, altitude, Color.DKGRAY, icon2);
+    		Marker object1 = new IconMarker(txtReader.getObject("Name"), latitude, longitude, altitude, Color.DKGRAY, icon2);
     		cachedMarkers.add(object1);	
     	}
     	
