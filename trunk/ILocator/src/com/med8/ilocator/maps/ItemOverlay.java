@@ -58,8 +58,8 @@ public class ItemOverlay extends ItemizedOverlay {
 			public void onClick(DialogInterface dialog, int which) {
 				TxtWriter txtWriter = new TxtWriter();
 				TxtReader txtReader = new TxtReader();
-				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject(mContext, "Category"), txtReader.getObject(mContext, "ObjectType"), 
-						"OK", txtReader.getObject(mContext, "Latitude"), txtReader.getObject(mContext, "Longitude"), txtReader.getObject(mContext, "Altitude"));
+				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
+						"OK", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
 				//ARData.removeMarkers();
 				//updateDataOnClick();
 			}
@@ -69,8 +69,8 @@ public class ItemOverlay extends ItemizedOverlay {
 			public void onClick(DialogInterface dialog, int which) {
 				TxtWriter txtWriter = new TxtWriter();
 				TxtReader txtReader = new TxtReader();
-				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject(mContext, "Category"), txtReader.getObject(mContext, "ObjectType"), 
-						"Broken Down", txtReader.getObject(mContext, "Latitude"), txtReader.getObject(mContext, "Longitude"), txtReader.getObject(mContext, "Altitude"));
+				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
+						"Broken Down", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
 				//ARData.removeMarkers();
 				//updateDataOnClick();
 
@@ -80,8 +80,8 @@ public class ItemOverlay extends ItemizedOverlay {
 			public void onClick(DialogInterface dialog, int which) {
 				TxtWriter txtWriter = new TxtWriter();
 				TxtReader txtReader = new TxtReader();
-				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject(mContext, "Category"), txtReader.getObject(mContext, "ObjectType"), 
-						"Needs Attention", txtReader.getObject(mContext, "Latitude"), txtReader.getObject(mContext, "Longitude"), txtReader.getObject(mContext, "Altitude"));
+				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
+						"Needs Attention", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
 				//ARData.removeMarkers();
 				//updateDataOnClick();
 			}
