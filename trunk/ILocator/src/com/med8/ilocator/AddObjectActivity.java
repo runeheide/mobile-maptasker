@@ -73,7 +73,6 @@ public class AddObjectActivity extends ILocatorActivity {
 
 
 				
-<<<<<<< .mine
 				System.out.println("LORTELORT2");
 				TxtReader txtReader = new TxtReader();
 				String latitude = txtReader.getLocation("Latitude");
@@ -81,15 +80,15 @@ public class AddObjectActivity extends ILocatorActivity {
 				
 //				String latitude = "57.0124965";
 //				String longitude = "9.9892814";
-=======
+
 //				System.out.println("Lat: " + latitude + ", Long: " + longitude);
 						        
-		        int latitudeint = (int) (current.getLatitude()*1000000);
-		        int longitudeint = (int) (current.getLongitude()*1000000);
+//		        int latitudeint = (int) (current.getLatitude()*1000000);
+//		        int longitudeint = (int) (current.getLongitude()*1000000);
+//
+//				String latitude = Integer.toString(latitudeint);
+//				String longitude = Integer.toString(longitudeint);
 
-				String latitude = Integer.toString(latitudeint);
-				String longitude = Integer.toString(longitudeint);
->>>>>>> .r81
 				String altitude = "0.0";
 
 				TxtWriter txtWriter = new TxtWriter();
