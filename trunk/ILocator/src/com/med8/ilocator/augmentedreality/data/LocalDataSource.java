@@ -28,6 +28,7 @@ public class LocalDataSource extends DataSource{
     private static Bitmap icon1 = null;
     private static Bitmap icon2 = null;
     private static Bitmap icon3 = null;
+    TxtReader txtReader = new TxtReader();
     public Context thisContext;
     
     public LocalDataSource(Resources res) {
@@ -45,6 +46,53 @@ public class LocalDataSource extends DataSource{
     }
     
     public List<Marker> getMarkers() {
+    	
+    	List<String> arrayList = txtReader.returnObjects();
+    	
+    	if (arrayList.size() >= 1)
+    	{
+    	
+    		for (int i = 0; i < arrayList.size()-1; i++)
+    		{
+    		
+    			double latitude = Double.parseDouble(txtReader.getObject(arrayList.get(i), "Latitude"));
+    			double longitude = Double.parseDouble(txtReader.getObject(arrayList.get(i), "Longitude"));
+    	
+    			double altitude = 0.0;
+    		
+    			if (txtReader.getObject(arrayList.get(i), "EventStatus").equalsIgnoreCase("OK"))
+    			{
+    			
+    				Marker object1 = new IconMarker(txtReader.getObject(arrayList.get(i), "Name"), latitude, longitude,
+    						altitude, Color.DKGRAY, icon1);
+    				cachedMarkers.add(object1);
+    			}
+    			else if (txtReader.getObject(arrayList.get(i), "EventStatus").equalsIgnoreCase("Needs Attention"))
+    			{
+    				Marker object1 = new IconMarker(txtReader.getObject(arrayList.get(i), "Name"), latitude, longitude,
+    						altitude, Color.DKGRAY, icon3);
+    				cachedMarkers.add(object1);
+    			}
+    			else
+    			{
+    				Marker object1 = new IconMarker(txtReader.getObject(arrayList.get(i), "Name"), latitude, longitude,
+    						altitude, Color.DKGRAY, icon2);
+    				cachedMarkers.add(object1);
+    			}
+    				
+    		}
+    		
+    	}
+    	else
+    	{
+    		Marker object1 = new IconMarker("HEY",  52.0000, 9.899999,0.0, Color.DKGRAY, icon1);
+		//System.out.println("after marker initialize");
+    		cachedMarkers.add(object1);
+    	}
+    	for (int i = 0; i < cachedMarkers.size()-1; i++)
+    	{
+    		System.out.println("CACHED OBJECT " + i + ": " + cachedMarkers.get(i).getName());
+    	}
     	
 /*    	TxtReader txtReader = new TxtReader();
     	double latitude = Double.parseDouble(txtReader.getObject("Latitude"));
