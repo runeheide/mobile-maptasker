@@ -56,34 +56,18 @@ public class ItemOverlay extends ItemizedOverlay {
 		builder.setButton("OK", new DialogInterface.OnClickListener() {
 
 			public void onClick(DialogInterface dialog, int which) {
-				TxtWriter txtWriter = new TxtWriter();
-				TxtReader txtReader = new TxtReader();
-				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
-						"OK", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
-				//ARData.removeMarkers();
-				//updateDataOnClick();
+				
 			}
 		});
 		builder.setButton2("Broken down", new DialogInterface.OnClickListener() {
 
 			public void onClick(DialogInterface dialog, int which) {
-				TxtWriter txtWriter = new TxtWriter();
-				TxtReader txtReader = new TxtReader();
-				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
-						"Broken Down", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
-				//ARData.removeMarkers();
-				//updateDataOnClick();
 
 			}
 		});
 		builder.setButton3("Needs attention", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-				TxtWriter txtWriter = new TxtWriter();
-				TxtReader txtReader = new TxtReader();
-				txtWriter.writeFileAddObject(item.getTitle().toString(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
-						"Needs Attention", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
-				//ARData.removeMarkers();
-				//updateDataOnClick();
+
 			}
 
 		});
