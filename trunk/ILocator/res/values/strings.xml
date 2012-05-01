@@ -30,8 +30,8 @@
     <string name="category1">Wells</string>
     <string name="category2">Hydrants</string>
     <string name="category3">Parks</string>
-    <string name="objecttype1">Type1</string>
-    <string name="objecttype2">Type2</string>
+    <string name="objecttype1">Type 1</string>
+    <string name="objecttype2">Type 2</string>
     <string name="eventstatus1">OK</string>
     <string name="eventstatus2">Needs Attention</string>
     <string name="eventstatus3">Broken Down</string>
