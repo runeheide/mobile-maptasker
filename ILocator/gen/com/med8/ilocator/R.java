@@ -32,6 +32,7 @@ public final class R {
         public static final int signupbutton=0x7f02000a;
     }
     public static final class id {
+        public static final int Done=0x7f080024;
         public static final int EditText_Email=0x7f08001e;
         public static final int EditText_Name=0x7f080000;
         public static final int EditText_Password=0x7f08001f;
@@ -51,7 +52,7 @@ public final class R {
         public static final int categoriesButton=0x7f080015;
         public static final int createButton=0x7f080006;
         public static final int error=0x7f080021;
-        public static final int exit=0x7f080026;
+        public static final int exit=0x7f080027;
         public static final int gpsButton=0x7f080018;
         public static final int heatmapButton=0x7f08001a;
         public static final int ilocator_launch=0x7f080013;
@@ -65,8 +66,8 @@ public final class R {
         public static final int mapview=0x7f08000e;
         public static final int quitButton=0x7f08000b;
         public static final int saveButton=0x7f08000d;
-        public static final int showRadar=0x7f080024;
-        public static final int showZoomBar=0x7f080025;
+        public static final int showRadar=0x7f080025;
+        public static final int showZoomBar=0x7f080026;
         public static final int signUpButton=0x7f080022;
         public static final int tasksButton=0x7f080016;
         public static final int textview=0x7f080012;
@@ -91,8 +92,9 @@ public final class R {
         public static final int signup=0x7f03000f;
         public static final int start=0x7f030010;
         public static final int tasks=0x7f030011;
-        public static final int updateobject=0x7f030012;
-        public static final int users=0x7f030013;
+        public static final int updatelocation=0x7f030012;
+        public static final int updateobject=0x7f030013;
+        public static final int users=0x7f030014;
     }
     public static final class menu {
         public static final int menu=0x7f070000;
@@ -141,6 +143,8 @@ public final class R {
         public static final int signup=0x7f06000b;
         public static final int signupforilocator=0x7f06000c;
         public static final int tasks=0x7f060029;
+        public static final int updateLocation=0x7f06002e;
+        public static final int updatePosition=0x7f06002f;
         public static final int username=0x7f060005;
         public static final int users=0x7f06002a;
         public static final int welcome=0x7f060002;

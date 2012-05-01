@@ -54,12 +54,12 @@ public class TxtWriter{
 			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("sdcard/iLocator/locationselected.txt"));
 
 			System.out.println(location);
-			
+
 			String lat = Integer.toString(location.getLatitudeE6());
 			String lon = Integer.toString(location.getLongitudeE6());
-			
+
 			System.out.println(lat+","+lon);
-			
+
 			bufferedWriter.write(lat + ":" + lon);
 			bufferedWriter.flush();
 			bufferedWriter.close();
@@ -69,8 +69,8 @@ public class TxtWriter{
 			System.err.println("Error: " + e.getMessage());
 		}
 	}
-	
-	
+
+
 	public void writeFileAddObject(String Name, String Category, String ObjectType, String EventStatus, String latitude, String longitude, String altitude){
 
 		try{
@@ -125,6 +125,7 @@ public class TxtWriter{
 				while ((strLine = br.readLine()) != null)   {
 
 					bufferedWriter.write(strLine);
+					bufferedWriter.newLine();
 				}
 				bufferedWriter.flush();
 				bufferedWriter.close();
@@ -175,13 +176,17 @@ public class TxtWriter{
 						if (nameCheck.equals(objectName)) {
 							//returnString = separatedInfo[contentId];
 							System.out.println("nameCheck");
+							System.out.println(separatedInfo[6]);
+							
+							String pattern = ";";
+							separatedInfo[6] = separatedInfo[6].replaceAll(pattern, "");
 
 							separatedInfo[contentId] = replacingText;
 
 							bufferedWriter.write(separatedInfo[0] + ":" + separatedInfo[1] + ":" + separatedInfo[2] + ":" + separatedInfo[3] + ":" + separatedInfo[4] + ":" + separatedInfo[5] + ":" + separatedInfo[6] + ";");
 							bufferedWriter.newLine();
 						}
-						
+
 						else{
 							bufferedWriter.write(strLine);
 							bufferedWriter.newLine();
