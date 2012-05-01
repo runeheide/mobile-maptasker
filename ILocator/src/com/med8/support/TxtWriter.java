@@ -149,9 +149,10 @@ public class TxtWriter{
 
 							separatedInfo[contentId] = replacingText;
 
-							bufferedWriter.write(separatedInfo[0] + ":" + separatedInfo[1] + ":" + separatedInfo[2] + ":" + separatedInfo[3] + ":" + separatedInfo[4] + ":" + separatedInfo[5] + ":" + separatedInfo[6] +";");
+							bufferedWriter.write(separatedInfo[0] + ":" + separatedInfo[1] + ":" + separatedInfo[2] + ":" + separatedInfo[3] + ":" + separatedInfo[4] + ":" + separatedInfo[5] + ":" + separatedInfo[6] + ";");
 							bufferedWriter.newLine();
 						}
+						
 						else{
 							bufferedWriter.write(strLine);
 							bufferedWriter.newLine();
