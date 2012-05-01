@@ -27,10 +27,16 @@ public class ObjectsListActivity extends ILocatorActivity {
 		
 		ListView objectsList = (ListView)findViewById(R.id.listViewObjects);
 		
+<<<<<<< .mine
     	TxtReader txtReader = new TxtReader();
     	//System.out.println(txtReader.returnObjects());
     	List<String> arrayList = txtReader.returnObjects();
-<<<<<<< .mine
+
+=======
+		TxtReader txtReader = new TxtReader();
+		List<String> arrayList = txtReader.returnObjects();
+		
+>>>>>>> .r79
     	
     	int i = 0;
 
@@ -40,10 +46,9 @@ public class ObjectsListActivity extends ILocatorActivity {
     		//System.out.println(arrayList.get(i));
     		i++;
     	}
-=======
+
 
     	System.out.println("1");
->>>>>>> .r75
 		
 		final ArrayAdapter<String> adapt = new ArrayAdapter<String>(this, R.layout.objectslist_item, arrayList);
 		objectsList.setAdapter(adapt);
@@ -79,4 +84,8 @@ public class ObjectsListActivity extends ILocatorActivity {
 			}
 		});
 	}	
+	public void onResume()
+	{
+		onCreate(null);
+	}
 }

@@ -46,7 +46,7 @@ public class LocalDataSource extends DataSource{
     
     public List<Marker> getMarkers() {
     	
-    	TxtReader txtReader = new TxtReader();
+/*    	TxtReader txtReader = new TxtReader();
     	double latitude = Double.parseDouble(txtReader.getObject("Latitude"));
     	double longitude = Double.parseDouble(txtReader.getObject("Longitude"));
     	double altitude = Double.parseDouble(txtReader.getObject("Altitude"));

@@ -35,9 +35,9 @@ public class EditObjectActivity extends ILocatorActivity {
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button saveButton = (Button)findViewById(R.id.saveButton);
 
-		String _category = txtReader.getObject("Category");			
-		String _objectType = txtReader.getObject("ObjectType");		
-		String _eventStatus = txtReader.getObject("EventStatus");		
+		String _category = txtReader.getObject(nameOfClicked, "Category");			
+		String _objectType = txtReader.getObject(nameOfClicked, "ObjectType");		
+		String _eventStatus = txtReader.getObject(nameOfClicked, "EventStatus");		
 
 		if (_category.equalsIgnoreCase("Wells"))
 		{

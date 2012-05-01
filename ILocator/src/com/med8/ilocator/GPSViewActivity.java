@@ -1,5 +1,6 @@
 package com.med8.ilocator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
@@ -10,6 +11,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -53,12 +55,10 @@ public class GPSViewActivity extends MapActivity
 		mylocation = new AlternativeMyLocationOverlay(this, mapview);
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
-//		mylocation.onTap(userlocation, mapview);
-		
-		Drawable marker = getResources().getDrawable(R.drawable.androidmarker);
-		ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
-		mapview.getOverlays().add(itemizedOverlay);
-		
+		//		mylocation.onTap(userlocation, mapview);
+
+
+
 		final Button button = (Button) findViewById(R.id.mapShiftButton);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -75,7 +75,7 @@ public class GPSViewActivity extends MapActivity
 				// Perform action on click
 				// Rune: Call new class instead of new view
 				mapController.animateTo(mylocation.getMyLocation());
-				System.out.println(mylocation.getMyLocation());
+				//System.out.println(mylocation.getMyLocation());
 			}
 		});
 
@@ -85,30 +85,85 @@ public class GPSViewActivity extends MapActivity
 				// Perform action on click
 				// Rune: Call new class instead of new view
 				//mapController.animateTo(usergeopoint);
-
-				System.out.println(mapview.getMapCenter());
 			}
 		});
 
 
 
-		//While-loop ?
+		TxtReader txtReader = new TxtReader();
 
-		GeoPoint point = new GeoPoint(19240000,-99120000);
-		OverlayItem overlayitem = new OverlayItem(point, "Hola, Mundo!", "I'm in Mexico City!");
+		List<String> arrayList = txtReader.returnObjects();
 
+		List<GeoPoint> points = new ArrayList<GeoPoint>();
+
+		int longitude = -99120000;
+		
+		if (arrayList.size()>0)
+		{
+			
+			Drawable marker = getResources().getDrawable(R.drawable.firehydrantgreen);
+			//ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+			//mapview.getOverlays().add(itemizedOverlay);
+
+			for (int i = 0; i < arrayList.size(); i++)
+			{	
+
+				//		System.out.println("LAT: " + txtReader.getObject(arrayList.get(i), "Latitude"));
+				//		System.out.println("LONG: " + txtReader.getObject(arrayList.get(i), "Longitude"));
+
+				GeoPoint point = new GeoPoint(Integer.parseInt(txtReader.getObject(arrayList.get(i), "Latitude")),
+												Integer.parseInt(txtReader.getObject(arrayList.get(i), "Longitude")));
+				points.add(point);
+
+				String eventStatus = txtReader.getObject(arrayList.get(i), "EventStatus");
+
+				if (eventStatus.equalsIgnoreCase("OK"))
+				{
+					marker = getResources().getDrawable(R.drawable.firehydrantgreen);
+					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+					mapview.getOverlays().add(itemizedOverlay);
+					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");
+					itemizedOverlay.addOverlay(overlayitem);
+
+				}
+				else if (eventStatus.equalsIgnoreCase("Needs Attention"))
+				{
+					marker = getResources().getDrawable(R.drawable.firehydrantyellow);
+					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+					mapview.getOverlays().add(itemizedOverlay);
+					OverlayItem overlayitem = new OverlayItem(points.get(i), "Hola", "I'm in Mexico City!");
+					itemizedOverlay.addOverlay(overlayitem);
+
+				}
+				else if (eventStatus.equalsIgnoreCase("Broken Down"))
+				{
+					marker = getResources().getDrawable(R.drawable.firehydrantred);
+					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+					mapview.getOverlays().add(itemizedOverlay);
+					OverlayItem overlayitem = new OverlayItem(points.get(i), "Yo", "I'm in Mexico City!");
+					itemizedOverlay.addOverlay(overlayitem);
+					
+				}
+				
+
+			}
+			//System.out.println("POINTS: " + points);
+		}
+
+		//		GeoPoint point = new GeoPoint(19240000,-99120000);
+		//		OverlayItem overlayitem1 = new OverlayItem(point, "Hola, Mundo!", "I'm in Mexico City!");
+		/*
 		GeoPoint point2 = new GeoPoint(35410000, 139460000);
 		OverlayItem overlayitem2 = new OverlayItem(point2, "Sekai, konichiwa!", "I'm in Japan!");
 
 
 		GeoPoint point3 = new GeoPoint(57029262, 9979329);
 		OverlayItem overlayitem3 = new OverlayItem(point3, "1", "2");
-		
+
 		itemizedOverlay.addOverlay(overlayitem);
 		itemizedOverlay.addOverlay(overlayitem2);
-
-
-		itemizedOverlay.addOverlay(overlayitem3);		
+		 */
+		//		itemizedOverlay.addOverlay(overlayitem1);		
 	}
 
 	protected void makeUseOfNewLocation(Location location) {

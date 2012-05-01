@@ -133,8 +133,8 @@ public class ARApplicationActivity extends AugmentedReality {
 			public void onClick(DialogInterface dialog, int which) {
 				TxtWriter txtWriter = new TxtWriter();
 				TxtReader txtReader = new TxtReader();
-				txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
-						"OK", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
+	//			txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
+	//					"OK", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
 				//ARData.removeMarkers();
 				updateDataOnClick();
 			}
@@ -144,8 +144,8 @@ public class ARApplicationActivity extends AugmentedReality {
 			public void onClick(DialogInterface dialog, int which) {
 				TxtWriter txtWriter = new TxtWriter();
 				TxtReader txtReader = new TxtReader();
-				txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
-						"Broken Down", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
+	//			txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
+	//					"Broken Down", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
 				//ARData.removeMarkers();
 				updateDataOnClick();
 
@@ -155,8 +155,8 @@ public class ARApplicationActivity extends AugmentedReality {
 			public void onClick(DialogInterface dialog, int which) {
 				TxtWriter txtWriter = new TxtWriter();
 				TxtReader txtReader = new TxtReader();
-				txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
-						"Needs Attention", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
+		//		txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
+		//				"Needs Attention", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
 				//ARData.removeMarkers();
 				updateDataOnClick();
 			}
