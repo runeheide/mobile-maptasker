@@ -14,31 +14,31 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 public class EditObjectActivity extends ILocatorActivity {
-	
+
 	public void onCreate(Bundle savedInstanceState) {
-		
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.editobject);		
-		
+
 		TextView name = (TextView)findViewById(R.id.NameTextView);
-		Spinner category = (Spinner)findViewById(R.id.Spinner_Category);
-		Spinner objectType = (Spinner)findViewById(R.id.Spinner_ObjectType);
-		Spinner eventStatus = (Spinner)findViewById(R.id.Spinner_EventStatus);
+
+		final Spinner category = (Spinner)findViewById(R.id.Spinner_Category);
+		final Spinner objectType = (Spinner)findViewById(R.id.Spinner_ObjectType);
+		final Spinner eventStatus = (Spinner)findViewById(R.id.Spinner_EventStatus);
+		
 		TxtReader txtReader = new TxtReader();
-		TxtWriter txtWriter = new TxtWriter();
-		
-		TxtReader txtReader2 = new TxtReader();
-		String pressedObjectName = txtReader2.getNameOfPressedButton();
-		
-		name.setText(txtReader.getObject(pressedObjectName, "Name"));
-		
+		String pressedObjectName = txtReader.getNameOfPressedButton();
+
+		final String nameOfClicked = txtReader.getObject(pressedObjectName, "Name");
+		name.setText(nameOfClicked);
+
 		Button backButton = (Button)findViewById(R.id.backButton);
 		Button saveButton = (Button)findViewById(R.id.saveButton);
-			
+
 		String _category = txtReader.getObject("Category");			
 		String _objectType = txtReader.getObject("ObjectType");		
 		String _eventStatus = txtReader.getObject("EventStatus");		
-		
+
 		if (_category.equalsIgnoreCase("Wells"))
 		{
 			category.setSelection(0, true);
@@ -51,7 +51,7 @@ public class EditObjectActivity extends ILocatorActivity {
 		{
 			category.setSelection(2, true);
 		}
-		
+
 		if (_objectType.equalsIgnoreCase("Type 1"))
 		{
 			objectType.setSelection(0);
@@ -73,21 +73,27 @@ public class EditObjectActivity extends ILocatorActivity {
 		{
 			eventStatus.setSelection(2);
 		}
-		
-		
+
+
 		backButton.setOnClickListener(new View.OnClickListener() {
-			
+
 			public void onClick(View view) {
 				Intent intent = new Intent();
 				setResult(RESULT_OK, intent);
 				finish();
 			}
 		});
-		
+
 		saveButton.setOnClickListener(new View.OnClickListener() {
-			
+
 			public void onClick(View view) {
-				
+
+				TxtWriter txtWriter = new TxtWriter();
+				System.out.println(category.getSelectedItem().toString());
+				txtWriter.writeEditObject(nameOfClicked, "Category", category.getSelectedItem().toString());
+				txtWriter.writeEditObject(nameOfClicked, "ObjectType", objectType.getSelectedItem().toString());
+				txtWriter.writeEditObject(nameOfClicked, "EventStatus", eventStatus.getSelectedItem().toString());
+
 				//To do: Save new information about object / item
 				Intent intent = new Intent();
 				setResult(RESULT_OK, intent);
