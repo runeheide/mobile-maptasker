@@ -102,6 +102,10 @@
             android:name=".UsersActivity"
             android:label="@string/users" >
             </activity>              
+                   <activity 
+            android:name=".UpdateObjectPositionActivity"
+            android:label="@string/updatePosition" >
+            </activity>             
     </application>
 
 </manifest>

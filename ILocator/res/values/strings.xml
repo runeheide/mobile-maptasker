@@ -47,5 +47,7 @@
     <string name="mapviewshifter">"Shift Maps</string>
     <string name="myLocation">My Location</string>
     <string name="newObject">New Object</string>
+    <string name="updateLocation">Update Location</string>
+    <string name="updatePosition">Update Position</string>
 
 </resources>
