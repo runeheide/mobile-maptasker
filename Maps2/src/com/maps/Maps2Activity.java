@@ -49,6 +49,7 @@ public class Maps2Activity extends MapActivity
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
 		
+		
 		android.os.SystemClock.sleep(1000);
 		
 		final Button button = (Button) findViewById(R.id.ChangeView);
@@ -141,36 +142,52 @@ public class Maps2Activity extends MapActivity
 //		itemizedoverlay.addOverlay(overlayuserposition);
 //		mapOverlays.add(itemizedoverlay);		
 		
-		/*
-		TxtWriter textWriter = new TxtWriter();
-		textWriter.writeFile(this,"Name","Category","ObjectType","Latitude","Longitude");
 		
-		textWriter.writeFile(this,"Name2","Category2","ObjectType2","Latitude2","Longitude2");
-		*/
+		TxtWriter2 textWriter = new TxtWriter2();
+		textWriter.writeFile("Name","Category","ObjectType","Latitude","Longitude");
+		
+		textWriter.writeFile("Name2","Category2","ObjectType2","Latitude2","Longitude2");
+		
 		
 		//TxtReader2 textReader = new TxtReader2();
 		//System.out.println(textReader.returnAll());
 	
 		//System.out.println(mylocation.getMyLocation());
 		
-		System.out.println("pee1");
 		
-    	TxtReader2 txtReader2 = new TxtReader2();
-    	System.out.println(txtReader2.returnObjects());
-    	List<String> arrayList = txtReader2.returnObjects();
-    	
-    	
-    	int i = 0;
-    	
-    	System.out.println("pee");
-    	
-    	while (i<arrayList.size())
-    	{	
-    		System.out.println(arrayList.get(i));
-    		i++;
-    	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		System.out.println("pee1");
+//		
+//    	TxtReader2 txtReader2 = new TxtReader2();
+//    	System.out.println(txtReader2.returnObjects());
+//    	List<String> arrayList = txtReader2.returnObjects();
+//    	
+//    	
+//    	int i = 0;
+//    	
+//    	System.out.println("pee");
+//    	
+//    	while (i<arrayList.size())
+//    	{	
+//    		System.out.println(arrayList.get(i));
+//    		i++;
+//    	}
 	}
 		
+	
 	protected void makeUseOfNewLocation(Location location) {
 		
 		int longitue = (int) (location.getLongitude()*1000000);
