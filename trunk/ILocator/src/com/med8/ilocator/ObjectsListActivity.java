@@ -30,16 +30,8 @@ public class ObjectsListActivity extends ILocatorActivity {
     	TxtReader txtReader = new TxtReader();
     	System.out.println(txtReader.returnObjects());
     	List<String> arrayList = txtReader.returnObjects();
-    	
-    	int i = 0;
-    	
-    	System.out.println("pee");
-    	
-    	while (i<arrayList.size())
-    	{	
-    		System.out.println(arrayList.get(i));
-    		i++;
-    	}
+
+    	System.out.println("1");
 		
 		final ArrayAdapter<String> adapt = new ArrayAdapter<String>(this, R.layout.objectslist_item, arrayList);
 		objectsList.setAdapter(adapt);
@@ -53,6 +45,7 @@ public class ObjectsListActivity extends ILocatorActivity {
 									
 					Intent editObjectIntent = new Intent(itemClicked.getContext(), EditObjectActivity.class);
 					startActivityForResult(editObjectIntent, 0);
+			    	System.out.println("2");
 			}
 		});
 		
