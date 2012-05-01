@@ -131,7 +131,7 @@ public class GPSViewActivity extends MapActivity
 					marker = getResources().getDrawable(R.drawable.firehydrantyellow);
 					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
 					mapview.getOverlays().add(itemizedOverlay);
-					OverlayItem overlayitem = new OverlayItem(points.get(i), "Hola", "I'm in Mexico City!");
+					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");
 					itemizedOverlay.addOverlay(overlayitem);
 
 				}
@@ -140,7 +140,7 @@ public class GPSViewActivity extends MapActivity
 					marker = getResources().getDrawable(R.drawable.firehydrantred);
 					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
 					mapview.getOverlays().add(itemizedOverlay);
-					OverlayItem overlayitem = new OverlayItem(points.get(i), "Yo", "I'm in Mexico City!");
+					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");
 					itemizedOverlay.addOverlay(overlayitem);
 					
 				}
@@ -149,21 +149,6 @@ public class GPSViewActivity extends MapActivity
 			}
 			//System.out.println("POINTS: " + points);
 		}
-
-		//		GeoPoint point = new GeoPoint(19240000,-99120000);
-		//		OverlayItem overlayitem1 = new OverlayItem(point, "Hola, Mundo!", "I'm in Mexico City!");
-		/*
-		GeoPoint point2 = new GeoPoint(35410000, 139460000);
-		OverlayItem overlayitem2 = new OverlayItem(point2, "Sekai, konichiwa!", "I'm in Japan!");
-
-
-		GeoPoint point3 = new GeoPoint(57029262, 9979329);
-		OverlayItem overlayitem3 = new OverlayItem(point3, "1", "2");
-
-		itemizedOverlay.addOverlay(overlayitem);
-		itemizedOverlay.addOverlay(overlayitem2);
-		 */
-		//		itemizedOverlay.addOverlay(overlayitem1);		
 	}
 
 	protected void makeUseOfNewLocation(Location location) {
