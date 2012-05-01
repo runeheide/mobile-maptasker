@@ -39,37 +39,37 @@ public class EditObjectActivity extends ILocatorActivity {
 		String _objectType = txtReader.getObject("ObjectType");		
 		String _eventStatus = txtReader.getObject("EventStatus");		
 		
-		if (_category.equals("Wells"))
+		if (_category.equalsIgnoreCase("Wells"))
 		{
 			category.setSelection(0, true);
 		}
-		else if (_category.equals("Hydrants"))
+		else if (_category.equalsIgnoreCase("Hydrants"))
 		{
 			category.setSelection(1, true);
 		}
-		else if (_category.equals("Parks"))
+		else if (_category.equalsIgnoreCase("Parks"))
 		{
 			category.setSelection(2, true);
 		}
 		
-		if (_objectType.equals("Type 1"))
+		if (_objectType.equalsIgnoreCase("Type 1"))
 		{
 			objectType.setSelection(0);
 		}
-		else if (_objectType.equals("Type 2"))
+		else if (_objectType.equalsIgnoreCase("Type 2"))
 		{
 			objectType.setSelection(1);
 		}
 		
-		if (_eventStatus.equals("OK"))
+		if (_eventStatus.equalsIgnoreCase("OK"))
 		{
 			eventStatus.setSelection(0);
 		}
-		else if (_eventStatus.equals("Needs Attention"))
+		else if (_eventStatus.equalsIgnoreCase("Needs Attention"))
 		{
 			eventStatus.setSelection(1);
 		}
-		else if (_eventStatus.equals("Broken Down"))
+		else if (_eventStatus.equalsIgnoreCase("Broken Down"))
 		{
 			eventStatus.setSelection(2);
 		}
