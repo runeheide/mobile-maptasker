@@ -64,8 +64,9 @@ public class ARApplicationActivity extends AugmentedReality {
 
 		super.onCreate(savedInstanceState);
 //		setContentView(R.layout.arview);
-
+		System.out.println("before localdatasource");
 		localData = new LocalDataSource(this.getResources());
+		System.out.println("after localdatasource");
 		ARData.addMarkers(localData.getMarkers());
 
     }
@@ -132,9 +133,7 @@ public class ARApplicationActivity extends AugmentedReality {
 
 			public void onClick(DialogInterface dialog, int which) {
 				TxtWriter txtWriter = new TxtWriter();
-				TxtReader txtReader = new TxtReader();
-	//			txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
-	//					"OK", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
+				txtWriter.writeEditObject(marker.getName(), "EventStatus", "OK"); 
 				//ARData.removeMarkers();
 				updateDataOnClick();
 			}
@@ -143,9 +142,7 @@ public class ARApplicationActivity extends AugmentedReality {
 
 			public void onClick(DialogInterface dialog, int which) {
 				TxtWriter txtWriter = new TxtWriter();
-				TxtReader txtReader = new TxtReader();
-	//			txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
-	//					"Broken Down", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
+				txtWriter.writeEditObject(marker.getName(), "EventStatus", "Broken Down");
 				//ARData.removeMarkers();
 				updateDataOnClick();
 
@@ -154,9 +151,7 @@ public class ARApplicationActivity extends AugmentedReality {
 		builder.setButton3("Needs attention", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				TxtWriter txtWriter = new TxtWriter();
-				TxtReader txtReader = new TxtReader();
-		//		txtWriter.writeFileAddObject(marker.getName(), txtReader.getObject("Category"), txtReader.getObject("ObjectType"), 
-		//				"Needs Attention", txtReader.getObject("Latitude"), txtReader.getObject("Longitude"), txtReader.getObject("Altitude"));
+				txtWriter.writeEditObject(marker.getName(), "EventStatus", "Needs Attention");
 				//ARData.removeMarkers();
 				updateDataOnClick();
 			}
