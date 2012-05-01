@@ -8,6 +8,8 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 
+import com.google.android.maps.GeoPoint;
+
 public class TxtWriter{
 
 	/**fileName must NOT contain file extension, it assumes it is an .txt file*/
@@ -41,6 +43,34 @@ public class TxtWriter{
 		}
 	}
 
+	public void writeLocationSelected(GeoPoint location){
+
+		try{
+			// Delete file to make room for the new file (Not the most optimal method)
+			File file = new File("/sdcard/iLocator/locationselected.txt");
+			file.delete();
+
+			// Create buffered writer which writes file on flush()
+			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("sdcard/iLocator/locationselected.txt"));
+
+			System.out.println(location);
+			
+			String lat = Integer.toString(location.getLatitudeE6());
+			String lon = Integer.toString(location.getLongitudeE6());
+			
+			System.out.println(lat+","+lon);
+			
+			bufferedWriter.write(lat + ":" + lon);
+			bufferedWriter.flush();
+			bufferedWriter.close();
+		}
+		//Catch exception if any
+		catch (Exception e){
+			System.err.println("Error: " + e.getMessage());
+		}
+	}
+	
+	
 	public void writeFileAddObject(String Name, String Category, String ObjectType, String EventStatus, String latitude, String longitude, String altitude){
 
 		try{
@@ -95,7 +125,6 @@ public class TxtWriter{
 				while ((strLine = br.readLine()) != null)   {
 
 					bufferedWriter.write(strLine);
-					bufferedWriter.newLine();
 				}
 				bufferedWriter.flush();
 				bufferedWriter.close();

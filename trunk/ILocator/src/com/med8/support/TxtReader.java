@@ -38,6 +38,33 @@ public class TxtReader {
 		return strLine;
 	}
 
+	public String getLocation(String whatTude)
+	{
+		String strLine = "getLocation failed miserably :(";
+		FileInputStream fstream;
+		try {
+			fstream = new FileInputStream("/sdcard/iLocator/locationselected.txt");
+
+			// Get the object of DataInputStream
+			DataInputStream in = new DataInputStream(fstream);
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
+			strLine = br.readLine();
+			br.close();
+			
+			String [] separatedSplitInfo;
+			separatedSplitInfo = strLine.split(":");
+
+			if (whatTude.equals("Latitude")) {strLine = separatedSplitInfo[0];}
+			else if (whatTude.equals("Longitude")) {strLine = separatedSplitInfo[1];}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return strLine;
+	}
+	
 
 	/**The function is called by: "getContentAt(Context, String, String)"
 	 *Context can be replaced by "this" to input the class from where the function is called
