@@ -40,59 +40,57 @@ public class LocalDataSource extends DataSource{
     protected void createIcon(Resources res) {
         if (res==null) throw new NullPointerException();
         
-        icon1=BitmapFactory.decodeResource(res, R.drawable.firehydrantred);
-        icon2=BitmapFactory.decodeResource(res, R.drawable.firehydrantgreen);
-        icon3=BitmapFactory.decodeResource(res,  R.drawable.firehydrantyellow);
+        icon1=BitmapFactory.decodeResource(res, R.drawable.firehydrantgreen);
+        icon2=BitmapFactory.decodeResource(res, R.drawable.firehydrantyellow);
+        icon3=BitmapFactory.decodeResource(res,  R.drawable.firehydrantred);
     }
     
     public List<Marker> getMarkers() {
     	
     	List<String> arrayList = txtReader.returnObjects();
     	
-    	if (arrayList.size() >= 1)
-    	{
+ //   	if (arrayList.size() >= 1)
+ //   	{
     	
-    		for (int i = 0; i < arrayList.size()-1; i++)
+    		for (int i = 0; i < arrayList.size(); i++)
     		{
-    		
-    			double latitude = Double.parseDouble(txtReader.getObject(arrayList.get(i), "Latitude"));
-    			double longitude = Double.parseDouble(txtReader.getObject(arrayList.get(i), "Longitude"));
     	
-    			double altitude = 0.0;
-    		
+    		double latitude = Double.parseDouble(txtReader.getObject(arrayList.get(i), "Latitude"))/1000000;
+    		double longitude = Double.parseDouble(txtReader.getObject(arrayList.get(i), "Longitude"))/1000000;
+    					
     			if (txtReader.getObject(arrayList.get(i), "EventStatus").equalsIgnoreCase("OK"))
     			{
     			
     				Marker object1 = new IconMarker(txtReader.getObject(arrayList.get(i), "Name"), latitude, longitude,
-    						altitude, Color.DKGRAY, icon1);
+    						0.0, Color.DKGRAY, icon1);
     				cachedMarkers.add(object1);
     			}
     			else if (txtReader.getObject(arrayList.get(i), "EventStatus").equalsIgnoreCase("Needs Attention"))
     			{
     				Marker object1 = new IconMarker(txtReader.getObject(arrayList.get(i), "Name"), latitude, longitude,
-    						altitude, Color.DKGRAY, icon3);
+    						0.0, Color.DKGRAY, icon2);
     				cachedMarkers.add(object1);
     			}
     			else
     			{
     				Marker object1 = new IconMarker(txtReader.getObject(arrayList.get(i), "Name"), latitude, longitude,
-    						altitude, Color.DKGRAY, icon2);
+    						0.0, Color.DKGRAY, icon3);
     				cachedMarkers.add(object1);
-    			}
+   			}
     				
-    		}
+ //   		}
     		
-    	}
-    	else
-    	{
-    		Marker object1 = new IconMarker("HEY",  52.0000, 9.899999,0.0, Color.DKGRAY, icon1);
+ //   	}
+ //   	else
+ //   	{
+ //   		Marker object1 = new IconMarker("HEY",  52.0000, 9.899999,0.0, Color.DKGRAY, icon1);
 		//System.out.println("after marker initialize");
-    		cachedMarkers.add(object1);
-    	}
-    	for (int i = 0; i < cachedMarkers.size()-1; i++)
-    	{
-    		System.out.println("CACHED OBJECT " + i + ": " + cachedMarkers.get(i).getName());
-    	}
+ //   		cachedMarkers.add(object1);
+ //   	}
+    	//for (int i = 0; i < cachedMarkers.size()-1; i++)
+    	//{
+    	//	System.out.println("CACHED OBJECT " + i + ": " + cachedMarkers.get(i).getName());
+    	//}
     	
 /*    	TxtReader txtReader = new TxtReader();
     	double latitude = Double.parseDouble(txtReader.getObject("Latitude"));
@@ -132,9 +130,9 @@ public class LocalDataSource extends DataSource{
             if (i%2==0) marker = new Marker("Test-"+i, 39.99, -75.33+decimal, 0, Color.LTGRAY);
             marker = new IconMarker("Test-"+i, 39.99+decimal, -75.33, 0, Color.LTGRAY, icon1);
             cachedMarkers.add(marker);
-    
-        }
-     */
+    */
+       }
+     
         return cachedMarkers;
     }
 }
