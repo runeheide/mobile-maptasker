@@ -1,3 +1,5 @@
+//Rune: I guess this class is not used at all!!!
+
 package com.med8.ilocator;
 
 import com.med8.ilocator.R;
