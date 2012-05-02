@@ -14,6 +14,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.med8.ilocator.R;
 import com.med8.ilocator.augmentedreality.activity.AugmentedReality;
@@ -46,7 +48,7 @@ import com.med8.support.TxtWriter;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public class ARApplicationActivity extends AugmentedReality {
-	Context thisContext;
+	
 	private static final String TAG = "ARApplication";
 	private static final String locale = Locale.getDefault().getLanguage();
 	private static final BlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(1);
@@ -63,10 +65,8 @@ public class ARApplicationActivity extends AugmentedReality {
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.arview);
-		System.out.println("before localdatasource");
+		
 		localData = new LocalDataSource(this.getResources());
-		System.out.println("after localdatasource");
 		ARData.addMarkers(localData.getMarkers());
 
     }
@@ -74,11 +74,6 @@ public class ARApplicationActivity extends AugmentedReality {
 	@Override
 	public void onStart() {
 		super.onStart();
-		//ARData.removeMarkers();
-		ARData.addMarkers(localData.getMarkers());
-		//       LocalDataSource localData = new LocalDataSource(this.getResources());
-	
-
 		Location last = ARData.getCurrentLocation();
 		updateData(last.getLatitude(),last.getLongitude(),last.getAltitude());
 	}
@@ -118,6 +113,12 @@ public class ARApplicationActivity extends AugmentedReality {
 	 */
 	@Override
 	protected void markerTouched(final Marker marker) {
+		TxtWriter txtWriter = new TxtWriter();
+		txtWriter.writeButtonPressed(marker.getName());
+		Intent alertIntent = new Intent(this, AlertDialogViewActivity.class);
+		startActivityForResult(alertIntent, 0);
+	
+	/*	
 		final AlertDialog builder = new AlertDialog.Builder(this).create();
 		builder.setTitle(marker.getName());
 
@@ -136,6 +137,7 @@ public class ARApplicationActivity extends AugmentedReality {
 				txtWriter.writeEditObject(marker.getName(), "EventStatus", "OK"); 
 				//ARData.removeMarkers();
 				updateDataOnClick();
+				
 			}
 		});
 		builder.setButton2("Broken down", new DialogInterface.OnClickListener() {
@@ -144,6 +146,7 @@ public class ARApplicationActivity extends AugmentedReality {
 				TxtWriter txtWriter = new TxtWriter();
 				txtWriter.writeEditObject(marker.getName(), "EventStatus", "Broken Down");
 				//ARData.removeMarkers();
+				//ARData.addMarkers(localData.getMarkers());
 				updateDataOnClick();
 
 			}
@@ -167,11 +170,12 @@ public class ARApplicationActivity extends AugmentedReality {
 			    txt.setText(txt.getText()+" the cancel listner invoked");
 			   }
 			  });
-		 */
+		 
 		builder.show();
 		//      Toast t = Toast.makeText(getApplicationContext(), marker.getName(), Toast.LENGTH_SHORT);
 		//      t.setGravity(Gravity.CENTER, 0, 0);
 		//      t.show();
+	*/
 	}
 
 	/**
@@ -179,24 +183,34 @@ public class ARApplicationActivity extends AugmentedReality {
 	 */
 	private void updateDataOnClick()
 	{
-		ARData.removeMarkers();
-		ARData.addMarkers(localData.getMarkers());
 
-		//this.onCreate(null);
+		//localData.getMarkers();
+		ARData.removeMarkers();
+		//ARData.getMarkers();
+		//ARData.addMarkers(localData.getMarkers());
+
+//		onCreate(null);
 		
 //		Intent intent = new Intent();
 //		setResult(RESULT_OK, intent);
 //		finish();
 		
-	//	Intent intent = new android.content.Intent();
-	//	intent.setClass(this, this.getClass());  
+//		Intent intent = new Intent();
+//		intent.setClass(this, this.getClass());  
 	
-		Intent intent = this.getIntent();
-		this.startActivity(intent);
-		this.finish();
+//		Intent intent = this.getIntent();
+//		this.startActivity(intent);
+//		this.finish();
  
 	}
 	
+/*	public void onResume()
+	{		
+		Intent arIntent = new Intent(this, ARApplicationActivity.class);
+		//finish();
+		//startActivity(arIntent);
+	}
+*/	
 	protected void updateDataOnZoom() {
 		super.updateDataOnZoom();
 		Location last = ARData.getCurrentLocation();
@@ -241,6 +255,5 @@ public class ARApplicationActivity extends AugmentedReality {
 
 		ARData.addMarkers(markers);
 		return true;
-	}
-
+	}	
 }
