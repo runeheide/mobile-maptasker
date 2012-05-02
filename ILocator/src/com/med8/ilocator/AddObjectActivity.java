@@ -85,7 +85,6 @@ public class AddObjectActivity extends ILocatorActivity {
 					longitude = txtReader.getLocation("Longitude");
 				}
 				else if (locationButtonPressed == false){
-					TxtReader txtReader = new TxtReader();
 					latitude = getMyLocation("Latitude");
 					longitude = getMyLocation("Longitude");
 				}
