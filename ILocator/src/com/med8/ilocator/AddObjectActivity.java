@@ -1,8 +1,9 @@
 package com.med8.ilocator;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,9 @@ import com.med8.support.TxtReader;
 import com.med8.support.TxtWriter;
 
 public class AddObjectActivity extends ILocatorActivity {
-	
+
+	boolean locationButtonPressed = false;
+
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -44,11 +47,11 @@ public class AddObjectActivity extends ILocatorActivity {
 				System.out.println("LORTELORT1");
 				Intent updateObjectPositionIntent = new Intent(view.getContext(), UpdateObjectPositionActivity.class);
 				startActivityForResult(updateObjectPositionIntent, 0);
-//				txtWriter.writeEditObject(_objectName.getText().toString(), "Latitude", txtReader.getLocation("Latitude"));
-//				txtWriter.writeEditObject(_objectName.getText().toString(), "Longitude", txtReader.getLocation("Longitude"));
+				//				txtWriter.writeEditObject(_objectName.getText().toString(), "Latitude", txtReader.getLocation("Latitude"));
+				//				txtWriter.writeEditObject(_objectName.getText().toString(), "Longitude", txtReader.getLocation("Longitude"));
+				locationButtonPressed = true;
 			}
 		});
-
 
 		createButton.setOnClickListener(new View.OnClickListener() {
 
@@ -72,22 +75,34 @@ public class AddObjectActivity extends ILocatorActivity {
 				//				System.out.println("Lat: " + latitude + ", Long: " + longitude);
 
 
-				
-				System.out.println("LORTELORT2");
-				TxtReader txtReader = new TxtReader();
-				String latitude = txtReader.getLocation("Latitude");
-				String longitude = txtReader.getLocation("Longitude");
-				
-//				String latitude = "57.0124965";
-//				String longitude = "9.9892814";
+				String latitude = null;
+				String longitude = null;
 
-//				System.out.println("Lat: " + latitude + ", Long: " + longitude);
-						        
-//		        int latitudeint = (int) (current.getLatitude()*1000000);
-//		        int longitudeint = (int) (current.getLongitude()*1000000);
-//
-//				String latitude = Integer.toString(latitudeint);
-//				String longitude = Integer.toString(longitudeint);
+				if (locationButtonPressed == true){
+					System.out.println("LORTELORT2");
+					TxtReader txtReader = new TxtReader();
+					latitude = txtReader.getLocation("Latitude");
+					longitude = txtReader.getLocation("Longitude");
+				}
+				else if (locationButtonPressed == false){
+					TxtReader txtReader = new TxtReader();
+					latitude = getMyLocation("Latitude");
+					longitude = getMyLocation("Longitude");
+				}
+				
+				System.out.println(latitude);
+				System.out.println(longitude);
+
+				//				String latitude = "57.0124965";
+				//				String longitude = "9.9892814";
+
+				//				System.out.println("Lat: " + latitude + ", Long: " + longitude);
+
+				//		        int latitudeint = (int) (current.getLatitude()*1000000);
+				//		        int longitudeint = (int) (current.getLongitude()*1000000);
+				//
+				//				String latitude = Integer.toString(latitudeint);
+				//				String longitude = Integer.toString(longitudeint);
 
 				String altitude = "0.0";
 
@@ -107,4 +122,40 @@ public class AddObjectActivity extends ILocatorActivity {
 			}
 		});
 	}	
+
+	public String getMyLocation(String whatTude){ 
+		Location myLocation = null;
+		String myLocationString = null;
+		Location networkLocation = getLocationByProvider(LocationManager.NETWORK_PROVIDER);
+		Location gpsLocation = getLocationByProvider(LocationManager.GPS_PROVIDER);
+		
+		if (gpsLocation!=null) {myLocation = gpsLocation;}
+		else if (networkLocation!=null) {myLocation = networkLocation;}
+		
+		if (whatTude=="Latitude"){
+			int latitude = (int) (myLocation.getLatitude()*1000000);
+			myLocationString = Integer.toString(latitude);
+		}
+		else if (whatTude=="Longitude"){
+			int longitude = (int) (myLocation.getLongitude()*1000000);
+			myLocationString = Integer.toString(longitude);
+		}
+		
+		return myLocationString;
+	}
+
+	private Location getLocationByProvider(String provider) {
+		Location location = null;
+		LocationManager locationManager = (LocationManager) getApplicationContext()
+				.getSystemService(Context.LOCATION_SERVICE);
+
+		try {
+			if (locationManager.isProviderEnabled(provider)) {
+				location = locationManager.getLastKnownLocation(provider);
+			}
+		} catch (IllegalArgumentException e) {
+			System.out.println("Cannot acces Provider " + provider);
+		}
+		return location;
+	}
 }
