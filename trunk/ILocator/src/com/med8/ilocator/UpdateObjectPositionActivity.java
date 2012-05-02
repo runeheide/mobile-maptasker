@@ -164,7 +164,7 @@ public class UpdateObjectPositionActivity extends MapActivity
 		}		
 	}
 */
-	protected void makeUseOfNewLocation(Location location) {
+	public void makeUseOfNewLocation(Location location) {
 
 		int longitue = (int) (location.getLongitude()*1000000);
 		int latitute = (int) (location.getLatitude()*1000000); 
