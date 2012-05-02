@@ -62,7 +62,9 @@ public class ItemOverlay extends ItemizedOverlay {
 
 			public void onClick(DialogInterface dialog, int which) {
 				txtWriter.writeEditObject(item.getTitle(), "EventStatus", "OK");
-
+				
+				Intent gpsIntent = new Intent(mContext, GPSViewActivity.class);
+				mContext.startActivity(gpsIntent);
 			}
 		});
 		builder.setButton2("Broken down", new DialogInterface.OnClickListener() {

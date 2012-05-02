@@ -49,6 +49,13 @@ public class UpdateObjectPositionActivity extends MapActivity
 		mylocation.enableMyLocation();
 		//		mylocation.onTap(userlocation, mapview);
 
+		marker = getResources().getDrawable(R.drawable.sigtekorn);
+		ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+		mapview.getOverlays().add(itemizedOverlay);
+		OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");
+		itemizedOverlay.addOverlay(overlayitem);
+		
+		
 		final Button button = (Button) findViewById(R.id.mapShiftButton);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
