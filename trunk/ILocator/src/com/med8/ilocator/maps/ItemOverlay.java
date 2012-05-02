@@ -6,10 +6,12 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 
 import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.OverlayItem;
+import com.med8.ilocator.GPSViewActivity;
 import com.med8.support.TxtReader;
 import com.med8.support.TxtWriter;
 
@@ -42,10 +44,13 @@ public class ItemOverlay extends ItemizedOverlay {
 	protected boolean onTap(int index) {
 		
 	  final OverlayItem item = mOverlays.get(index);
+	  final TxtWriter txtWriter = new TxtWriter();
+	  final TxtReader txtReader = new TxtReader();
 	  final AlertDialog builder = new AlertDialog.Builder(mContext).create();
+	  
 	  builder.setTitle(item.getTitle());
 
-		builder.setMessage("Hydrant: type 1");
+		builder.setMessage(txtReader.getObject(item.getTitle(), "Category"));
 		builder.setIcon(android.R.drawable.ic_dialog_alert);
 		builder.setButton("Done", new DialogInterface.OnClickListener() {
 
@@ -56,18 +61,19 @@ public class ItemOverlay extends ItemizedOverlay {
 		builder.setButton("OK", new DialogInterface.OnClickListener() {
 
 			public void onClick(DialogInterface dialog, int which) {
-				
+				txtWriter.writeEditObject(item.getTitle(), "EventStatus", "OK");
+
 			}
 		});
 		builder.setButton2("Broken down", new DialogInterface.OnClickListener() {
 
 			public void onClick(DialogInterface dialog, int which) {
-
+				txtWriter.writeEditObject(item.getTitle(), "EventStatus", "Broken Down");
 			}
 		});
 		builder.setButton3("Needs attention", new DialogInterface.OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
-
+				txtWriter.writeEditObject(item.getTitle(), "EventStatus", "Needs Attention");
 			}
 
 		});
