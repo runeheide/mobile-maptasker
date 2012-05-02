@@ -65,6 +65,7 @@ public class AddObjectActivity extends ILocatorActivity {
 				int selectedEventStatus = _eventStatus.getSelectedItemPosition();
 				String eventStatus = _eventStatus.getItemAtPosition(selectedEventStatus).toString();
 
+				//Rune: I do not believe this is used for anything
 				Location current = ARData.getCurrentLocation();
 				double _latitude = current.getLatitude();
 				double _longitude = current.getLongitude();
@@ -75,9 +76,12 @@ public class AddObjectActivity extends ILocatorActivity {
 				//				System.out.println("Lat: " + latitude + ", Long: " + longitude);
 
 
+				//What position is connected with the object is 
+				//dependent on whether the location button is pressed
+				//or not. If it is not pressed, and a specific location
+				//is not selected, the current user location will be used.
 				String latitude = null;
 				String longitude = null;
-
 				if (locationButtonPressed == true){
 					System.out.println("LORTELORT2");
 					TxtReader txtReader = new TxtReader();
@@ -88,9 +92,6 @@ public class AddObjectActivity extends ILocatorActivity {
 					latitude = getMyLocation("Latitude");
 					longitude = getMyLocation("Longitude");
 				}
-				
-				System.out.println(latitude);
-				System.out.println(longitude);
 
 				//				String latitude = "57.0124965";
 				//				String longitude = "9.9892814";
@@ -107,7 +108,6 @@ public class AddObjectActivity extends ILocatorActivity {
 
 				TxtWriter txtWriter = new TxtWriter();
 				txtWriter.writeFileAddObject(objName, category, objectType, eventStatus, latitude, longitude, altitude);
-
 				finish();
 			}
 		});
@@ -122,15 +122,16 @@ public class AddObjectActivity extends ILocatorActivity {
 		});
 	}	
 
-	public String getMyLocation(String whatTude){ 
+	//Used only in this class to get the user location.
+	private String getMyLocation(String whatTude){ 
 		Location myLocation = null;
 		String myLocationString = null;
 		Location networkLocation = getLocationByProvider(LocationManager.NETWORK_PROVIDER);
 		Location gpsLocation = getLocationByProvider(LocationManager.GPS_PROVIDER);
-		
+
 		if (gpsLocation!=null) {myLocation = gpsLocation;}
 		else if (networkLocation!=null) {myLocation = networkLocation;}
-		
+
 		if (whatTude=="Latitude"){
 			int latitude = (int) (myLocation.getLatitude()*1000000);
 			myLocationString = Integer.toString(latitude);
@@ -139,10 +140,11 @@ public class AddObjectActivity extends ILocatorActivity {
 			int longitude = (int) (myLocation.getLongitude()*1000000);
 			myLocationString = Integer.toString(longitude);
 		}
-		
+
 		return myLocationString;
 	}
 
+	//Used only in this class AS PART OF getting the user location
 	private Location getLocationByProvider(String provider) {
 		Location location = null;
 		LocationManager locationManager = (LocationManager) getApplicationContext()
