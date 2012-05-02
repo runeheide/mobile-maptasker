@@ -57,8 +57,6 @@ public class GPSViewActivity extends MapActivity
 		mylocation.enableMyLocation();
 		//		mylocation.onTap(userlocation, mapview);
 
-
-
 		final Button button = (Button) findViewById(R.id.mapShiftButton);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
