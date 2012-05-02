@@ -12,28 +12,29 @@
         android:layout_height="fill_parent"
         android:apiKey="0aFOkZHqNeYAeIm-cFF0kCOft0Qd9FOYDHn8uoQ"
         android:clickable="true" />
-
+
     <Button
         android:id="@+id/mapShiftButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/mapview"
+        android:layout_toRightOf="@+id/MyLocation"
         android:text="@string/mapviewshifter" />
-
-    <Button
-        android:id="@+id/MyLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dip"
-        android:text="@string/myLocation" />
 
     <Button
         android:id="@+id/Done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dip"
         android:text="@string/updateLocation" />
+
+    <Button
+        android:id="@+id/MyLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/mapview"
+        android:layout_toRightOf="@+id/Done"
+        android:text="@string/myLocation" />
 
 </RelativeLayout>
