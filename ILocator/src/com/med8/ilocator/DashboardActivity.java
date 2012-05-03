@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class DashboardActivity extends Activity {
 
@@ -14,9 +15,9 @@ public class DashboardActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dashboard);
         
-        Button objectsButton = (Button)findViewById(R.id.addObjectButton);
-        Button mapsButton = (Button)findViewById(R.id.mapsButton);
-        Button managementButton = (Button)findViewById(R.id.managementButton);
+        ImageButton objectsButton = (ImageButton)findViewById(R.id.addObjectButton);
+        ImageButton mapsButton = (ImageButton)findViewById(R.id.mapsButton);
+        ImageButton managementButton = (ImageButton)findViewById(R.id.managementButton);
         Button quitButton = (Button)findViewById(R.id.quitButton);
         
        objectsButton.setOnClickListener(new View.OnClickListener() {
