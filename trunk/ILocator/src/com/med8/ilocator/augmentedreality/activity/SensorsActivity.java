@@ -208,7 +208,7 @@ public class SensorsActivity extends Activity implements SensorEventListener, Lo
     public void onSensorChanged(SensorEvent evt) {
     	if (!computing.compareAndSet(false, true)) return;
 
-        if (evt.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+    	if (evt.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
             smooth = LowPassFilter.filter(0.5f, 1.0f, evt.values, grav);
             grav[0] = smooth[0];
             grav[1] = smooth[1];

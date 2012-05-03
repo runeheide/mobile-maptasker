@@ -6,30 +6,36 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <Button 
+    <ImageButton 
         android:id="@+id/mapsButton"
-    	android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
+        android:background="@drawable/maps"
+    	android:layout_width="262dp"
+    	android:layout_height="76dp"
+    	
     	android:layout_gravity="center_horizontal"
+    	
     	android:text="@string/maps" />
-    <Button
+    <ImageButton
         android:textColorHighlight="#333333"
+        android:background="@drawable/objects"
+       
         android:id="@+id/addObjectButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="262dp"
+        android:layout_height="76dp"
         android:layout_gravity="center_horizontal"
         android:text="@string/objects" />
-    <Button
+    <ImageButton
         android:id="@+id/managementButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@drawable/management"
+        android:layout_width="262dp"
+        android:layout_height="76dp"
         android:layout_gravity="center_horizontal"
         android:text="@string/management" />
-    <Button 
+
+    <Button
         android:id="@+id/quitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/quit"/>
+        android:text="@string/quit" />
   
 </LinearLayout>
