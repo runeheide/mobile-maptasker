@@ -143,7 +143,7 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
 	public void onResume() {
 		super.onResume();
 
-		wakeLock.acquire();
+		//wakeLock.acquire();
 	}
 
 	/**
@@ -153,7 +153,7 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
 	public void onPause() {
 		super.onPause();
 
-		wakeLock.release();
+		//wakeLock.release();
 	}
 
 	/**

@@ -48,7 +48,7 @@ import com.med8.support.TxtWriter;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public class ARApplicationActivity extends AugmentedReality {
-	
+	Context mContext;
 	private static final String TAG = "ARApplication";
 	private static final String locale = Locale.getDefault().getLanguage();
 	private static final BlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(1);
@@ -65,9 +65,9 @@ public class ARApplicationActivity extends AugmentedReality {
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-		
-		localData = new LocalDataSource(this.getResources());
-		ARData.addMarkers(localData.getMarkers());
+
+	//	localData = new LocalDataSource(this.getResources());
+	//	ARData.addMarkers(localData.getMarkers());
 
     }
 
@@ -112,13 +112,16 @@ public class ARApplicationActivity extends AugmentedReality {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected void markerTouched(final Marker marker) {
+	public void markerTouched(Marker marker) {
+		
 		TxtWriter txtWriter = new TxtWriter();
 		txtWriter.writeButtonPressed(marker.getName());
-		//Intent alertIntent = new Intent(this, AlertDialogViewActivity.class);
-		//startActivityForResult(alertIntent, 0);
-	
 		
+		Intent intent = new Intent();
+		intent.setClass(this, AlertDialogViewActivity.class);
+		this.startActivity(intent);
+	
+/*		
 		final AlertDialog builder = new AlertDialog.Builder(this).create();
 		builder.setTitle(marker.getName());
 
@@ -170,12 +173,12 @@ public class ARApplicationActivity extends AugmentedReality {
 			    txt.setText(txt.getText()+" the cancel listner invoked");
 			   }
 			  });
-		*/ 
+		
 		builder.show();
 		//      Toast t = Toast.makeText(getApplicationContext(), marker.getName(), Toast.LENGTH_SHORT);
 		//      t.setGravity(Gravity.CENTER, 0, 0);
 		//      t.show();
-	
+*/	
 	}
 
 	/**
@@ -191,9 +194,9 @@ public class ARApplicationActivity extends AugmentedReality {
 
 //		onCreate(null);
 		
-		Intent intent = this.getIntent();
-		startActivity(intent);
-		finish();
+//		Intent intent = this.getIntent();
+//		startActivity(intent);
+//		finish();
 		
 //		Intent intent = new Intent();
 //		intent.setClass(this, this.getClass());  
@@ -256,4 +259,22 @@ public class ARApplicationActivity extends AugmentedReality {
 		ARData.addMarkers(markers);
 		return true;
 	}	
+
+	@Override
+	public void onResume()
+	{
+		super.onResume();
+		System.out.println("resume");
+		//onCreate(null);
+		localData = new LocalDataSource(this.getResources());
+		
+		ARData.addMarkers(localData.getMarkers());
+	
+	}
+	@Override
+	public void onPause()
+	{
+		localData.getMarkers().clear();
+		super.onPause();
+	}
 }
