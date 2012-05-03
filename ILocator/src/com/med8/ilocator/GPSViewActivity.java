@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
@@ -30,6 +31,7 @@ import com.med8.support.TxtWriter;
 
 public class GPSViewActivity extends MapActivity
 {    
+	Context mContext = this;
 	MapController mapController;
 	AlternativeMyLocationOverlay mylocation;
 	MapView mapview; 
@@ -42,9 +44,10 @@ public class GPSViewActivity extends MapActivity
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gpsview);
-
+		
 		mapview = (MapView)findViewById(R.id.mapview);
 		mapview.setBuiltInZoomControls(true);
 		mapController = mapview.getController();
@@ -54,6 +57,45 @@ public class GPSViewActivity extends MapActivity
 
 		mylocation = new AlternativeMyLocationOverlay(this, mapview);
 		mapview.getOverlays().add(mylocation);
+	}
+
+	protected void makeUseOfNewLocation(Location location) {
+
+		int longitue = (int) (location.getLongitude()*1000000);
+		int latitute = (int) (location.getLatitude()*1000000); 
+
+		GPSViewActivity.userlocation = new GeoPoint(latitute, longitue);
+
+		//implement some "if-button-is-pressed" function to navigate to user location
+		//mapController.animateTo(userlocation);
+
+		//Set the zoom level of the map to level 3
+		mapController.setZoom(18);
+		//Remove when the "button-pressed" function above is implemented
+		//Navigate the map view to a specific location (the user's)
+		mapController.animateTo(userlocation);
+
+		OverlayItem overlayuserposition = new OverlayItem(userlocation, "You are here","l");
+
+		Drawable drawable = this.getResources().getDrawable(R.drawable.androidmarker);
+
+
+		ItemOverlay itemizedoverlay = new ItemOverlay(drawable, this);
+		itemizedoverlay.addOverlay(overlayuserposition);
+
+		List<Overlay> mapOverlays = mapview.getOverlays();
+		mapOverlays.add(itemizedoverlay);
+	}
+
+	@Override
+	protected boolean isRouteDisplayed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	protected void onResume() {
+
 		mylocation.enableMyLocation();
 		//		mylocation.onTap(userlocation, mapview);
 
@@ -83,6 +125,8 @@ public class GPSViewActivity extends MapActivity
 				// Perform action on click
 				// Rune: Call new class instead of new view
 				//mapController.animateTo(usergeopoint);
+				Intent test = new Intent(mContext, LocationActivity.class);
+				startActivity(test);
 			}
 		});
 
@@ -147,45 +191,7 @@ public class GPSViewActivity extends MapActivity
 			}
 			//System.out.println("POINTS: " + points);
 		}
-	}
-
-	protected void makeUseOfNewLocation(Location location) {
-
-		int longitue = (int) (location.getLongitude()*1000000);
-		int latitute = (int) (location.getLatitude()*1000000); 
-
-		GPSViewActivity.userlocation = new GeoPoint(latitute, longitue);
-
-		//implement some "if-button-is-pressed" function to navigate to user location
-		//mapController.animateTo(userlocation);
-
-		//Set the zoom level of the map to level 3
-		mapController.setZoom(18);
-		//Remove when the "button-pressed" function above is implemented
-		//Navigate the map view to a specific location (the user's)
-		mapController.animateTo(userlocation);
-
-		OverlayItem overlayuserposition = new OverlayItem(userlocation, "You are here","l");
-
-		Drawable drawable = this.getResources().getDrawable(R.drawable.androidmarker);
-
-
-		ItemOverlay itemizedoverlay = new ItemOverlay(drawable, this);
-		itemizedoverlay.addOverlay(overlayuserposition);
-
-		List<Overlay> mapOverlays = mapview.getOverlays();
-		mapOverlays.add(itemizedoverlay);
-	}
-
-	@Override
-	protected boolean isRouteDisplayed() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	protected void onResume() {
-		mylocation.enableMyLocation();
+		
 		super.onResume();
 	}
 
