@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
@@ -114,9 +115,8 @@ public class GPSViewActivity extends MapActivity
 		final Button createNewObject = (Button) findViewById(R.id.NewObject);
 		createNewObject.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				// Perform action on click
-				// Rune: Call new class instead of new view
-				//mapController.animateTo(usergeopoint);
+				Intent addObjectIntent = new Intent(v.getContext(), AddObjectActivity.class);
+				startActivity(addObjectIntent);
 				
 			}
 		});
