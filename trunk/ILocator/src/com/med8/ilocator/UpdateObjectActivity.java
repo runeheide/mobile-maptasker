@@ -46,7 +46,7 @@ public class UpdateObjectActivity extends ILocatorActivity {
 		locationButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View view) {
-				Intent locationIntent = new Intent(view.getContext(), LocationActivity.class);
+				Intent locationIntent = new Intent(view.getContext(), AlertDialogViewActivity.class);
 				startActivityForResult(locationIntent, 0);
 			}
 		});

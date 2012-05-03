@@ -49,5 +49,6 @@
     <string name="newObject">New Object</string>
     <string name="updateLocation">Update Location</string>
     <string name="updatePosition">Update Position</string>
+    <string name="update">Update Event Status</string>
 
 </resources>
