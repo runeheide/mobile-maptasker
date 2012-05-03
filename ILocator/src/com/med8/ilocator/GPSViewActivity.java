@@ -4,15 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -20,14 +16,9 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
-import com.med8.ilocator.R;
-import com.med8.ilocator.R.drawable;
-import com.med8.ilocator.R.id;
-import com.med8.ilocator.R.layout;
 import com.med8.ilocator.maps.AlternativeMyLocationOverlay;
 import com.med8.ilocator.maps.ItemOverlay;
 import com.med8.support.TxtReader;
-import com.med8.support.TxtWriter;
 
 public class GPSViewActivity extends MapActivity
 {    
