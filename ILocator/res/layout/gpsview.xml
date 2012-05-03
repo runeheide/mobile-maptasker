@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/bckgrnd"
     android:orientation="vertical"
-    android:paddingTop="40dp" >
+    android:paddingTop="0dp" >
 
     <com.google.android.maps.MapView
         android:id="@+id/mapview"
