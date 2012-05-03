@@ -30,6 +30,7 @@ public final class R {
         public static final int ilocatorlaunch=0x7f020008;
         public static final int loginbutton=0x7f020009;
         public static final int signupbutton=0x7f02000a;
+        public static final int sigtekorn=0x7f02000b;
     }
     public static final class id {
         public static final int Done=0x7f080024;
@@ -52,10 +53,11 @@ public final class R {
         public static final int categoriesButton=0x7f080015;
         public static final int createButton=0x7f080006;
         public static final int error=0x7f080021;
-        public static final int exit=0x7f080027;
+        public static final int exit=0x7f080028;
         public static final int gpsButton=0x7f080018;
         public static final int heatmapButton=0x7f08001a;
         public static final int ilocator_launch=0x7f080013;
+        public static final int imageView1=0x7f080025;
         public static final int lblLocationInfo=0x7f080014;
         public static final int listViewObjects=0x7f08001b;
         public static final int locationButton=0x7f080005;
@@ -66,8 +68,8 @@ public final class R {
         public static final int mapview=0x7f08000e;
         public static final int quitButton=0x7f08000b;
         public static final int saveButton=0x7f08000d;
-        public static final int showRadar=0x7f080025;
-        public static final int showZoomBar=0x7f080026;
+        public static final int showRadar=0x7f080026;
+        public static final int showZoomBar=0x7f080027;
         public static final int signUpButton=0x7f080022;
         public static final int tasksButton=0x7f080016;
         public static final int textview=0x7f080012;
