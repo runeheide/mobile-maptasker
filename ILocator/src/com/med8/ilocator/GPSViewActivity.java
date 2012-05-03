@@ -55,8 +55,7 @@ public class GPSViewActivity extends MapActivity
 
 		mapview.setBuiltInZoomControls(true);
 
-		mylocation = new AlternativeMyLocationOverlay(this, mapview);
-		mapview.getOverlays().add(mylocation);
+
 	}
 
 	protected void makeUseOfNewLocation(Location location) {
@@ -96,6 +95,8 @@ public class GPSViewActivity extends MapActivity
 	@Override
 	protected void onResume() {
 
+		mylocation = new AlternativeMyLocationOverlay(this, mapview);
+		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
 		//		mylocation.onTap(userlocation, mapview);
 
@@ -125,8 +126,7 @@ public class GPSViewActivity extends MapActivity
 				// Perform action on click
 				// Rune: Call new class instead of new view
 				//mapController.animateTo(usergeopoint);
-				Intent test = new Intent(mContext, LocationActivity.class);
-				startActivity(test);
+				
 			}
 		});
 
@@ -197,6 +197,7 @@ public class GPSViewActivity extends MapActivity
 
 	@Override
 	protected void onPause() {
+		mapview.getOverlays().clear();
 		mylocation.disableMyLocation();
 		super.onPause();
 	}

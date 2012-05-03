@@ -87,8 +87,8 @@
             android:label="@string/addphoto" >
             </activity>   
         <activity 
-            android:name=".LocationActivity"
-            android:label="@string/location" >
+            android:name=".AlertDialogViewActivity"
+            android:label="@string/update" >
             </activity>
         <activity 
             android:name=".CategoriesActivity"
