@@ -6,6 +6,9 @@ android:layout_gravity="center_horizontal"
 android:layout_height="wrap_content" 
 android:shadowRadius="5"
 android:gravity="center" 
-android:textSize="18dp"
+android:textSize="28dp"
+android:paddingTop="20dp"
+android:paddingBottom="20dp"
+
 android:shadowDy="3" 
 android:shadowDx="3" />
