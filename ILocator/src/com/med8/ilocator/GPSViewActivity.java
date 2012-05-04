@@ -36,7 +36,6 @@ public class GPSViewActivity extends MapActivity
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gpsview);
 		
@@ -46,10 +45,9 @@ public class GPSViewActivity extends MapActivity
 		mapController.setZoom(16);
 
 		mapview.setBuiltInZoomControls(true);
-
-
 	}
-
+	
+/*
 	protected void makeUseOfNewLocation(Location location) {
 
 		int longitue = (int) (location.getLongitude()*1000000);
@@ -77,7 +75,8 @@ public class GPSViewActivity extends MapActivity
 		List<Overlay> mapOverlays = mapview.getOverlays();
 		mapOverlays.add(itemizedoverlay);
 	}
-
+*/
+	
 	@Override
 	protected boolean isRouteDisplayed() {
 		// TODO Auto-generated method stub
@@ -170,20 +169,15 @@ public class GPSViewActivity extends MapActivity
 					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
 					mapview.getOverlays().add(itemizedOverlay);
 					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");
-					itemizedOverlay.addOverlay(overlayitem);
-					
+					itemizedOverlay.addOverlay(overlayitem);	
 				}
-				
-
 			}
 			//System.out.println("POINTS: " + points);
 		}
 		
-
 		mylocation = new AlternativeMyLocationOverlay(this, mapview);
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
-		
 		
 		hja = true;
 		myLocation.setClickable(hja);

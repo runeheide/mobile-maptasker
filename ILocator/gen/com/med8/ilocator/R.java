@@ -22,15 +22,28 @@ public final class R {
         public static final int androidmarker=0x7f020000;
         public static final int bckgrnd=0x7f020001;
         public static final int custom_button=0x7f020002;
-        public static final int firehydrantgreen=0x7f020003;
-        public static final int firehydrantred=0x7f020004;
-        public static final int firehydrantyellow=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int ilocator=0x7f020007;
-        public static final int ilocatorlaunch=0x7f020008;
-        public static final int loginbutton=0x7f020009;
-        public static final int signupbutton=0x7f02000a;
-        public static final int sigtekorn=0x7f02000b;
+        public static final int duerher=0x7f020003;
+        public static final int firehydrantgreen=0x7f020004;
+        public static final int firehydrantred=0x7f020005;
+        public static final int firehydrantyellow=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int ilocator=0x7f020008;
+        public static final int ilocatorlaunch=0x7f020009;
+        public static final int loginbutton=0x7f02000a;
+        public static final int management=0x7f02000b;
+        public static final int management_pressed=0x7f02000c;
+        public static final int managementselector=0x7f02000d;
+        public static final int maps=0x7f02000e;
+        public static final int maps_pressed=0x7f02000f;
+        public static final int mapsselector=0x7f020010;
+        public static final int objects=0x7f020011;
+        public static final int objects_pressed=0x7f020012;
+        public static final int objectsselector=0x7f020013;
+        public static final int quit=0x7f020014;
+        public static final int quit_pressed=0x7f020015;
+        public static final int quitselector=0x7f020016;
+        public static final int signupbutton=0x7f020017;
+        public static final int sigtekorn=0x7f020018;
     }
     public static final class id {
         public static final int Done=0x7f080024;
@@ -145,6 +158,7 @@ public final class R {
         public static final int signup=0x7f06000b;
         public static final int signupforilocator=0x7f06000c;
         public static final int tasks=0x7f060029;
+        public static final int update=0x7f060030;
         public static final int updateLocation=0x7f06002e;
         public static final int updatePosition=0x7f06002f;
         public static final int username=0x7f060005;
