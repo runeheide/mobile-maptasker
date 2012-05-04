@@ -30,7 +30,7 @@ public class GPSViewActivity extends MapActivity
 
 	public static GeoPoint userlocation = new GeoPoint(0,0);
 
-	boolean hja = false;
+	//boolean hja = false;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -86,10 +86,6 @@ public class GPSViewActivity extends MapActivity
 	@Override
 	protected void onResume() {
 
-		//		mylocation.onTap(userlocation, mapview);
-
-		
-		
 		final Button button = (Button) findViewById(R.id.mapShiftButton);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -103,11 +99,12 @@ public class GPSViewActivity extends MapActivity
 		final Button myLocation = (Button) findViewById(R.id.MyLocation);
 		myLocation.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				myLocation.setClickable(hja); 
+		//		myLocation.setClickable(hja); 
 				//Perform action on click
 				// Rune: Call new class instead of new view
+				if (!(mylocation.getMyLocation()==null)){
 				mapController.animateTo(mylocation.getMyLocation());
-				//System.out.println(mylocation.getMyLocation());
+				}
 			}
 		});
 
@@ -128,7 +125,6 @@ public class GPSViewActivity extends MapActivity
 		
 		if (arrayList.size()>0)
 		{
-			
 			Drawable marker = getResources().getDrawable(R.drawable.firehydrantgreen);
 			//ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
 			//mapview.getOverlays().add(itemizedOverlay);
@@ -179,8 +175,8 @@ public class GPSViewActivity extends MapActivity
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
 		
-		hja = true;
-		myLocation.setClickable(hja);
+//		hja = true;
+//		myLocation.setClickable(hja);
 		super.onResume();
 	}
 
