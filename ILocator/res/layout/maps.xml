@@ -6,29 +6,37 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <Button 
+    <ImageButton 
         android:id="@+id/gpsButton"
-    	android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
+        android:background="@drawable/gpsviewselector"
+    	android:layout_width="262dp"
+    	android:layout_height="76dp"
     	android:layout_gravity="center_horizontal"
+    	android:layout_marginTop="30dp" 
+    	android:layout_marginBottom="20dp"  
     	android:text="@string/gpsview" />
-    <Button
+    <ImageButton
         android:textColorHighlight="#333333"
         android:id="@+id/arButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@drawable/arviewselector"
+        android:layout_width="262dp"
+        android:layout_height="76dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"  
         android:text="@string/arview" />
-    <Button
+    <ImageButton
         android:id="@+id/heatmapButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@drawable/heatmapselector"
+        android:layout_width="262dp"
+        android:layout_height="76dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="40dp"  
         android:text="@string/heatmapview" />
-    <Button 
+    <ImageButton 
         android:id="@+id/backButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@drawable/backselector"
+        android:layout_width="262dp"
+        android:layout_height="76dp"
         android:layout_gravity="center_horizontal"
         android:text="@string/back"/>
   
