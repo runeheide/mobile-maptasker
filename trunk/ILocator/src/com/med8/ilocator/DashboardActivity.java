@@ -18,7 +18,7 @@ public class DashboardActivity extends Activity {
         ImageButton objectsButton = (ImageButton)findViewById(R.id.addObjectButton);
         ImageButton mapsButton = (ImageButton)findViewById(R.id.mapsButton);
         ImageButton managementButton = (ImageButton)findViewById(R.id.managementButton);
-        Button quitButton = (Button)findViewById(R.id.quitButton);
+        ImageButton quitButton = (ImageButton)findViewById(R.id.quitButton);
         
        objectsButton.setOnClickListener(new View.OnClickListener() {
 
