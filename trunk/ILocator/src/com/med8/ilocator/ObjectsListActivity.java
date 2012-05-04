@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -48,7 +49,7 @@ public class ObjectsListActivity extends ILocatorActivity {
 			}
 		});
 		
-		Button backButton = (Button)findViewById(R.id.backButton);
+		ImageButton backButton = (ImageButton)findViewById(R.id.backButton);
 		Button addObjectButton = (Button)findViewById(R.id.addObjectButton);
 		
 		backButton.setOnClickListener(new View.OnClickListener() {			

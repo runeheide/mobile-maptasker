@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MapsActivity extends Activity {
 	
@@ -14,10 +15,10 @@ public class MapsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.maps);
 		
-		Button gpsButton = (Button)findViewById(R.id.gpsButton);
-		Button arButton = (Button)findViewById(R.id.arButton);
-		Button heatmapButton = (Button)findViewById(R.id.heatmapButton);
-		Button backButton = (Button)findViewById(R.id.backButton);
+		ImageButton gpsButton = (ImageButton)findViewById(R.id.gpsButton);
+		ImageButton arButton = (ImageButton)findViewById(R.id.arButton);
+		ImageButton heatmapButton = (ImageButton)findViewById(R.id.heatmapButton);
+		ImageButton backButton = (ImageButton)findViewById(R.id.backButton);
 		
 		gpsButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
