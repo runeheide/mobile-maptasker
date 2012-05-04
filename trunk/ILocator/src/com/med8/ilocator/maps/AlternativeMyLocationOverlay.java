@@ -37,7 +37,7 @@ public class AlternativeMyLocationOverlay extends MyLocationOverlay {
   public AlternativeMyLocationOverlay(Context context, MapView mapView) {
     super(context, mapView);
     this.mc = mapView.getController();
-    this.marker = BitmapFactory.decodeResource(context.getResources(), R.drawable.androidmarker);
+    this.marker = BitmapFactory.decodeResource(context.getResources(), R.drawable.duerher);
   }
 
   @Override
@@ -48,7 +48,7 @@ public class AlternativeMyLocationOverlay extends MyLocationOverlay {
       this.width = mapView.getWidth();
     }
     mapView.getProjection().toPixels(myLocation, currentPoint);
-    canvas.drawBitmap(marker, currentPoint.x, currentPoint.y - 40, null);
+    canvas.drawBitmap(marker, currentPoint.x-(marker.getWidth()/2), currentPoint.y-(marker.getHeight()), null);
   }
 
   @Override
