@@ -30,7 +30,7 @@ public class GPSViewActivity extends MapActivity
 
 	public static GeoPoint userlocation = new GeoPoint(0,0);
 
-	//GeoPoint usergeopoint2;
+	boolean hja = false;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -87,11 +87,10 @@ public class GPSViewActivity extends MapActivity
 	@Override
 	protected void onResume() {
 
-		mylocation = new AlternativeMyLocationOverlay(this, mapview);
-		mapview.getOverlays().add(mylocation);
-		mylocation.enableMyLocation();
 		//		mylocation.onTap(userlocation, mapview);
 
+		
+		
 		final Button button = (Button) findViewById(R.id.mapShiftButton);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -101,11 +100,12 @@ public class GPSViewActivity extends MapActivity
 				mapview.setSatellite(!mapview.isSatellite());
 			}
 		});
-
+		
 		final Button myLocation = (Button) findViewById(R.id.MyLocation);
 		myLocation.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				// Perform action on click
+				myLocation.setClickable(hja); 
+				//Perform action on click
 				// Rune: Call new class instead of new view
 				mapController.animateTo(mylocation.getMyLocation());
 				//System.out.println(mylocation.getMyLocation());
@@ -121,15 +121,11 @@ public class GPSViewActivity extends MapActivity
 			}
 		});
 
-
-
 		TxtReader txtReader = new TxtReader();
 
 		List<String> arrayList = txtReader.returnObjects();
 
 		List<GeoPoint> points = new ArrayList<GeoPoint>();
-
-		int longitude = -99120000;
 		
 		if (arrayList.size()>0)
 		{
@@ -183,6 +179,14 @@ public class GPSViewActivity extends MapActivity
 			//System.out.println("POINTS: " + points);
 		}
 		
+
+		mylocation = new AlternativeMyLocationOverlay(this, mapview);
+		mapview.getOverlays().add(mylocation);
+		mylocation.enableMyLocation();
+		
+		
+		hja = true;
+		myLocation.setClickable(hja);
 		super.onResume();
 	}
 
