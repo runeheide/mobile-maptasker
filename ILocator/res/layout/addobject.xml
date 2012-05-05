@@ -70,23 +70,32 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" 
         android:entries="@array/eventstatus"/>
-
+    
     <Button
-        android:id="@+id/locationButton"
-        android:layout_width="143dp"
-        android:layout_height="wrap_content"
-        android:text="@string/location" />
+        	android:id="@+id/locationButton"
+       	 	android:layout_width="143dp"
+        	android:layout_height="wrap_content"
+        	android:text="@string/location" />
 
-    <Button
-        android:id="@+id/createButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/create" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bckgrnd"
+    android:orientation="horizontal"
+    android:paddingTop="40dp" >
 
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/back" />
+        <ImageButton
+        	android:id="@+id/backButton"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="@string/back" />
+        
+    	<ImageButton
+       		android:id="@+id/createButton"
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:text="@string/create" />
+
+    	</LinearLayout>
 
 </LinearLayout>
