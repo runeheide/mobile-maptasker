@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.med8.ilocator.R;
 import com.med8.support.*;
@@ -21,7 +22,7 @@ public class StartScreenActivity extends ILocatorActivity {
 		final EditText name = (EditText)findViewById(R.id.EditText_Name);
 		final EditText password = (EditText)findViewById(R.id.EditText_Password);
 
-		Button signupButton = (Button)findViewById(R.id.signUpButton);	
+		ImageButton signupButton = (ImageButton)findViewById(R.id.signUpButton);	
 		signupButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
 				Intent signupIntent = new Intent(view.getContext(), SignupActivity.class);
@@ -29,7 +30,7 @@ public class StartScreenActivity extends ILocatorActivity {
 			}
 		});
 
-		Button loginButton = (Button)findViewById(R.id.loginButton);
+		ImageButton loginButton = (ImageButton)findViewById(R.id.loginButton);
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
 				TxtReader txtReader = new TxtReader();

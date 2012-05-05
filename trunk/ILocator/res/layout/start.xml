@@ -43,23 +43,24 @@
         android:layout_weight="0.01"
         android:orientation="vertical" >
 
-        <Button
+        <ImageButton
             android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/loginselector"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginRight="32dp"
-            android:layout_marginTop="24dp"
-            android:text="@string/login" />
+            android:layout_marginTop="24dp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/signUpButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="262dp"
+            android:layout_height="76dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="32dp"
+            android:layout_alignRight="@+id/loginButton"
+            android:layout_marginBottom="37dp"
+            android:background="@drawable/signupselector"
             android:text="@string/signupforilocator" />
 
     </RelativeLayout>
