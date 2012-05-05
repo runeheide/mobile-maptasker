@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.med8.ilocator.R;
@@ -26,8 +27,8 @@ public class SignupActivity extends ILocatorActivity {
         final EditText pass2 = (EditText)findViewById(R.id.EditText_Password2);
         final TextView error = (TextView)findViewById(R.id.error);
         
-        Button backButton = (Button)findViewById(R.id.backButton);
-        final Button signupButton = (Button)findViewById(R.id.signUpButton);
+        ImageButton backButton = (ImageButton)findViewById(R.id.backButton);
+        final ImageButton signupButton = (ImageButton)findViewById(R.id.signUpButton);
          
         pass2.addTextChangedListener(new TextWatcher() {
         	
