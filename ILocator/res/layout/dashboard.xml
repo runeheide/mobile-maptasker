@@ -13,9 +13,9 @@
     	android:layout_height="76dp"
     	android:layout_marginTop="30dp" 
     	android:layout_marginBottom="20dp"   	
-    	android:layout_gravity="center_horizontal"
-    	
+    	android:layout_gravity="center_horizontal"    	
     	android:text="@string/maps" />
+    
     <ImageButton
         android:id="@+id/addObjectButton"
          android:src="@drawable/objectsselector"
@@ -24,6 +24,7 @@
         android:layout_marginBottom="20dp"
         android:layout_gravity="center_horizontal"
         android:text="@string/objects" />
+    
     <ImageButton
         android:id="@+id/managementButton"
         android:background="@drawable/managementselector"
