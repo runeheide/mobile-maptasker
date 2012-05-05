@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
@@ -32,8 +33,8 @@ public class EditObjectActivity extends ILocatorActivity {
 		final String nameOfClicked = txtReader.getObject(pressedObjectName, "Name");
 		name.setText(nameOfClicked);
 
-		Button backButton = (Button)findViewById(R.id.backButton);
-		Button saveButton = (Button)findViewById(R.id.saveButton);
+		ImageButton backButton = (ImageButton)findViewById(R.id.backButton);
+		ImageButton saveButton = (ImageButton)findViewById(R.id.saveButton);
 
 		String _category = txtReader.getObject(nameOfClicked, "Category");			
 		String _objectType = txtReader.getObject(nameOfClicked, "ObjectType");		
