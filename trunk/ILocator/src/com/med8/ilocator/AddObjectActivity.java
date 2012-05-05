@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import com.med8.ilocator.augmentedreality.data.ARData;
@@ -30,8 +31,8 @@ public class AddObjectActivity extends ILocatorActivity {
 
 		Button addPhotoButton = (Button)findViewById(R.id.addPhotoButton);
 		Button locationButton = (Button)findViewById(R.id.locationButton);
-		Button createButton = (Button)findViewById(R.id.createButton);
-		Button backButton = (Button)findViewById(R.id.backButton);
+		ImageButton createButton = (ImageButton)findViewById(R.id.createButton);
+		ImageButton backButton = (ImageButton)findViewById(R.id.backButton);
 
 		addPhotoButton.setOnClickListener(new View.OnClickListener() {
 
