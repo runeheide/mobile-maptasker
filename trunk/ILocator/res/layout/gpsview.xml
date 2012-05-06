@@ -10,28 +10,32 @@
         android:id="@+id/mapview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_below="@+id/mapShiftButton"
         android:apiKey="0aFOkZHqNeYAeIm-cFF0kCOft0Qd9FOYDHn8uoQ"
         android:clickable="true" />
 
-    <Button
+    <ImageButton
         android:id="@+id/mapShiftButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/shiftmapsselector"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:text="@string/mapviewshifter" />
 
-    <Button
+    <ImageButton
         android:id="@+id/MyLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/mylocationselector"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dip"
         android:text="@string/myLocation" />
 
-    <Button
+    <ImageButton
         android:id="@+id/NewObject"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/newobjectselector"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_marginLeft="10dip"
         android:text="@string/newObject" />
