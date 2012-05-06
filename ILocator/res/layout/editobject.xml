@@ -49,23 +49,26 @@
         android:entries="@array/eventstatus"/>
     
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    	android:background="@drawable/bckgrnd"
-    	android:paddingTop="40dp"
+    	android:paddingTop="80dp"
     	android:layout_width="fill_parent"
     	android:layout_height="fill_parent"
     	android:orientation="horizontal" >
         
-        <Button
+        <ImageButton
         android:id="@+id/backButton"
-        android:layout_width="158dp"
-        android:layout_height="wrap_content"
+        android:background="@drawable/backbtn"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:text="@string/back" />
-        
-        <Button
-        android:id="@+id/saveButton"
-        android:layout_width="158dp"
-        android:layout_height="wrap_content"
-        android:text="@string/save" />
+
+        <ImageButton
+            android:id="@+id/saveButton"
+            android:layout_width="230dp"
+            android:layout_height="65dp"
+            android:background="@drawable/saveselector"
+            android:text="@string/save" />
         
         ></LinearLayout>
 
