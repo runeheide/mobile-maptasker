@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class ManagementActivity extends Activity {
 	
@@ -15,10 +16,10 @@ public class ManagementActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.management);
 		
-		Button assetsButton = (Button)findViewById(R.id.categoriesButton);
-		Button tasksButton = (Button)findViewById(R.id.tasksButton);
-		Button usersButton = (Button)findViewById(R.id.usersButton);
-		Button backButton = (Button)findViewById(R.id.backButton);
+		ImageButton assetsButton = (ImageButton)findViewById(R.id.categoriesButton);
+		ImageButton tasksButton = (ImageButton)findViewById(R.id.tasksButton);
+		ImageButton usersButton = (ImageButton)findViewById(R.id.usersButton);
+		ImageButton backButton = (ImageButton)findViewById(R.id.backButton);
 		
 		assetsButton.setOnClickListener(new View.OnClickListener() {
 			
