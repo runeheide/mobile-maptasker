@@ -10,6 +10,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -30,7 +31,6 @@ public class GPSViewActivity extends MapActivity
 
 	public static GeoPoint userlocation = new GeoPoint(0,0);
 
-	//boolean hja = false;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -86,7 +86,7 @@ public class GPSViewActivity extends MapActivity
 	@Override
 	protected void onResume() {
 
-		final Button button = (Button) findViewById(R.id.mapShiftButton);
+		final ImageButton button = (ImageButton) findViewById(R.id.mapShiftButton);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// Perform action on click
@@ -96,7 +96,7 @@ public class GPSViewActivity extends MapActivity
 			}
 		});
 		
-		final Button myLocation = (Button) findViewById(R.id.MyLocation);
+		final ImageButton myLocation = (ImageButton) findViewById(R.id.MyLocation);
 		myLocation.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 		//		myLocation.setClickable(hja); 
@@ -108,7 +108,7 @@ public class GPSViewActivity extends MapActivity
 			}
 		});
 
-		final Button createNewObject = (Button) findViewById(R.id.NewObject);
+		final ImageButton createNewObject = (ImageButton) findViewById(R.id.NewObject);
 		createNewObject.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent addObjectIntent = new Intent(v.getContext(), AddObjectActivity.class);
