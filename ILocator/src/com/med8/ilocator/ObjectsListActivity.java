@@ -50,7 +50,7 @@ public class ObjectsListActivity extends ILocatorActivity {
 		});
 		
 		ImageButton backButton = (ImageButton)findViewById(R.id.backButton);
-		Button addObjectButton = (Button)findViewById(R.id.addObjectButton);
+		ImageButton addObjectButton = (ImageButton)findViewById(R.id.addObjectButton);
 		
 		backButton.setOnClickListener(new View.OnClickListener() {			
 			public void onClick(View view) {
