@@ -20,6 +20,7 @@ import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 import com.med8.ilocator.maps.AlternativeMyLocationOverlay;
 import com.med8.ilocator.maps.ItemOverlay;
+import com.med8.support.TxtReader;
 import com.med8.support.TxtWriter;
 
 public class UpdateObjectPositionActivity extends MapActivity
@@ -50,6 +51,15 @@ public class UpdateObjectPositionActivity extends MapActivity
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
 		//		mylocation.onTap(userlocation, mapview);
+		
+		TxtReader txtReader = new TxtReader();
+		
+		//If this activity is started from pressing "Show me the object" in an object activity, navigate to the selected object.
+		if (txtReader.getNameOfPressedButton()!=null){
+			GeoPoint objectSelected = new GeoPoint(Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Latitude")),
+					Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Longitude")));
+			mapController.animateTo(objectSelected);
+		}
 
 		final ImageButton button = (ImageButton) findViewById(R.id.mapShiftButton);
 		button.setOnClickListener(new View.OnClickListener() {

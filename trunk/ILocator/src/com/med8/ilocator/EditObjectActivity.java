@@ -35,6 +35,8 @@ public class EditObjectActivity extends ILocatorActivity {
 
 		ImageButton backButton = (ImageButton)findViewById(R.id.backButton);
 		ImageButton saveButton = (ImageButton)findViewById(R.id.saveButton);
+		Button updatelocationButton = (Button)findViewById(R.id.newlocationButton);
+		Button viewlocationButton = (Button)findViewById(R.id.viewlocationButton);
 
 		String _category = txtReader.getObject(nameOfClicked, "Category");			
 		String _objectType = txtReader.getObject(nameOfClicked, "ObjectType");		
@@ -99,6 +101,22 @@ public class EditObjectActivity extends ILocatorActivity {
 				Intent intent = new Intent();
 				setResult(RESULT_OK, intent);
 				finish();
+			}
+		});
+		
+		updatelocationButton.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View view) {
+				Intent updateObjectPositionIntent = new Intent(view.getContext(), UpdateObjectPositionActivity.class);
+				startActivityForResult(updateObjectPositionIntent, 0);
+			}
+		});
+		
+		viewlocationButton.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View view) {
+				Intent viewObjectLocation = new Intent(view.getContext(), GPSViewActivity.class);
+				startActivityForResult(viewObjectLocation, 0);
 			}
 		});
 	}	

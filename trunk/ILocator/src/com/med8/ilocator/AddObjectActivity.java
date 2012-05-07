@@ -45,7 +45,6 @@ public class AddObjectActivity extends ILocatorActivity {
 		locationButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View view) {
-				System.out.println("LORTELORT1");
 				Intent updateObjectPositionIntent = new Intent(view.getContext(), UpdateObjectPositionActivity.class);
 				startActivityForResult(updateObjectPositionIntent, 0);
 				//				txtWriter.writeEditObject(_objectName.getText().toString(), "Latitude", txtReader.getLocation("Latitude"));
