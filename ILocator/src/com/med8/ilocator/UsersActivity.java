@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class UsersActivity extends Activity {
 	
@@ -14,7 +15,7 @@ public class UsersActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.users);		
 		
-		Button backButton = (Button)findViewById(R.id.backButton);
+		ImageButton backButton = (ImageButton)findViewById(R.id.backButton);
 		backButton.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View view) {
