@@ -175,6 +175,13 @@ public class GPSViewActivity extends MapActivity
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
 		
+		//If this activity is started from pressing "Show me the object" in an object activity, navigate to the selected object.
+		if (txtReader.getNameOfPressedButton()!=null){
+			GeoPoint objectSelected = new GeoPoint(Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Latitude")),
+					Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Longitude")));
+			mapController.animateTo(objectSelected);
+		}
+		
 //		hja = true;
 //		myLocation.setClickable(hja);
 		super.onResume();

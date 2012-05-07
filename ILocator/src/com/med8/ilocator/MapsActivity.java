@@ -1,6 +1,8 @@
 package com.med8.ilocator;
 
 import com.med8.ilocator.R;
+import com.med8.support.TxtWriter;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +24,8 @@ public class MapsActivity extends Activity {
 		
 		gpsButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
+				TxtWriter txtWriter = new TxtWriter();
+				txtWriter.writeButtonPressed("");
 				Intent gpsIntent = new Intent(view.getContext(), GPSViewActivity.class);
 				startActivityForResult(gpsIntent,0);
 			}
