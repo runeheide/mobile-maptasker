@@ -6,11 +6,28 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <Button 
-        android:id="@+id/backButton"
-        android:layout_width="match_parent"
+    <ImageButton
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/underconstruction"
+        android:text="@string/back" />
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/back"/>
+        android:paddingTop="20dp"
+        android:text="@string/underconstruction"
+        android:textColor="#ffffff"
+        android:textSize="18dp" />
+  
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="262dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="220dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/backmanagementselector"
+        android:text="@string/back" />
   
 </LinearLayout>
