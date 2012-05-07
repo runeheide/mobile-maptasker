@@ -5,32 +5,39 @@
     android:background="@drawable/bckgrnd"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/addObjectButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/addnewobject" />
-
     <ListView
         android:id="@+id/listViewObjects"
         android:layout_width="fill_parent"
-        android:layout_height="320dp"
+        android:layout_height="290dp"
         android:layout_weight="1.12"
         android:cacheColorHint="#00000000" >
     </ListView>
-
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="262dp"
-        android:layout_height="76dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/backselector"
-        android:text="@string/back" />
-
-    <TextView
-        android:id="@+id/Object1_TextView"
-        android:layout_width="wrap_content"
+    
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18dp" />
+        android:layout_weight="0.38"
+        android:paddingTop="30dp"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@drawable/backbtn"
+            android:layout_marginLeft="10dp"
+            android:text="@string/back" />
+
+        <ImageButton
+            android:id="@+id/addObjectButton"
+            android:layout_width="222dp"
+            android:layout_height="76dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/addnewobjectselector"
+            android:text="@string/addnewobject" />
+
+    </LinearLayout>
 
 </LinearLayout>

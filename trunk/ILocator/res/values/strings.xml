@@ -37,7 +37,7 @@
     <string name="eventstatus3">Broken Down</string>
     <string name="objecttype">Object type</string>
     <string name="eventstatus">Event status</string>
-    <string name="location">Location</string>
+    <string name="setlocation">Set location</string>
     <string name="create">Create</string>
     <string name="save">Save</string>
     <string name="management">Management</string>

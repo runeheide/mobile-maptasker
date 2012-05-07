@@ -6,30 +6,37 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <Button 
+    <ImageButton 
         android:id="@+id/categoriesButton"
-    	android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
+        android:background="@drawable/categoriesselector"
+    	android:layout_width="262dp"
+    	android:layout_height="76dp"
     	android:layout_gravity="center_horizontal"
+    	android:layout_marginTop="30dp"
+    	android:layout_marginBottom="20dp"
     	android:text="@string/categories" />
-    <Button
-        android:textColorHighlight="#333333"
+    <ImageButton
         android:id="@+id/tasksButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@drawable/tasksselector"
+        android:layout_width="262dp"
+    	android:layout_height="76dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
         android:text="@string/tasks" />
-    <Button
+    <ImageButton
         android:id="@+id/usersButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:background="@drawable/usersselector"
+        android:layout_width="262dp"
+    	android:layout_height="76dp"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="40dp"
         android:text="@string/users" />
-    <Button 
+    <ImageButton 
         android:id="@+id/backButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:background="@drawable/backselector"
+        android:layout_width="262dp"
+        android:layout_height="76dp"
+       	android:layout_gravity="center_horizontal"
         android:text="@string/back"/>
   
 </LinearLayout>

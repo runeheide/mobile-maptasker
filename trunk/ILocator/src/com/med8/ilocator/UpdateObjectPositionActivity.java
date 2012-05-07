@@ -10,6 +10,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -50,7 +51,7 @@ public class UpdateObjectPositionActivity extends MapActivity
 		mylocation.enableMyLocation();
 		//		mylocation.onTap(userlocation, mapview);
 
-		final Button button = (Button) findViewById(R.id.mapShiftButton);
+		final ImageButton button = (ImageButton) findViewById(R.id.mapShiftButton);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// Perform action on click
@@ -60,7 +61,7 @@ public class UpdateObjectPositionActivity extends MapActivity
 			}
 		});
 
-		final Button myLocation = (Button) findViewById(R.id.MyLocation);
+		final ImageButton myLocation = (ImageButton) findViewById(R.id.MyLocation);
 		myLocation.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// Perform action on click
@@ -70,7 +71,7 @@ public class UpdateObjectPositionActivity extends MapActivity
 			}
 		});
 
-		final Button done = (Button) findViewById(R.id.Done);
+		final ImageButton done = (ImageButton) findViewById(R.id.Done);
 		done.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				// Perform action on click
