@@ -19,6 +19,8 @@ public class AddObjectActivity extends ILocatorActivity {
 
 	boolean locationButtonPressed = false;
 
+
+	
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -34,6 +36,13 @@ public class AddObjectActivity extends ILocatorActivity {
 		ImageButton createButton = (ImageButton)findViewById(R.id.createButton);
 		ImageButton backButton = (ImageButton)findViewById(R.id.backButton);
 
+		//Her mangler noget! :D
+		
+		
+		//_eventStatus.getOnItemSelectedListener();
+		//_eventStatus.getItemAtPosition(getChangingConfigurations())
+		
+		
 		addPhotoButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View view) {
@@ -83,7 +92,6 @@ public class AddObjectActivity extends ILocatorActivity {
 				String latitude = null;
 				String longitude = null;
 				if (locationButtonPressed == true){
-					System.out.println("LORTELORT2");
 					TxtReader txtReader = new TxtReader();
 					latitude = txtReader.getLocation("Latitude");
 					longitude = txtReader.getLocation("Longitude");
@@ -160,3 +168,4 @@ public class AddObjectActivity extends ILocatorActivity {
 		return location;
 	}
 }
+

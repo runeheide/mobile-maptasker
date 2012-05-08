@@ -1,3 +1,4 @@
+//Bliver ikke brugt (læs: Martin)
 package com.med8.ilocator;
 
 import com.med8.ilocator.R;
