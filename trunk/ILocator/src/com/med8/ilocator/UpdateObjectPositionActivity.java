@@ -4,13 +4,12 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -38,7 +37,11 @@ public class UpdateObjectPositionActivity extends MapActivity
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.updatelocation);
+		ImageView updateLocationImageView = (ImageView) findViewById(R.layout.updatelocation);
+		setContentView(updateLocationImageView);
+		updateLocationImageView.setClickable(false);
+		updateLocationImageView.setVisibility(0);
+		
 
 		mapview = (MapView)findViewById(R.id.mapview);
 		mapview.setBuiltInZoomControls(true);
@@ -51,9 +54,9 @@ public class UpdateObjectPositionActivity extends MapActivity
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
 		//		mylocation.onTap(userlocation, mapview);
-		
+
 		TxtReader txtReader = new TxtReader();
-		
+
 		//If this activity is started from pressing "Show me the object" in an object activity, navigate to the selected object.
 		if (txtReader.getNameOfPressedButton()!=null){
 			GeoPoint objectSelected = new GeoPoint(Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Latitude")),
@@ -78,6 +81,9 @@ public class UpdateObjectPositionActivity extends MapActivity
 				// Rune: Call new class instead of new view
 				mapController.animateTo(mylocation.getMyLocation());
 				//System.out.println(mylocation.getMyLocation());
+				if (!(mylocation.getMyLocation()==null)){
+					mapController.animateTo(mylocation.getMyLocation());
+				}
 			}
 		});
 
@@ -88,33 +94,33 @@ public class UpdateObjectPositionActivity extends MapActivity
 				// Rune: Call new class instead of new view
 				//mapController.animateTo(usergeopoint);
 				//System.out.println(mapview.getMapCenter());
-				
+
 				GeoPoint location = mapview.getMapCenter();
 				TxtWriter txtWriter = new TxtWriter();
 				txtWriter.writeLocationSelected(location);
-				
+
 				//System.out.println(location);
-				
+
 				System.out.println("UpdateObject1");
-				
+
 				Intent data = new Intent();
-				
+
 				System.out.println("UpdateObject2");
-				
-				
+
+
 				if (getParent() == null) {
-				    setResult(Activity.RESULT_OK, data);
+					setResult(Activity.RESULT_OK, data);
 				} else {
-				    getParent().setResult(Activity.RESULT_OK, data);
+					getParent().setResult(Activity.RESULT_OK, data);
 				}
 				finish();
 
 				System.out.println("UpdateObject3");
-				
+
 			}
-			
+
 		});}
-/*
+	/*
 		TxtReader txtReader = new TxtReader();
 		List<String> arrayList = txtReader.returnObjects();
 		List<GeoPoint> points = new ArrayList<GeoPoint>();
@@ -164,7 +170,7 @@ public class UpdateObjectPositionActivity extends MapActivity
 			//System.out.println("POINTS: " + points);
 		}		
 	}
-*/
+	 */
 	public void makeUseOfNewLocation(Location location) {
 
 		int longitue = (int) (location.getLongitude()*1000000);
