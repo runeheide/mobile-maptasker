@@ -55,13 +55,6 @@
         android:layout_height="wrap_content"
         android:text="@string/setnewlocation" />
 
-        <Button
-        android:id="@+id/viewlocationButton"
-        android:layout_marginTop="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/viewlocation" />
-        
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     	android:paddingTop="80dp"
     	android:layout_width="fill_parent"

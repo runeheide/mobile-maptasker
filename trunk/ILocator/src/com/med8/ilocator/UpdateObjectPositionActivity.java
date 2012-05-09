@@ -90,8 +90,17 @@ public class UpdateObjectPositionActivity extends MapActivity
 				//System.out.println(mapview.getMapCenter());
 				
 				GeoPoint location = mapview.getMapCenter();
+				
+				String lat = Integer.toString(location.getLatitudeE6());
+				String lon = Integer.toString(location.getLongitudeE6());
+				
 				TxtWriter txtWriter = new TxtWriter();
+				TxtReader txtReader = new TxtReader();
+				
 				txtWriter.writeLocationSelected(location);
+				txtWriter.writeEditObject(txtReader.getNameOfPressedButton(), "Latitude", lat);
+				txtWriter.writeEditObject(txtReader.getNameOfPressedButton(), "Longitude", lon);
+				
 				
 				//System.out.println(location);
 				
