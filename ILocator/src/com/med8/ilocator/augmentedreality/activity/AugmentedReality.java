@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -51,7 +52,8 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
     protected static LinearLayout zoomLayout = null;
     protected static AugmentedView augmentedView = null;
     protected static LinearLayout buttonLayout = null;
-    protected static Button addObjectButton = null;
+    protected static ImageButton addObjectButton = null;
+    private static int icon1 = 0;
 
     public static final float MAX_ZOOM = 100; //in KM
     public static final float ONE_PERCENT = MAX_ZOOM/100f;
@@ -86,8 +88,10 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
         buttonLayout.setGravity(Gravity.BOTTOM);
         buttonLayout.setPadding(5, 5, 5, 5);
         
-        addObjectButton = new Button(this);
-        addObjectButton.setText("ADD OBJECT");
+        addObjectButton = new ImageButton(this);
+        icon1 = R.drawable.newobjectselector;
+        addObjectButton.setBackgroundResource(icon1);
+        
         buttonLayout.addView(addObjectButton);
         
         
