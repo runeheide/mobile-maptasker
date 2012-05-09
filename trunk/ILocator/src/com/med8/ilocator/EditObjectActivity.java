@@ -41,7 +41,7 @@ public class EditObjectActivity extends ILocatorActivity {
 		String _category = txtReader.getObject(nameOfClicked, "Category");			
 		String _objectType = txtReader.getObject(nameOfClicked, "ObjectType");		
 		String _eventStatus = txtReader.getObject(nameOfClicked, "EventStatus");		
-
+/*
 		if (_category.equalsIgnoreCase("Wells"))
 		{
 			category.setSelection(0, true);
@@ -63,7 +63,7 @@ public class EditObjectActivity extends ILocatorActivity {
 		{
 			objectType.setSelection(1);
 		}
-		
+*/		
 		if (_eventStatus.equalsIgnoreCase("OK"))
 		{
 			eventStatus.setSelection(0);
