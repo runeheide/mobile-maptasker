@@ -38,7 +38,7 @@
     <string name="objecttype">Object type</string>
     <string name="eventstatus">Event status</string>
     <string name="setlocation">Set location</string>
-    <string name="setnewlocation">Set new location</string>
+    <string name="setnewlocation">Location</string>
     <string name="create">Create</string>
     <string name="save">Save</string>
     <string name="management">Management</string>
