@@ -5,12 +5,10 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.google.android.maps.GeoPoint;
@@ -21,6 +19,7 @@ import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 import com.med8.ilocator.maps.AlternativeMyLocationOverlay;
 import com.med8.ilocator.maps.ItemOverlay;
+import com.med8.ilocator.maps.ItemOverlayNonePress;
 import com.med8.support.TxtReader;
 import com.med8.support.TxtWriter;
 
@@ -80,7 +79,7 @@ public class UpdateObjectPositionActivity extends MapActivity
 				if (eventStatus.equalsIgnoreCase("OK"))
 				{
 					marker = getResources().getDrawable(R.drawable.firehydrantgreenopa);
-					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+					ItemOverlayNonePress itemizedOverlay = new ItemOverlayNonePress(marker, this);
 					mapview.getOverlays().add(itemizedOverlay);
 					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList, "Name"), "I'm in Mexico City!");
 					itemizedOverlay.addOverlay(overlayitem);
@@ -88,7 +87,7 @@ public class UpdateObjectPositionActivity extends MapActivity
 				else if (eventStatus.equalsIgnoreCase("Needs Attention"))
 				{
 					marker = getResources().getDrawable(R.drawable.firehydrantyellowopa);
-					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+					ItemOverlayNonePress itemizedOverlay = new ItemOverlayNonePress(marker, this);
 					mapview.getOverlays().add(itemizedOverlay);
 					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList, "Name"), "I'm in Mexico City!");
 					itemizedOverlay.addOverlay(overlayitem);
@@ -96,7 +95,7 @@ public class UpdateObjectPositionActivity extends MapActivity
 				else if (eventStatus.equalsIgnoreCase("Broken Down"))
 				{
 					marker = getResources().getDrawable(R.drawable.firehydrantredopa);
-					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+					ItemOverlayNonePress itemizedOverlay = new ItemOverlayNonePress(marker, this);
 					mapview.getOverlays().add(itemizedOverlay);
 					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList, "Name"), "I'm in Mexico City!");
 					itemizedOverlay.addOverlay(overlayitem);	
