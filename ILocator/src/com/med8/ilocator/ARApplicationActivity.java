@@ -75,7 +75,9 @@ public class ARApplicationActivity extends AugmentedReality {
 	public void onStart() {
 		super.onStart();
 		Location last = ARData.getCurrentLocation();
+		
 		updateData(last.getLatitude(),last.getLongitude(),last.getAltitude());
+		
 	}
 
 	//   @Override
@@ -105,7 +107,9 @@ public class ARApplicationActivity extends AugmentedReality {
 	public void onLocationChanged(Location location) {
 		super.onLocationChanged(location);
 
+		System.out.println("YOUOUO" + location.getLatitude() + "," + location.getLongitude() +","+location.getAltitude());
 		updateData(location.getLatitude(),location.getLongitude(),location.getAltitude());
+		System.out.println("HEY MARTIN");
 	}
 
 	/**
@@ -224,7 +228,7 @@ public class ARApplicationActivity extends AugmentedReality {
 		try {
 			ARData.removeMarkers();
 			ARData.addMarkers(localData.getMarkers());
-			exeService.execute(
+/*			exeService.execute(
 					new Runnable() {
 						public void run() {
 							for (NetworkDataSource source : sources.values())
@@ -232,7 +236,7 @@ public class ARApplicationActivity extends AugmentedReality {
 						}
 					}
 					);
-		} catch (RejectedExecutionException rej) {
+*/		} catch (RejectedExecutionException rej) {
 			Log.w(TAG, "Not running new download Runnable, queue is full.");
 		} catch (Exception e) {
 			Log.e(TAG, "Exception running download Runnable.",e);
