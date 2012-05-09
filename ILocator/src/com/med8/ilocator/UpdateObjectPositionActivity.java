@@ -79,8 +79,9 @@ public class UpdateObjectPositionActivity extends MapActivity
 			public void onClick(View v) {
 				// Perform action on click
 				// Rune: Call new class instead of new view
+				if (!(mylocation.getMyLocation()==null)){
 				mapController.animateTo(mylocation.getMyLocation());
-				//System.out.println(mylocation.getMyLocation());
+				}
 				if (!(mylocation.getMyLocation()==null)){
 					mapController.animateTo(mylocation.getMyLocation());
 				}
