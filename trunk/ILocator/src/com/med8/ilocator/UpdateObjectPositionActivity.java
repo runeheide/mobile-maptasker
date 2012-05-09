@@ -37,8 +37,6 @@ public class UpdateObjectPositionActivity extends MapActivity
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{
-		System.out.println("UOP1");
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.updatelocation);
 
@@ -49,8 +47,6 @@ public class UpdateObjectPositionActivity extends MapActivity
 
 		mapview.setBuiltInZoomControls(true);
 
-		System.out.println("UOP2");
-
 		mylocation = new AlternativeMyLocationOverlay(this, mapview);
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
@@ -58,44 +54,32 @@ public class UpdateObjectPositionActivity extends MapActivity
 
 		TxtReader txtReader = new TxtReader();
 
-		System.out.println("UOP3");
-
 		if (txtReader.getNameOfPressedButton()!=null){
-			String arrayList = txtReader.getNameOfPressedButton();
-			System.out.println(arrayList);
+			String objectName = txtReader.getNameOfPressedButton();
 
-			if (arrayList!=null){
+			if (objectName!=null){
 				List<GeoPoint> points = new ArrayList<GeoPoint>();
-
-				System.out.println("failure");
 				
-				System.out.println(txtReader.getObject(arrayList, "Name"));
-				
-				if (!(txtReader.getObject(arrayList, "Name").equals("Failed to locate object")))
+				if (!(txtReader.getObject(objectName, "Name").equals("Failed to locate object")))
 				{
-					System.out.println("no failure");
 					Drawable marker = getResources().getDrawable(R.drawable.firehydrantgreen);
 					//ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
 					//mapview.getOverlays().add(itemizedOverlay);
 
-					for (int i = 0; i < 1; i++)
-					{	
-
 						//		System.out.println("LAT: " + txtReader.getObject(arrayList.get(i), "Latitude"));
 						//		System.out.println("LONG: " + txtReader.getObject(arrayList.get(i), "Longitude"));
 
-						GeoPoint point = new GeoPoint(Integer.parseInt(txtReader.getObject(arrayList, "Latitude")),
-								Integer.parseInt(txtReader.getObject(arrayList, "Longitude")));
-						points.add(point);
+						GeoPoint point = new GeoPoint(Integer.parseInt(txtReader.getObject(objectName, "Latitude")),
+								Integer.parseInt(txtReader.getObject(objectName, "Longitude")));
 
-						String eventStatus = txtReader.getObject(arrayList, "EventStatus");
+						String eventStatus = txtReader.getObject(objectName, "EventStatus");
 
 						if (eventStatus.equalsIgnoreCase("OK"))
 						{
 							marker = getResources().getDrawable(R.drawable.firehydrantgreenopa);
 							ItemOverlayNonePress itemizedOverlay = new ItemOverlayNonePress(marker, this);
 							mapview.getOverlays().add(itemizedOverlay);
-							OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList, "Name"), "I'm in Mexico City!");
+							OverlayItem overlayitem = new OverlayItem(point, txtReader.getObject(objectName, "Name"), "I'm in Mexico City!");
 							itemizedOverlay.addOverlay(overlayitem);
 						}
 						else if (eventStatus.equalsIgnoreCase("Needs Attention"))
@@ -103,7 +87,7 @@ public class UpdateObjectPositionActivity extends MapActivity
 							marker = getResources().getDrawable(R.drawable.firehydrantyellowopa);
 							ItemOverlayNonePress itemizedOverlay = new ItemOverlayNonePress(marker, this);
 							mapview.getOverlays().add(itemizedOverlay);
-							OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList, "Name"), "I'm in Mexico City!");
+							OverlayItem overlayitem = new OverlayItem(point, txtReader.getObject(objectName, "Name"), "I'm in Mexico City!");
 							itemizedOverlay.addOverlay(overlayitem);
 						}
 						else if (eventStatus.equalsIgnoreCase("Broken Down"))
@@ -111,10 +95,9 @@ public class UpdateObjectPositionActivity extends MapActivity
 							marker = getResources().getDrawable(R.drawable.firehydrantredopa);
 							ItemOverlayNonePress itemizedOverlay = new ItemOverlayNonePress(marker, this);
 							mapview.getOverlays().add(itemizedOverlay);
-							OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList, "Name"), "I'm in Mexico City!");
+							OverlayItem overlayitem = new OverlayItem(point, txtReader.getObject(objectName, "Name"), "I'm in Mexico City!");
 							itemizedOverlay.addOverlay(overlayitem);	
 						}
-					}
 					//System.out.println("POINTS: " + points);
 				}
 			}
