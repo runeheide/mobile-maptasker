@@ -5,12 +5,11 @@
     android:background="@drawable/bckgrnd"
     android:orientation="vertical"
     android:paddingTop="0dp" >
-
+
     <com.google.android.maps.MapView
         android:id="@+id/mapview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentBottom="true"
         android:layout_below="@+id/mapShiftButton"
         android:apiKey="0aFOkZHqNeYAeIm-cFF0kCOft0Qd9FOYDHn8uoQ"
         android:clickable="true" />
@@ -32,21 +31,21 @@
         android:background="@drawable/setlocationselector"
         android:text="@string/updateLocation" />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
- 
-        android:layout_centerVertical="true"
-        android:src="@drawable/sigtekorn" />
-
     <ImageButton
         android:id="@+id/MyLocation"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/Done"
+        android:layout_above="@+id/mapview"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/mylocationselector"
         android:text="@string/myLocation" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/sigtekorn" />
 
 </RelativeLayout>
