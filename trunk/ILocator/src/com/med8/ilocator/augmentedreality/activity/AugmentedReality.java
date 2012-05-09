@@ -18,12 +18,14 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import com.med8.ilocator.AddObjectActivity;
+import com.med8.ilocator.R;
 import com.med8.ilocator.augmentedreality.camera.CameraSurface;
 import com.med8.ilocator.augmentedreality.data.ARData;
 import com.med8.ilocator.augmentedreality.ui.Marker;
