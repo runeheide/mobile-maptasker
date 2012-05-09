@@ -101,7 +101,6 @@ public class UpdateObjectPositionActivity extends MapActivity
 				txtWriter.writeEditObject(txtReader.getNameOfPressedButton(), "Latitude", lat);
 				txtWriter.writeEditObject(txtReader.getNameOfPressedButton(), "Longitude", lon);
 				
-				
 				//System.out.println(location);
 				
 				System.out.println("UpdateObject1");
