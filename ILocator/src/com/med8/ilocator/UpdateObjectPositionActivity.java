@@ -1,5 +1,6 @@
 package com.med8.ilocator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -51,14 +52,72 @@ public class UpdateObjectPositionActivity extends MapActivity
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
 		//		mylocation.onTap(userlocation, mapview);
-		
+
 		TxtReader txtReader = new TxtReader();
+
+		List<String> arrayList = txtReader.returnObjects();
+
+		List<GeoPoint> points = new ArrayList<GeoPoint>();
+		
+		if (arrayList.size()>0)
+		{
+			Drawable marker = getResources().getDrawable(R.drawable.firehydrantgreen);
+			//ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+			//mapview.getOverlays().add(itemizedOverlay);
+
+			for (int i = 0; i < arrayList.size(); i++)
+			{	
+
+				//		System.out.println("LAT: " + txtReader.getObject(arrayList.get(i), "Latitude"));
+				//		System.out.println("LONG: " + txtReader.getObject(arrayList.get(i), "Longitude"));
+
+				GeoPoint point = new GeoPoint(Integer.parseInt(txtReader.getObject(arrayList.get(i), "Latitude")),
+												Integer.parseInt(txtReader.getObject(arrayList.get(i), "Longitude")));
+				points.add(point);
+
+				String eventStatus = txtReader.getObject(arrayList.get(i), "EventStatus");
+
+				if (eventStatus.equalsIgnoreCase("OK"))
+				{
+					marker = getResources().getDrawable(R.drawable.firehydrantgreenopa);
+					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+					mapview.getOverlays().add(itemizedOverlay);
+					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");
+					itemizedOverlay.addOverlay(overlayitem);
+
+				}
+				else if (eventStatus.equalsIgnoreCase("Needs Attention"))
+				{
+					marker = getResources().getDrawable(R.drawable.firehydrantyellowopa);
+					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+					mapview.getOverlays().add(itemizedOverlay);
+					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");
+					itemizedOverlay.addOverlay(overlayitem);
+
+				}
+				else if (eventStatus.equalsIgnoreCase("Broken Down"))
+				{
+					marker = getResources().getDrawable(R.drawable.firehydrantredopa);
+					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
+					mapview.getOverlays().add(itemizedOverlay);
+					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");
+					itemizedOverlay.addOverlay(overlayitem);	
+				}
+			}
+			//System.out.println("POINTS: " + points);
+		}
 		
 		//If this activity is started from pressing "Show me the object" in an object activity, navigate to the selected object.
-		if (txtReader.getNameOfPressedButton()!=null){
-			GeoPoint objectSelected = new GeoPoint(Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Latitude")),
-					Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Longitude")));
-			mapController.animateTo(objectSelected);
+		try {
+			if (txtReader.getNameOfPressedButton()!=null){
+				GeoPoint objectSelected = new GeoPoint(Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Latitude")),
+						Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Longitude")));
+				mapController.animateTo(objectSelected);
+			}
+		}
+		catch (Exception e)
+		{
+			System.out.println("Failure in navigating to object");
 		}
 
 		final ImageButton button = (ImageButton) findViewById(R.id.mapShiftButton);
@@ -76,7 +135,7 @@ public class UpdateObjectPositionActivity extends MapActivity
 			public void onClick(View v) {
 				// Perform action on click
 				if (!(mylocation.getMyLocation()==null)){
-				mapController.animateTo(mylocation.getMyLocation());
+					mapController.animateTo(mylocation.getMyLocation());
 				}
 			}
 		});
@@ -88,41 +147,41 @@ public class UpdateObjectPositionActivity extends MapActivity
 				// Rune: Call new class instead of new view
 				//mapController.animateTo(usergeopoint);
 				//System.out.println(mapview.getMapCenter());
-				
+
 				GeoPoint location = mapview.getMapCenter();
-				
+
 				String lat = Integer.toString(location.getLatitudeE6());
 				String lon = Integer.toString(location.getLongitudeE6());
-				
+
 				TxtWriter txtWriter = new TxtWriter();
 				TxtReader txtReader = new TxtReader();
-				
+
 				txtWriter.writeLocationSelected(location);
 				txtWriter.writeEditObject(txtReader.getNameOfPressedButton(), "Latitude", lat);
 				txtWriter.writeEditObject(txtReader.getNameOfPressedButton(), "Longitude", lon);
-				
+
 				//System.out.println(location);
-				
+
 				System.out.println("UpdateObject1");
-				
+
 				Intent data = new Intent();
-				
+
 				System.out.println("UpdateObject2");
-				
-				
+
+
 				if (getParent() == null) {
-				    setResult(Activity.RESULT_OK, data);
+					setResult(Activity.RESULT_OK, data);
 				} else {
-				    getParent().setResult(Activity.RESULT_OK, data);
+					getParent().setResult(Activity.RESULT_OK, data);
 				}
 				finish();
 
 				System.out.println("UpdateObject3");
-				
+
 			}
-			
+
 		});}
-/*
+	/*
 		TxtReader txtReader = new TxtReader();
 		List<String> arrayList = txtReader.returnObjects();
 		List<GeoPoint> points = new ArrayList<GeoPoint>();
@@ -172,7 +231,7 @@ public class UpdateObjectPositionActivity extends MapActivity
 			//System.out.println("POINTS: " + points);
 		}		
 	}
-*/
+	 */
 	public void makeUseOfNewLocation(Location location) {
 
 		int longitue = (int) (location.getLongitude()*1000000);
