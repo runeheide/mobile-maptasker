@@ -55,52 +55,50 @@ public class UpdateObjectPositionActivity extends MapActivity
 
 		TxtReader txtReader = new TxtReader();
 
-		List<String> arrayList = txtReader.returnObjects();
+		String arrayList = txtReader.getNameOfPressedButton();
 
 		List<GeoPoint> points = new ArrayList<GeoPoint>();
 		
-		if (arrayList.size()>0)
+		if (arrayList!=null)
 		{
 			Drawable marker = getResources().getDrawable(R.drawable.firehydrantgreen);
 			//ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
 			//mapview.getOverlays().add(itemizedOverlay);
 
-			for (int i = 0; i < arrayList.size(); i++)
+			for (int i = 0; i < 1; i++)
 			{	
 
 				//		System.out.println("LAT: " + txtReader.getObject(arrayList.get(i), "Latitude"));
 				//		System.out.println("LONG: " + txtReader.getObject(arrayList.get(i), "Longitude"));
 
-				GeoPoint point = new GeoPoint(Integer.parseInt(txtReader.getObject(arrayList.get(i), "Latitude")),
-												Integer.parseInt(txtReader.getObject(arrayList.get(i), "Longitude")));
+				GeoPoint point = new GeoPoint(Integer.parseInt(txtReader.getObject(arrayList, "Latitude")),
+												Integer.parseInt(txtReader.getObject(arrayList, "Longitude")));
 				points.add(point);
 
-				String eventStatus = txtReader.getObject(arrayList.get(i), "EventStatus");
+				String eventStatus = txtReader.getObject(arrayList, "EventStatus");
 
 				if (eventStatus.equalsIgnoreCase("OK"))
 				{
 					marker = getResources().getDrawable(R.drawable.firehydrantgreenopa);
 					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
 					mapview.getOverlays().add(itemizedOverlay);
-					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");
+					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList, "Name"), "I'm in Mexico City!");
 					itemizedOverlay.addOverlay(overlayitem);
-
 				}
 				else if (eventStatus.equalsIgnoreCase("Needs Attention"))
 				{
 					marker = getResources().getDrawable(R.drawable.firehydrantyellowopa);
 					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
 					mapview.getOverlays().add(itemizedOverlay);
-					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");
+					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList, "Name"), "I'm in Mexico City!");
 					itemizedOverlay.addOverlay(overlayitem);
-
 				}
 				else if (eventStatus.equalsIgnoreCase("Broken Down"))
 				{
 					marker = getResources().getDrawable(R.drawable.firehydrantredopa);
 					ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
 					mapview.getOverlays().add(itemizedOverlay);
-					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");
+					OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList, "Name"), "I'm in Mexico City!");
 					itemizedOverlay.addOverlay(overlayitem);	
 				}
 			}
