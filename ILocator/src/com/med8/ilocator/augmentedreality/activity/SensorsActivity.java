@@ -107,11 +107,11 @@ public class SensorsActivity extends Activity implements SensorEventListener, Lo
                 	System.out.println("LocServ" + locationMgr.isProviderEnabled(LOCATION_SERVICE));
                 	System.out.println("LOC" + locationMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER));
                     Location gps=locationMgr.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                 //   Location network=locationMgr.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                    Location network=locationMgr.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                     if(gps!=null)
                         onLocationChanged(gps);
-                 //   else if (network!=null)
-                 //       onLocationChanged(network);
+                    else if (network!=null)
+                        onLocationChanged(network);
                     else
                         onLocationChanged(ARData.hardFix);
                 } catch (Exception ex2) {
