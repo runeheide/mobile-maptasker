@@ -11,11 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import android.content.Context;
-
 public class TxtReader {
-
-	//static InputStream inputStream;
 
 	public String getNameOfPressedButton()
 	{
@@ -51,20 +47,20 @@ public class TxtReader {
 
 			strLine = br.readLine();
 			br.close();
-			
+
 			String [] separatedSplitInfo;
 			separatedSplitInfo = strLine.split(":");
 
 			if (whatTude.equals("Latitude")) {strLine = separatedSplitInfo[0];}
 			else if (whatTude.equals("Longitude")) {strLine = separatedSplitInfo[1];}
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return strLine;
 	}
-	
+
 
 	/**The function is called by: "getContentAt(Context, String, String)"
 	 *Context can be replaced by "this" to input the class from where the function is called
@@ -73,55 +69,59 @@ public class TxtReader {
 	 * @return 
 	 */
 
-	public Boolean checkUser(String inString, String reqContent, String inputPassword)
+	public Boolean checkUser(String inString, String inputPassword)
 	{
-		String outString = "outstring pee";
-		String returnString = "Function Fail";
+		String returnString = "Check User Function Fail";
 
-		int contentId = -1;
+		String myString = "";
+		FileReader fileReader;
 
-		if (reqContent.equals("Name"))
-			contentId = 0;
-		else if (reqContent.equals("Email"))
-			contentId = 1;
-		else if (reqContent.equals("Password"))
-			contentId = 2;
-		else
-			contentId = -1;
+		try {
+			fileReader = new FileReader("/sdcard/iLocator/users.txt");
+			BufferedReader buffreader = new BufferedReader(fileReader);
+			String line;
+			StringBuilder text = new StringBuilder();
 
-		String myString = new String();
-		myString = readRawTextFile();
+			try {
+				while (( line = buffreader.readLine()) != null) {
+					text.append(line);
+				}
+			} 
+			catch (IOException e) {
+			}
+
+			myString = text.toString();
+		}
+		catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		String[] separated = myString.split(";");
 
-		System.out.println(contentId);
+		for (int i = 0; i < separated.length; i++)
+		{
+			String stringToSplit = "";
+			stringToSplit = stringToSplit + separated[i].toString();
 
-		if (contentId != -1){
-			System.out.println("if1");
+			String [] separatedSplitInfo;
+			separatedSplitInfo = stringToSplit.split(":");
 
-			for (int i = 0; i < separated.length; i++)
-			{
-				String stringToSplit = "";
-				stringToSplit = stringToSplit + separated[i].toString();
+			String userName = separatedSplitInfo[0];
 
-				String [] separatedSplitInfo;
-				separatedSplitInfo = stringToSplit.split(":");
+			//If the two strings are similar the result is "0" 
+			//(otherwise negative number) and the if-sentence will run
+			if (userName.equals(inString)) {
+				returnString = separatedSplitInfo[2];
+			}
+		}	
 
-				String hallo = separatedSplitInfo[0];
-
-				//If the two strings are similar the result is "0" 
-				//(otherwise negative number) and the if-sentence will run
-				if (hallo.equals(inString)) {
-					outString = separatedSplitInfo[contentId];
-					returnString = outString;
-				}
-			}	
-		}
 		if (returnString.equals(inputPassword))
 			return true;	
 		else
 			return false;
 	}
+
 
 	public String getObject(String objectName, String reqContent){
 
@@ -159,8 +159,6 @@ public class TxtReader {
 				if (in!=null){
 					while ((strLine = br.readLine()) != null)   {
 
-						//System.out.println(strLine);
-
 						String [] separatedInfo;
 						separatedInfo = strLine.split(":");
 
@@ -183,61 +181,6 @@ public class TxtReader {
 		return returnString;
 	}
 
-
-	//Denne funktion skal fjernes senere når alt er integeret til at søge efter
-	//et bestemt objekt og ikke bare det øverste
-	public String getObject(String reqContent)
-	{
-		String outString = "outstring pee";
-		String returnString = "Function Fail";
-
-		int contentId = -1;
-
-		if (reqContent.equals("Name"))
-			contentId = 0;
-		else if (reqContent.equals("Category"))
-			contentId = 1;
-		else if (reqContent.equals("ObjectType"))
-			contentId = 2;
-		else if (reqContent.equals("EventStatus"))
-			contentId = 3;
-		else if (reqContent.equals("Latitude"))
-			contentId = 4;
-		else if (reqContent.equals("Longitude"))
-			contentId = 5;
-		else if (reqContent.equals("Altitude"))
-			contentId = 6;
-		else
-			contentId = -1;
-
-		String myString = new String();
-		myString = readRawObjectsTextFile();
-
-		String[] separated = myString.split(";");
-
-		if (contentId != -1){
-
-			for (int i = 0; i < separated.length; i++)
-			{
-				String stringToSplit = "";
-				stringToSplit = stringToSplit + separated[i].toString();
-
-				String [] separatedSplitInfo;
-				separatedSplitInfo = stringToSplit.split(":");
-
-				//If the two strings are similar the result is "0" 
-				//(otherwise negative number) and the if-sentence will run
-				//				if (hallo.equals(inString)) {
-				outString = separatedSplitInfo[contentId];
-				//					System.out.println("outString: " + outString);
-				returnString = outString;
-				//					System.out.println("hallo");
-
-			}	
-		}
-		return returnString;	
-	}
-
 	public List<String> returnObjects(){
 
 		List<String> strings = new ArrayList<String>();
@@ -252,14 +195,12 @@ public class TxtReader {
 
 			//Read File Line By Line
 			if (in!=null){
-				int i = 0;
 				while ((strLine = br.readLine()) != null){
 
 					String [] separatedInfo;
 					separatedInfo = strLine.split(":");
 
 					Collections.addAll(strings, separatedInfo[0]);
-					i++;
 				}
 			}
 			//Close the input stream
@@ -270,75 +211,5 @@ public class TxtReader {
 			System.err.println("Error: " + e.getMessage());
 		}
 		return strings;
-	}
-
-
-
-	/**The function is called by: "getContentAt(Context, String)"
-	 *inContext can be replaced by "this" to input the class wherefrom the function is called \newLine
-	 *inString is the name of the object you would like to locate in the file \newLine
-	 *fileName is the name (without extension) on the .txt file in the project that you would like to read from (only .txt is validated!)
-	 */ 
-
-	private static String readRawTextFile()
-	{
-		String output = "";
-		FileReader fileReader;
-
-		try {
-			fileReader = new FileReader("/sdcard/iLocator/users.txt");
-			//InputStreamReader inputreader = new InputStreamReader(inputStream);
-			BufferedReader buffreader = new BufferedReader(fileReader);
-			//BufferedReader buffreader = new BufferedReader(inputreader);
-			String line;
-			StringBuilder text = new StringBuilder();
-
-			try {
-				while (( line = buffreader.readLine()) != null) {
-					text.append(line);
-					// text.append('\n');
-				}
-			} 
-			catch (IOException e) {
-				return null;
-			}
-			output = text.toString();
-		}
-		catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		return output;
-	}
-
-	private static String readRawObjectsTextFile()
-	{
-		String output = "";
-		FileReader fileReader;
-
-		try {
-			fileReader = new FileReader("/sdcard/iLocator/filename.txt");
-			//InputStreamReader inputreader = new InputStreamReader(inputStream);
-			BufferedReader buffreader = new BufferedReader(fileReader);
-			//BufferedReader buffreader = new BufferedReader(inputreader);
-			String line;
-			StringBuilder text = new StringBuilder();
-
-			try {
-				while (( line = buffreader.readLine()) != null) {
-					text.append(line);
-					// text.append('\n');
-				}
-			} 
-			catch (IOException e) {
-				return null;
-			}
-			output = text.toString();
-		}
-		catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		return output;
 	}
 }
