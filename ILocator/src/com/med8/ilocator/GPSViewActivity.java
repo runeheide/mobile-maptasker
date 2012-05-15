@@ -6,17 +6,14 @@ import java.util.List;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
-import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 import com.med8.ilocator.maps.AlternativeMyLocationOverlay;
 import com.med8.ilocator.maps.ItemOverlay;
@@ -46,36 +43,6 @@ public class GPSViewActivity extends MapActivity
 
 		mapview.setBuiltInZoomControls(true);
 	}
-	
-/*
-	protected void makeUseOfNewLocation(Location location) {
-
-		int longitue = (int) (location.getLongitude()*1000000);
-		int latitute = (int) (location.getLatitude()*1000000); 
-
-		GPSViewActivity.userlocation = new GeoPoint(latitute, longitue);
-
-		//implement some "if-button-is-pressed" function to navigate to user location
-		//mapController.animateTo(userlocation);
-
-		//Set the zoom level of the map to level 3
-		mapController.setZoom(18);
-		//Remove when the "button-pressed" function above is implemented
-		//Navigate the map view to a specific location (the user's)
-		mapController.animateTo(userlocation);
-
-		OverlayItem overlayuserposition = new OverlayItem(userlocation, "You are here","l");
-
-		Drawable drawable = this.getResources().getDrawable(R.drawable.androidmarker);
-
-
-		ItemOverlay itemizedoverlay = new ItemOverlay(drawable, this);
-		itemizedoverlay.addOverlay(overlayuserposition);
-
-		List<Overlay> mapOverlays = mapview.getOverlays();
-		mapOverlays.add(itemizedoverlay);
-	}
-*/
 	
 	@Override
 	protected boolean isRouteDisplayed() {
@@ -168,7 +135,6 @@ public class GPSViewActivity extends MapActivity
 					itemizedOverlay.addOverlay(overlayitem);	
 				}
 			}
-			//System.out.println("POINTS: " + points);
 		}
 		
 		mylocation = new AlternativeMyLocationOverlay(this, mapview);
@@ -181,9 +147,6 @@ public class GPSViewActivity extends MapActivity
 					Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Longitude")));
 			mapController.animateTo(objectSelected);
 		}
-		
-//		hja = true;
-//		myLocation.setClickable(hja);
 		super.onResume();
 	}
 

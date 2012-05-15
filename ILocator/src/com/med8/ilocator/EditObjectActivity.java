@@ -1,18 +1,15 @@
 package com.med8.ilocator;
 
-import com.med8.ilocator.R;
-import com.med8.support.TxtReader;
-import com.med8.support.TxtWriter;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+
+import com.med8.support.TxtReader;
+import com.med8.support.TxtWriter;
 
 public class EditObjectActivity extends ILocatorActivity {
 
@@ -37,8 +34,8 @@ public class EditObjectActivity extends ILocatorActivity {
 		ImageButton saveButton = (ImageButton)findViewById(R.id.saveButton);
 		Button updatelocationButton = (Button)findViewById(R.id.newlocationButton);
 
-		String _category = txtReader.getObject(nameOfClicked, "Category");			
-		String _objectType = txtReader.getObject(nameOfClicked, "ObjectType");		
+//		String _category = txtReader.getObject(nameOfClicked, "Category");			
+//		String _objectType = txtReader.getObject(nameOfClicked, "ObjectType");		
 		String _eventStatus = txtReader.getObject(nameOfClicked, "EventStatus");		
 /*
 		if (_category.equalsIgnoreCase("Wells"))
