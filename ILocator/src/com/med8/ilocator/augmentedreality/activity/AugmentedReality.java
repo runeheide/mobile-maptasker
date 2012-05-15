@@ -32,7 +32,6 @@ import com.med8.ilocator.augmentedreality.data.ARData;
 import com.med8.ilocator.augmentedreality.ui.Marker;
 import com.med8.ilocator.augmentedreality.widget.VerticalSeekBar;
 
-
 /**
  * This class extends the SensorsActivity and is designed tie the AugmentedView and zoom bar together.
  * 
@@ -45,7 +44,7 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
     private static final String END_TEXT = FORMAT.format(AugmentedReality.MAX_ZOOM)+" km";
     private static final int END_TEXT_COLOR = Color.WHITE;
 
-    protected static WakeLock wakeLock = null;
+//    protected static WakeLock wakeLock = null;
     protected static CameraSurface camScreen = null;    
     protected static VerticalSeekBar myZoomBar = null;
     protected static TextView endLabel = null;
@@ -131,7 +130,7 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
         updateDataOnZoom();
 
         PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
+ //       wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, "DoNotDimScreen");
         
         addObjectButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -148,8 +147,6 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
 	@Override
 	public void onResume() {
 		super.onResume();
-
-		//wakeLock.acquire();
 	}
 
 	/**
@@ -158,8 +155,6 @@ public class AugmentedReality extends SensorsActivity implements OnTouchListener
 	@Override
 	public void onPause() {
 		super.onPause();
-
-		//wakeLock.release();
 	}
 
 	/**

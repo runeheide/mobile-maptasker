@@ -22,14 +22,8 @@ import com.med8.support.TxtWriter;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public class ARApplicationActivity extends AugmentedReality {
-	//Context mContext;
-	private static final String TAG = "ARApplication";
-	//private static final String locale = Locale.getDefault().getLanguage();
-	//private static final BlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(1);
-	//private static final ThreadPoolExecutor exeService = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, queue);
-	//private static final Map<String,NetworkDataSource> sources = new ConcurrentHashMap<String,NetworkDataSource>();    
-	//private AlertDialog.Builder builder;
 
+	private static final String TAG = "ARApplication";
 	private LocalDataSource localData;
 
 	/**
@@ -92,14 +86,7 @@ public class ARApplicationActivity extends AugmentedReality {
 		intent.setClass(this, AlertDialogViewActivity.class);
 		this.startActivity(intent);	
 	}
-
-	/*	public void onResume()
-	{		
-		Intent arIntent = new Intent(this, ARApplicationActivity.class);
-		//finish();
-		//startActivity(arIntent);
-	}
-*/	
+	
 	protected void updateDataOnZoom() {
 		super.updateDataOnZoom();
 		Location last = ARData.getCurrentLocation();
@@ -110,15 +97,8 @@ public class ARApplicationActivity extends AugmentedReality {
 		try {
 			ARData.removeMarkers();
 			ARData.addMarkers(localData.getMarkers());
-			/*exeService.execute(
-					new Runnable() {
-						public void run() {
-							for (NetworkDataSource source : sources.values())
-								download(source, lat, lon, alt);
-						}
-					}
-					);
-		*/} catch (RejectedExecutionException rej) {
+		
+		} catch (RejectedExecutionException rej) {
 			Log.w(TAG, "Not running new download Runnable, queue is full.");
 		} catch (Exception e) {
 			Log.e(TAG, "Exception running download Runnable.",e);
@@ -130,7 +110,6 @@ public class ARApplicationActivity extends AugmentedReality {
 	{
 		super.onResume();
 		System.out.println("resume");
-		//onCreate(null);
 		localData = new LocalDataSource(this.getResources());
 		
 		ARData.addMarkers(localData.getMarkers());
