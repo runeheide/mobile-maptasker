@@ -99,7 +99,7 @@ public class SensorsActivity extends Activity implements SensorEventListener, Lo
             sensorMgr.registerListener(this, sensorMag, SensorManager.SENSOR_DELAY_NORMAL);
 
             locationMgr = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            locationMgr.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 0, this);
+            locationMgr.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 0, this);
 
             try {
 
