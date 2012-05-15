@@ -15,7 +15,7 @@ public class TxtReader {
 
 	public String getNameOfPressedButton()
 	{
-		String strLine = "getSimpleName failed miserably :(";
+		String strLine = "getNameOfPressedButton failed miserably";
 		FileInputStream fstream;
 		try {
 			fstream = new FileInputStream("/sdcard/iLocator/justpressed.txt");
@@ -36,7 +36,7 @@ public class TxtReader {
 
 	public String getLocation(String whatTude)
 	{
-		String strLine = "getLocation failed miserably :(";
+		String strLine = "getLocation failed miserably";
 		FileInputStream fstream;
 		try {
 			fstream = new FileInputStream("/sdcard/iLocator/locationselected.txt");
