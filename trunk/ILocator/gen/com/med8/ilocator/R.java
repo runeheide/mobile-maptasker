@@ -194,12 +194,12 @@ public final class R {
         public static final int eventstatus1=0x7f06001f;
         public static final int eventstatus2=0x7f060020;
         public static final int eventstatus3=0x7f060021;
-        public static final int gpsview=0x7f060010;
         public static final int heatmapview=0x7f060012;
         public static final int launchilocator=0x7f060001;
         public static final int login=0x7f06000a;
         public static final int management=0x7f060028;
         public static final int maps=0x7f06000f;
+        public static final int mapview=0x7f060010;
         public static final int mapviewshifter=0x7f06002c;
         public static final int myLocation=0x7f06002d;
         public static final int name=0x7f060017;

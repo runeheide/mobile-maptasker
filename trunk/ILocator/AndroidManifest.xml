@@ -59,8 +59,8 @@
             android:screenOrientation="portrait" >
             </activity>
         <activity 
-            android:name=".GPSViewActivity"
-            android:label="@string/gpsview"
+            android:name=".MapViewActivity"
+            android:label="@string/mapview"
             android:screenOrientation="portrait" >
             </activity>
         <activity 
