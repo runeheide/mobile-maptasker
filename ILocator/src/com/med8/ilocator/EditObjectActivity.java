@@ -23,7 +23,7 @@ public class EditObjectActivity extends ILocatorActivity {
 		final Spinner category = (Spinner)findViewById(R.id.Spinner_Category);
 		final Spinner objectType = (Spinner)findViewById(R.id.Spinner_ObjectType);
 		final Spinner eventStatus = (Spinner)findViewById(R.id.Spinner_EventStatus);
-		
+
 		TxtReader txtReader = new TxtReader();
 		String pressedObjectName = txtReader.getNameOfPressedButton();
 
@@ -34,10 +34,10 @@ public class EditObjectActivity extends ILocatorActivity {
 		ImageButton saveButton = (ImageButton)findViewById(R.id.saveButton);
 		Button updatelocationButton = (Button)findViewById(R.id.newlocationButton);
 
-//		String _category = txtReader.getObject(nameOfClicked, "Category");			
-//		String _objectType = txtReader.getObject(nameOfClicked, "ObjectType");		
+		//		String _category = txtReader.getObject(nameOfClicked, "Category");			
+		//		String _objectType = txtReader.getObject(nameOfClicked, "ObjectType");		
 		String _eventStatus = txtReader.getObject(nameOfClicked, "EventStatus");		
-/*
+		/*
 		if (_category.equalsIgnoreCase("Wells"))
 		{
 			category.setSelection(0, true);
@@ -59,7 +59,7 @@ public class EditObjectActivity extends ILocatorActivity {
 		{
 			objectType.setSelection(1);
 		}
-*/		
+		 */		
 		if (_eventStatus.equalsIgnoreCase("OK"))
 		{
 			eventStatus.setSelection(0);
@@ -99,7 +99,7 @@ public class EditObjectActivity extends ILocatorActivity {
 				finish();
 			}
 		});
-		
+
 		updatelocationButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View view) {

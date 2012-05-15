@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
-import com.med8.ilocator.augmentedreality.data.ARData;
 import com.med8.support.TxtReader;
 import com.med8.support.TxtWriter;
 
@@ -19,8 +18,6 @@ public class AddObjectActivity extends ILocatorActivity {
 
 	boolean locationButtonPressed = false;
 
-
-	
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -36,13 +33,6 @@ public class AddObjectActivity extends ILocatorActivity {
 		ImageButton createButton = (ImageButton)findViewById(R.id.createButton);
 		ImageButton backButton = (ImageButton)findViewById(R.id.backButton);
 
-		//Her mangler noget! :D
-		
-		
-		//_eventStatus.getOnItemSelectedListener();
-		//_eventStatus.getItemAtPosition(getChangingConfigurations())
-		
-		
 		addPhotoButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View view) {
@@ -60,8 +50,6 @@ public class AddObjectActivity extends ILocatorActivity {
 				
 				Intent updateObjectPositionIntent = new Intent(view.getContext(), UpdateObjectPositionActivity.class);
 				startActivityForResult(updateObjectPositionIntent, 0);
-				//				txtWriter.writeEditObject(_objectName.getText().toString(), "Latitude", txtReader.getLocation("Latitude"));
-				//				txtWriter.writeEditObject(_objectName.getText().toString(), "Longitude", txtReader.getLocation("Longitude"));
 				locationButtonPressed = true;
 			}
 		});
@@ -78,17 +66,6 @@ public class AddObjectActivity extends ILocatorActivity {
 				int selectedEventStatus = _eventStatus.getSelectedItemPosition();
 				String eventStatus = _eventStatus.getItemAtPosition(selectedEventStatus).toString();
 
-				//Rune: I do not believe this is used for anything
-				Location current = ARData.getCurrentLocation();
-				double _latitude = current.getLatitude();
-				double _longitude = current.getLongitude();
-
-				//		        String latitude = Double.toString(_latitude);				
-				//				String longitude = Double.toString(_longitude);
-
-				//				System.out.println("Lat: " + latitude + ", Long: " + longitude);
-
-
 				//What position is connected with the object is 
 				//dependent on whether the location button is pressed
 				//or not. If it is not pressed, and a specific location
@@ -104,17 +81,6 @@ public class AddObjectActivity extends ILocatorActivity {
 					latitude = getMyLocation("Latitude");
 					longitude = getMyLocation("Longitude");
 				}
-
-				//				String latitude = "57.0124965";
-				//				String longitude = "9.9892814";
-
-				//				System.out.println("Lat: " + latitude + ", Long: " + longitude);
-
-				//		        int latitudeint = (int) (current.getLatitude()*1000000);
-				//		        int longitudeint = (int) (current.getLongitude()*1000000);
-				//
-				//				String latitude = Integer.toString(latitudeint);
-				//				String longitude = Integer.toString(longitudeint);
 
 				String altitude = "0.0";
 
@@ -152,7 +118,6 @@ public class AddObjectActivity extends ILocatorActivity {
 			int longitude = (int) (myLocation.getLongitude()*1000000);
 			myLocationString = Integer.toString(longitude);
 		}
-
 		return myLocationString;
 	}
 
@@ -161,7 +126,7 @@ public class AddObjectActivity extends ILocatorActivity {
 		Location location = null;
 		LocationManager locationManager = (LocationManager) getApplicationContext()
 				.getSystemService(Context.LOCATION_SERVICE);
-
+		
 		try {
 			if (locationManager.isProviderEnabled(provider)) {
 				location = locationManager.getLastKnownLocation(provider);
@@ -172,4 +137,3 @@ public class AddObjectActivity extends ILocatorActivity {
 		return location;
 	}
 }
-

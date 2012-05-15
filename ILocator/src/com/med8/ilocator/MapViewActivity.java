@@ -19,7 +19,7 @@ import com.med8.ilocator.maps.AlternativeMyLocationOverlay;
 import com.med8.ilocator.maps.ItemOverlay;
 import com.med8.support.TxtReader;
 
-public class GPSViewActivity extends MapActivity
+public class MapViewActivity extends MapActivity
 {    
 	Context mContext = this;
 	MapController mapController;
@@ -28,14 +28,12 @@ public class GPSViewActivity extends MapActivity
 
 	public static GeoPoint userlocation = new GeoPoint(0,0);
 
-
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gpsview);
-		
+
 		mapview = (MapView)findViewById(R.id.mapview);
 		mapview.setBuiltInZoomControls(true);
 		mapController = mapview.getController();
@@ -43,7 +41,7 @@ public class GPSViewActivity extends MapActivity
 
 		mapview.setBuiltInZoomControls(true);
 	}
-	
+
 	@Override
 	protected boolean isRouteDisplayed() {
 		// TODO Auto-generated method stub
@@ -62,15 +60,15 @@ public class GPSViewActivity extends MapActivity
 				mapview.setSatellite(!mapview.isSatellite());
 			}
 		});
-		
+
 		final ImageButton myLocation = (ImageButton) findViewById(R.id.MyLocation);
 		myLocation.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-		//		myLocation.setClickable(hja); 
+				//		myLocation.setClickable(hja); 
 				//Perform action on click
 				// Rune: Call new class instead of new view
 				if (!(mylocation.getMyLocation()==null)){
-				mapController.animateTo(mylocation.getMyLocation());
+					mapController.animateTo(mylocation.getMyLocation());
 				}
 			}
 		});
@@ -80,7 +78,6 @@ public class GPSViewActivity extends MapActivity
 			public void onClick(View v) {
 				Intent addObjectIntent = new Intent(v.getContext(), AddObjectActivity.class);
 				startActivity(addObjectIntent);
-				
 			}
 		});
 
@@ -89,21 +86,15 @@ public class GPSViewActivity extends MapActivity
 		List<String> arrayList = txtReader.returnObjects();
 
 		List<GeoPoint> points = new ArrayList<GeoPoint>();
-		
+
 		if (arrayList.size()>0)
 		{
 			Drawable marker = getResources().getDrawable(R.drawable.firehydrantgreen);
-			//ItemOverlay itemizedOverlay = new ItemOverlay(marker, this);
-			//mapview.getOverlays().add(itemizedOverlay);
 
 			for (int i = 0; i < arrayList.size(); i++)
 			{	
-
-				//		System.out.println("LAT: " + txtReader.getObject(arrayList.get(i), "Latitude"));
-				//		System.out.println("LONG: " + txtReader.getObject(arrayList.get(i), "Longitude"));
-
 				GeoPoint point = new GeoPoint(Integer.parseInt(txtReader.getObject(arrayList.get(i), "Latitude")),
-												Integer.parseInt(txtReader.getObject(arrayList.get(i), "Longitude")));
+						Integer.parseInt(txtReader.getObject(arrayList.get(i), "Longitude")));
 				points.add(point);
 
 				String eventStatus = txtReader.getObject(arrayList.get(i), "EventStatus");
@@ -136,11 +127,11 @@ public class GPSViewActivity extends MapActivity
 				}
 			}
 		}
-		
+
 		mylocation = new AlternativeMyLocationOverlay(this, mapview);
 		mapview.getOverlays().add(mylocation);
 		mylocation.enableMyLocation();
-		
+
 		//If this activity is started from pressing "Show me the object" in an object activity, navigate to the selected object.
 		if (txtReader.getNameOfPressedButton()!=null){
 			GeoPoint objectSelected = new GeoPoint(Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Latitude")),

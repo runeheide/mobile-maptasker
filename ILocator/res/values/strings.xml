@@ -17,7 +17,7 @@
     <string name="email"> E-mail</string>
     <string name="dashboard">Dashboard</string>
     <string name="maps">Maps</string>
-    <string name="gpsview">GPS View</string>
+    <string name="mapview">Mapview</string>
     <string name="arview">AR View</string>
     <string name="heatmapview">Heat Map View</string>
     <string name="objects">Objects</string>
