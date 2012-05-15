@@ -33,14 +33,14 @@ public class StartScreenActivity extends ILocatorActivity {
 			public void onClick(View view) {
 				TxtReader txtReader = new TxtReader();
 				
-				if (txtReader.checkUser(name.getText().toString(), "Password", password.getText().toString()))
+				if (txtReader.checkUser(name.getText().toString(), password.getText().toString()))
 				{
 					System.out.println("2: " + name.getText().toString() + ", " + password.getText().toString());
 					Intent dashboardIntent = new Intent(view.getContext(), DashboardActivity.class);
 					startActivityForResult(dashboardIntent,0);
 				}
 				else
-					System.out.println(txtReader.checkUser(name.getText().toString(), "Password", password.getText().toString()));
+					System.out.println(txtReader.checkUser(name.getText().toString(), password.getText().toString()));
 			}
 		});
 	}	

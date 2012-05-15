@@ -90,11 +90,9 @@ public class UpdateObjectPositionActivity extends MapActivity
 		//If this activity is started from pressing "Show me the object" in an object activity, navigate to the selected object.
 		try {
 			if (txtReader.getNameOfPressedButton()!=null){
-				if (txtReader.getObject(txtReader.getNameOfPressedButton())!="Failed to locate object"){
-					GeoPoint objectSelected = new GeoPoint(Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Latitude")),
-							Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Longitude")));
-					mapController.animateTo(objectSelected);
-				}
+				GeoPoint objectSelected = new GeoPoint(Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Latitude")),
+						Integer.parseInt(txtReader.getObject(txtReader.getNameOfPressedButton(), "Longitude")));
+				mapController.animateTo(objectSelected);
 			}
 		}
 		catch (Exception e)
