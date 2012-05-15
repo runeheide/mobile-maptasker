@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import com.med8.ilocator.R;
-import com.med8.support.*;
+import com.med8.support.TxtReader;
 
 public class StartScreenActivity extends ILocatorActivity {
 
@@ -34,7 +32,7 @@ public class StartScreenActivity extends ILocatorActivity {
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
 				TxtReader txtReader = new TxtReader();
-				//System.out.println(name.getText().toString() + ", " + password.getText().toString());
+				
 				if (txtReader.checkUser(name.getText().toString(), "Password", password.getText().toString()))
 				{
 					System.out.println("2: " + name.getText().toString() + ", " + password.getText().toString());
