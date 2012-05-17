@@ -39,7 +39,7 @@ public class TxtWriter{
 		}
 		//Catch exception if any
 		catch (Exception e){
-			System.err.println("Error: " + e.getMessage());
+			System.err.println("Error in writeButtonPressed: " + e.getMessage());
 		}
 	}
 
@@ -66,7 +66,7 @@ public class TxtWriter{
 		}
 		//Catch exception if any
 		catch (Exception e){
-			System.err.println("Error: " + e.getMessage());
+			System.err.println("Error in writeLocationSelected: " + e.getMessage());
 		}
 	}
 
@@ -108,11 +108,11 @@ public class TxtWriter{
 		}
 		//Catch exception if any
 		catch (Exception e){
-			System.err.println("Error: " + e.getMessage());
+			System.err.println("Error in writeFileAddObject: " + e.getMessage());
 		}
 	}
 
-	public String writeEditObject(String objectName, String replacePosition, String replacingText)
+	public void writeEditObject(String objectName, String replacePosition, String replacingText)
 	{
 		try{
 			FileInputStream fstream = new FileInputStream("/sdcard/iLocator/filename.txt");
@@ -136,10 +136,7 @@ public class TxtWriter{
 			System.err.println("Error: " + e.getMessage());
 		}
 
-		String returnString = "Failed to edit object";
 		int contentId = -1;
-
-		System.out.println("write1");
 
 		if (replacePosition.equals("Name")) {contentId = 0;}
 		else if (replacePosition.equals("Category")) {contentId = 1;}
@@ -166,18 +163,13 @@ public class TxtWriter{
 
 					while ((strLine = br.readLine()) != null)   {
 
-						System.out.println("write2");
-
 						String [] separatedInfo;
 						separatedInfo = strLine.split(":");
 
 						String nameCheck = separatedInfo[0];
 
 						if (nameCheck.equals(objectName)) {
-							//returnString = separatedInfo[contentId];
-							System.out.println("nameCheck");
-							System.out.println(separatedInfo[6]);
-							
+
 							String pattern = ";";
 							separatedInfo[6] = separatedInfo[6].replaceAll(pattern, "");
 
@@ -186,13 +178,11 @@ public class TxtWriter{
 							bufferedWriter.write(separatedInfo[0] + ":" + separatedInfo[1] + ":" + separatedInfo[2] + ":" + separatedInfo[3] + ":" + separatedInfo[4] + ":" + separatedInfo[5] + ":" + separatedInfo[6] + ";");
 							bufferedWriter.newLine();
 						}
-
 						else{
 							bufferedWriter.write(strLine);
 							bufferedWriter.newLine();
 						}
 					}
-					System.out.println("write3");
 					bufferedWriter.flush();
 					bufferedWriter.close();
 				}
@@ -204,7 +194,6 @@ public class TxtWriter{
 				System.err.println("Error: " + e.getMessage());
 			}
 		}
-		return returnString;
 	}
 
 
