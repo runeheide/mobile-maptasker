@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">iLocator</string>
-    <string name="launchilocator">Launch ILocator!</string>
-    <string name="welcome">Welcome to iLocator!</string>
+    <string name="app_name">Asset-Tracker</string>
+    <string name="launchilocator">Launch Asset-Tracker!</string>
+    <string name="welcome">Welcome to Asset-Tracker!</string>
     <string name="back">Back</string>
     <string name="quit">Quit</string>
     <string name="username">Username:</string>
