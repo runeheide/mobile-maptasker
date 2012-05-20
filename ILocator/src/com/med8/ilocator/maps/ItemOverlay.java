@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 
 import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.OverlayItem;
-import com.med8.ilocator.AlertDialogViewActivity;
+import com.med8.ilocator.AlertDialogViewActivity2;
 import com.med8.support.TxtWriter;
 
 public class ItemOverlay extends ItemizedOverlay {
@@ -45,7 +45,7 @@ public class ItemOverlay extends ItemizedOverlay {
 		txtWriter.writeButtonPressed(nameOfObject);
 				
 		Intent intent = new Intent();
-		intent.setClass(mContext, AlertDialogViewActivity.class);
+		intent.setClass(mContext, AlertDialogViewActivity2.class);
 		mContext.startActivity(intent);
 		
 	
