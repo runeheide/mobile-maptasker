@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bckgrnd"
+    android:orientation="vertical"
+    android:paddingTop="0dp" >
+
+    <com.google.android.maps.MapView
+        android:id="@+id/heatmapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/mapShiftButton"
+        android:apiKey="0aFOkZHqNeYAeIm-cFF0kCOft0Qd9FOYDHn8uoQ"
+        android:clickable="true" />
+
+    <ImageButton
+        android:id="@+id/mapShiftButton"
+        android:background="@drawable/shiftmapsselector"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/mapviewshifter" />
+
+    <ImageButton
+        android:id="@+id/MyLocation"
+        android:background="@drawable/mylocationselector"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dip"
+        android:text="@string/myLocation" />
+
+    <ImageButton
+        android:id="@+id/NewObject"
+        android:background="@drawable/newobjectselector"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dip"
+        android:text="@string/newObject" />
+
+</RelativeLayout>
