@@ -168,6 +168,7 @@ public class RunesHeatMapActivity extends MapActivity {
 
 							marker = getResources().getDrawable(R.drawable.greenpixel);
 							marker.setAlpha(100);
+							
 							ItemOverlay itemizedOverlay = new ItemOverlay(marker, mContext);
 							mapview.getOverlays().add(itemizedOverlay);
 							OverlayItem overlayitem = new OverlayItem(points.get(i), txtReader.getObject(arrayList.get(i).toString(), "Name"), "I'm in Mexico City!");

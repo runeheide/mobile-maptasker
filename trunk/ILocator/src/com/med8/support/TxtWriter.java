@@ -13,15 +13,7 @@ import com.google.android.maps.GeoPoint;
 public class TxtWriter{
 
 	/**fileName must NOT contain file extension, it assumes it is an .txt file*/
-	public void deleteFile(String fileName){
-		try{
-			File file = new File("/sdcard/iLocator/"+fileName+".txt");
-			file.delete();
-		}
-		catch (Exception e){
-			System.err.println("Error in deleteFile: " + e.getMessage());
-		}
-	}
+
 
 	public void writeButtonPressed(String Name){
 
