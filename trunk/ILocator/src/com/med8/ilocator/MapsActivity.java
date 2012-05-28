@@ -39,7 +39,7 @@ public class MapsActivity extends Activity {
 
 		heatmapButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View view) {
-				Intent heatmapIntent = new Intent(view.getContext(), RunesHeatMapActivity.class);
+				Intent heatmapIntent = new Intent(view.getContext(), HeatmapViewActivity.class);
 				startActivityForResult(heatmapIntent,0);
 			}
 		});

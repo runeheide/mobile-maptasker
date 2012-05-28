@@ -28,6 +28,7 @@ public class RunesHeatMapActivity extends MapActivity {
 	AlternativeMyLocationOverlay mylocation;
 	MapView mapview;
 	Boolean itemsDrawn = false;
+	Canvas myCanvas = new Canvas();
 
 	TxtReader txtReader = new TxtReader();
 	List<String> arrayList = txtReader.returnObjects();
