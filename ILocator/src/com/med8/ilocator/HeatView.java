@@ -38,6 +38,7 @@ public class HeatView extends SurfaceView implements SurfaceHolder.Callback {
 //		Bitmap icon = BitmapFactory.decodeResource(this.getResources(),
 //                R.drawable.googlemaps);
 //		backbuffer = Bitmap.createBitmap(icon);
+
 		backbuffer = Bitmap.createBitmap(getWidth(), getHeight(),
 				Bitmap.Config.ARGB_8888);
 		myCanvas = new Canvas(backbuffer);
@@ -45,7 +46,6 @@ public class HeatView extends SurfaceView implements SurfaceHolder.Callback {
 		p.setStyle(Paint.Style.FILL);
 		p.setColor(Color.TRANSPARENT);
 		myCanvas.drawRect(0, 0, getWidth(), getHeight(), p);
-		//onDraw(myCanvas);
 	}
  
 	@Override
@@ -74,8 +74,8 @@ public class HeatView extends SurfaceView implements SurfaceHolder.Callback {
 		for (int i = 0; i < points.length; i++) {
 			float x = points[i][0];
 			float y = points[i][1];
-			RadialGradient g = new RadialGradient(x, y, radius, Color.argb(10,
-					0, 0, 0), Color.RED, TileMode.CLAMP);
+			RadialGradient g = new RadialGradient(x, y, radius, Color.argb(255,
+					0, 0, 0), Color.TRANSPARENT, TileMode.CLAMP);
 			Paint gp = new Paint();
 			gp.setShader(g);
 			myCanvas.drawCircle(x, y, radius, gp);
