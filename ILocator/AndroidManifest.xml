@@ -135,6 +135,11 @@
             android:label="@string/mapview"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".HeatView"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>
